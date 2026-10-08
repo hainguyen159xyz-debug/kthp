@@ -27,8 +27,7 @@ const productVariantSchema = new mongoose.Schema(
     lowStockThreshold: {
       type: Number,
       default: 2,
-      min: 0,
-      comment: 'Ngưỡng cảnh báo tồn kho thấp cần lập phiếu nhập'
+      min: 0
     },
     price: {
       type: Number,
@@ -38,8 +37,7 @@ const productVariantSchema = new mongoose.Schema(
     importPrice: {
       type: Number,
       default: 0,
-      min: 0,
-      comment: 'Giá vốn ước tính để tính toán chi phí và lợi nhuận'
+      min: 0
     }
   },
   { _id: true }
@@ -54,14 +52,10 @@ const productSchema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      required: true,
+      required: [true, 'Slug là bắt buộc'],
       unique: true,
       lowercase: true,
       trim: true
-    },
-    description: {
-      type: String,
-      default: ''
     },
     brand: {
       type: mongoose.Schema.Types.ObjectId,
@@ -73,20 +67,55 @@ const productSchema = new mongoose.Schema(
       ref: 'Category',
       required: [true, 'Danh mục là bắt buộc']
     },
+    costPrice: {
+      type: Number,
+      default: 0,
+      min: [0, 'Giá vốn không được âm']
+    },
+    salePrice: {
+      type: Number,
+      required: [true, 'Giá bán là bắt buộc'],
+      min: [0, 'Giá bán không được âm'],
+      default: 0
+    },
+    description: {
+      type: String,
+      default: ''
+    },
     images: {
       type: [String],
       default: []
     },
-    defaultSupplier: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Supplier',
-      comment: 'Nhà cung cấp chính cho sản phẩm này khi cần đặt hàng JIT'
+    sizes: {
+      type: [Number],
+      default: []
+    },
+    colors: {
+      type: [String],
+      default: []
+    },
+    stock: {
+      type: Number,
+      default: 0,
+      min: [0, 'Số lượng tồn kho không được âm']
+    },
+    status: {
+      type: String,
+      enum: ['active', 'inactive', 'draft'],
+      default: 'active'
+    },
+    featured: {
+      type: Boolean,
+      default: false
     },
     variants: [productVariantSchema],
+    defaultSupplier: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Supplier'
+    },
     isFastMoving: {
       type: Boolean,
-      default: false,
-      comment: 'true = Hàng bán chạy (ưu tiên có tồn an toàn), false = Hàng bán chậm (đặt JIT)'
+      default: false
     },
     totalSold: {
       type: Number,
@@ -102,10 +131,44 @@ const productSchema = new mongoose.Schema(
   }
 );
 
+// Tự động đồng bộ sizes, colors, stock từ variants nếu có
+productSchema.pre('save', function (next) {
+  if (this.status) {
+    this.isActive = this.status === 'active';
+  }
+
+  if (this.variants && this.variants.length > 0) {
+    const sizeSet = new Set(this.sizes || []);
+    const colorSet = new Set(this.colors || []);
+    let calculatedStock = 0;
+
+    this.variants.forEach((v) => {
+      if (v.size) sizeSet.add(v.size);
+      if (v.color) colorSet.add(v.color);
+      calculatedStock += v.stockQuantity || 0;
+    });
+
+    this.sizes = Array.from(sizeSet).sort((a, b) => a - b);
+    this.colors = Array.from(colorSet);
+    this.stock = calculatedStock;
+
+    if (!this.salePrice && this.variants[0].price) {
+      this.salePrice = this.variants[0].price;
+    }
+    if (!this.costPrice && this.variants[0].importPrice) {
+      this.costPrice = this.variants[0].importPrice;
+    }
+  }
+
+  next();
+});
+
 // Virtual: Tính tổng tồn kho của tất cả biến thể
 productSchema.virtual('totalStock').get(function () {
-  if (!this.variants || this.variants.length === 0) return 0;
-  return this.variants.reduce((sum, v) => sum + (v.stockQuantity || 0), 0);
+  if (this.variants && this.variants.length > 0) {
+    return this.variants.reduce((sum, v) => sum + (v.stockQuantity || 0), 0);
+  }
+  return this.stock || 0;
 });
 
 productSchema.set('toJSON', { virtuals: true });

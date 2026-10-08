@@ -13,7 +13,7 @@ const orderItemSchema = new mongoose.Schema(
     },
     variantSku: {
       type: String,
-      required: true
+      default: ''
     },
     color: {
       type: String,
@@ -25,7 +25,8 @@ const orderItemSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
-      required: true
+      required: true,
+      min: 0
     },
     quantity: {
       type: Number,
@@ -34,12 +35,12 @@ const orderItemSchema = new mongoose.Schema(
     },
     subtotal: {
       type: Number,
-      required: true
+      required: true,
+      min: 0
     },
     isBackorder: {
       type: Boolean,
-      default: false,
-      comment: 'true nếu sản phẩm này tại thời điểm đặt kho không đủ, cần chờ nhập từ NCC'
+      default: false
     }
   },
   { _id: false }
@@ -54,10 +55,35 @@ const orderSchema = new mongoose.Schema(
       uppercase: true,
       trim: true
     },
-    customer: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true
+    },
+    customer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    items: [orderItemSchema],
+    subtotal: {
+      type: Number,
+      default: 0,
+      min: 0
+    },
+    discount: {
+      type: Number,
+      default: 0,
+      min: 0
+    },
+    shippingFee: {
+      type: Number,
+      default: 0,
+      min: 0
+    },
+    totalAmount: {
+      type: Number,
+      required: true,
+      min: 0
     },
     shippingAddress: {
       fullName: { type: String, required: true },
@@ -67,12 +93,6 @@ const orderSchema = new mongoose.Schema(
       district: { type: String, default: '' },
       note: { type: String, default: '' }
     },
-    items: [orderItemSchema],
-    totalAmount: {
-      type: Number,
-      required: true,
-      min: 0
-    },
     paymentMethod: {
       type: String,
       enum: ['COD', 'bank_transfer'],
@@ -80,31 +100,49 @@ const orderSchema = new mongoose.Schema(
     },
     paymentStatus: {
       type: String,
-      enum: ['unpaid', 'paid'],
+      enum: ['unpaid', 'paid', 'refunded'],
       default: 'unpaid'
     },
-    fulfillmentStatus: {
+    orderStatus: {
       type: String,
-      enum: [
-        'in_stock',         // Toàn bộ các món đều có sẵn trong kho
-        'waiting_supplier', // Đang chờ nhập hàng từ nhà cung cấp
-        'imported',         // Đã nhập đủ hàng về kho
-        'packing',          // Đang đóng gói
-        'shipping',         // Đang giao hàng
-        'delivered',        // Giao hàng thành công
-        'cancelled'         // Đã hủy
-      ],
-      default: 'in_stock'
+      enum: ['pending', 'processing', 'shipping', 'completed', 'cancelled'],
+      default: 'pending'
     },
     status: {
       type: String,
       enum: ['pending', 'processing', 'shipping', 'completed', 'cancelled'],
       default: 'pending'
+    },
+    fulfillmentStatus: {
+      type: String,
+      enum: [
+        'in_stock',
+        'waiting_supplier',
+        'imported',
+        'packing',
+        'shipping',
+        'delivered',
+        'cancelled'
+      ],
+      default: 'in_stock'
+    },
+    promotionCode: {
+      type: String,
+      default: ''
     }
   },
   {
     timestamps: true
   }
 );
+
+// Đồng bộ user và customer, orderStatus và status
+orderSchema.pre('validate', function (next) {
+  if (this.user && !this.customer) this.customer = this.user;
+  if (this.customer && !this.user) this.user = this.customer;
+  if (this.orderStatus && !this.status) this.status = this.orderStatus;
+  if (this.status && !this.orderStatus) this.orderStatus = this.status;
+  next();
+});
 
 module.exports = mongoose.model('Order', orderSchema);

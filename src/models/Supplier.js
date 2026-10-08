@@ -8,8 +8,14 @@ const supplierSchema = new mongoose.Schema(
       unique: true,
       trim: true
     },
+    contactName: {
+      type: String,
+      trim: true,
+      default: ''
+    },
     contactPerson: {
       type: String,
+      trim: true,
       default: ''
     },
     email: {
@@ -26,11 +32,21 @@ const supplierSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    products: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
+      }
+    ],
     leadTimeDays: {
       type: Number,
       default: 2,
-      min: [1, 'Thời gian cung ứng tối thiểu là 1 ngày'],
-      comment: 'Số ngày dự kiến để nhà cung cấp giao hàng tới kho'
+      min: [1, 'Thời gian cung ứng tối thiểu là 1 ngày']
+    },
+    status: {
+      type: String,
+      enum: ['active', 'inactive'],
+      default: 'active'
     },
     isActive: {
       type: Boolean,
@@ -41,5 +57,12 @@ const supplierSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+supplierSchema.pre('validate', function (next) {
+  if (this.contactName && !this.contactPerson) this.contactPerson = this.contactName;
+  if (this.contactPerson && !this.contactName) this.contactName = this.contactPerson;
+  if (this.status) this.isActive = this.status === 'active';
+  next();
+});
 
 module.exports = mongoose.model('Supplier', supplierSchema);

@@ -9,11 +9,11 @@ const purchaseOrderItemSchema = new mongoose.Schema(
     },
     productName: {
       type: String,
-      required: true
+      default: ''
     },
     variantSku: {
       type: String,
-      required: true
+      default: ''
     },
     color: {
       type: String,
@@ -28,10 +28,14 @@ const purchaseOrderItemSchema = new mongoose.Schema(
       required: true,
       min: [1, 'Số lượng nhập phải lớn hơn 0']
     },
-    importPrice: {
+    costPrice: {
       type: Number,
       required: true,
       min: [0, 'Giá nhập không được âm']
+    },
+    importPrice: {
+      type: Number,
+      default: 0
     },
     subtotal: {
       type: Number,
@@ -40,6 +44,18 @@ const purchaseOrderItemSchema = new mongoose.Schema(
   },
   { _id: false }
 );
+
+purchaseOrderItemSchema.pre('validate', function (next) {
+  if (this.costPrice !== undefined && this.importPrice === undefined) {
+    this.importPrice = this.costPrice;
+  } else if (this.importPrice !== undefined && this.costPrice === undefined) {
+    this.costPrice = this.importPrice;
+  }
+  if (!this.subtotal && this.quantity && (this.costPrice !== undefined || this.importPrice !== undefined)) {
+    this.subtotal = this.quantity * (this.costPrice || this.importPrice || 0);
+  }
+  next();
+});
 
 const purchaseOrderSchema = new mongoose.Schema(
   {
@@ -58,24 +74,30 @@ const purchaseOrderSchema = new mongoose.Schema(
     relatedOrder: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Order',
-      default: null,
-      comment: 'ID đơn hàng của khách hàng nếu phiếu này tạo do đơn hàng bị thiếu tồn kho'
+      default: null
     },
     items: [purchaseOrderItemSchema],
+    totalAmount: {
+      type: Number,
+      default: 0
+    },
     totalCost: {
       type: Number,
-      required: true,
       default: 0
     },
     status: {
       type: String,
       enum: [
-        'pending',             // Mới tạo yêu cầu, chờ gửi NCC
-        'sent_to_supplier',    // Đã gửi NCC
-        'supplier_confirmed',  // NCC xác nhận còn hàng và đóng gói
-        'in_transit',          // Hàng đang trên đường về kho
-        'received',            // Đã nhập vào kho (tự động cộng tồn kho)
-        'cancelled'            // Đã hủy
+        'pending',
+        'sent',
+        'confirmed',
+        'receiving',
+        'received',
+        'cancelled',
+        // Các giá trị legacy để không lỗi code cũ
+        'sent_to_supplier',
+        'supplier_confirmed',
+        'in_transit'
       ],
       default: 'pending'
     },
@@ -97,5 +119,15 @@ const purchaseOrderSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+// Đồng bộ totalAmount và totalCost
+purchaseOrderSchema.pre('validate', function (next) {
+  if (this.totalAmount !== undefined && !this.totalCost) {
+    this.totalCost = this.totalAmount;
+  } else if (this.totalCost !== undefined && !this.totalAmount) {
+    this.totalAmount = this.totalCost;
+  }
+  next();
+});
 
 module.exports = mongoose.model('PurchaseOrder', purchaseOrderSchema);

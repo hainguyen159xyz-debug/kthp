@@ -10,7 +10,7 @@ const categorySchema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      required: true,
+      required: [true, 'Slug là bắt buộc'],
       unique: true,
       lowercase: true,
       trim: true
@@ -18,6 +18,15 @@ const categorySchema = new mongoose.Schema(
     description: {
       type: String,
       default: ''
+    },
+    image: {
+      type: String,
+      default: ''
+    },
+    status: {
+      type: String,
+      enum: ['active', 'inactive'],
+      default: 'active'
     },
     isActive: {
       type: Boolean,
@@ -28,5 +37,10 @@ const categorySchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+categorySchema.pre('save', function (next) {
+  if (this.status) this.isActive = this.status === 'active';
+  next();
+});
 
 module.exports = mongoose.model('Category', categorySchema);

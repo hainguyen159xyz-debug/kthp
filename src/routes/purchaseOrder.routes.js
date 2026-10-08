@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const poController = require('../controllers/purchaseOrder.controller');
-const { verifyToken, requireAdmin } = require('../middlewares/auth.middleware');
+const { authenticate, requireAdmin } = require('../middlewares/auth.middleware');
 
-router.get('/', verifyToken, requireAdmin, poController.getPurchaseOrders);
-router.post('/', verifyToken, requireAdmin, poController.createPurchaseOrder);
-router.patch('/:id/status', verifyToken, requireAdmin, poController.updatePurchaseOrderStatus);
+router.use(authenticate, requireAdmin);
+
+router.get('/', poController.getPurchaseOrders);
+router.get('/:id', poController.getPurchaseOrderById);
+router.post('/', poController.createPurchaseOrder);
+router.put('/:id', poController.updatePurchaseOrder);
+router.patch('/:id/status', poController.updatePurchaseOrderStatus);
 
 module.exports = router;

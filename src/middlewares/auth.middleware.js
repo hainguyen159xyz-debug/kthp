@@ -2,8 +2,9 @@ const jwt = require('jsonwebtoken');
 
 /**
  * Middleware xác thực JWT Token từ Header Authorization
+ * Export cả 2 tên `authenticate` và `verifyToken` để tương thích toàn diện
  */
-const verifyToken = (req, res, next) => {
+const authenticate = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -22,25 +23,45 @@ const verifyToken = (req, res, next) => {
     return res.status(401).json({
       success: false,
       message: 'Token không hợp lệ hoặc đã hết hạn.',
-      error: error.message
+      errors: [error.message]
     });
   }
+};
+
+const verifyToken = authenticate;
+
+/**
+ * Middleware phân quyền dựa trên danh sách roles được phép
+ * Ví dụ: authorize('admin'), authorize('admin', 'customer')
+ */
+const authorize = (...roles) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Bạn chưa đăng nhập.'
+      });
+    }
+
+    if (roles.length > 0 && !roles.includes(req.user.role)) {
+      return res.status(403).json({
+        success: false,
+        message: 'Truy cập bị từ chối. Bạn không có quyền thực hiện thao tác này.'
+      });
+    }
+
+    next();
+  };
 };
 
 /**
- * Middleware phân quyền chỉ cho phép Admin truy cập
+ * Middleware chỉ cho phép Admin truy cập
  */
-const requireAdmin = (req, res, next) => {
-  if (!req.user || req.user.role !== 'admin') {
-    return res.status(403).json({
-      success: false,
-      message: 'Truy cập bị từ chối. Chỉ quản trị viên (Admin) mới có quyền thực hiện thao tác này.'
-    });
-  }
-  next();
-};
+const requireAdmin = authorize('admin');
 
 module.exports = {
+  authenticate,
   verifyToken,
+  authorize,
   requireAdmin
 };

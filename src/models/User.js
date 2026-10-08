@@ -3,9 +3,12 @@ const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      trim: true
+    },
     fullName: {
       type: String,
-      required: [true, 'Họ tên là bắt buộc'],
       trim: true
     },
     email: {
@@ -28,9 +31,8 @@ const userSchema = new mongoose.Schema(
       default: ''
     },
     address: {
-      street: { type: String, default: '' },
-      city: { type: String, default: '' },
-      district: { type: String, default: '' }
+      type: mongoose.Schema.Types.Mixed,
+      default: ''
     },
     role: {
       type: String,
@@ -39,7 +41,7 @@ const userSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['active', 'blocked'],
+      enum: ['active', 'blocked', 'inactive'],
       default: 'active'
     }
   },
@@ -47,6 +49,16 @@ const userSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+// Đồng bộ name và fullName trước khi validate/save
+userSchema.pre('validate', function (next) {
+  if (this.name && !this.fullName) {
+    this.fullName = this.name;
+  } else if (this.fullName && !this.name) {
+    this.name = this.fullName;
+  }
+  next();
+});
 
 // Hash password trước khi lưu
 userSchema.pre('save', async function (next) {

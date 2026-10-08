@@ -1,35 +1,57 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { isValidEmail, isValidPassword } = require('../validators/validate');
 
 /**
  * Đăng ký tài khoản khách hàng mới
  */
 exports.register = async (req, res, next) => {
   try {
-    const { fullName, email, password, phone, address } = req.body;
+    const { name, fullName, email, password, phone, address } = req.body;
+    const userName = name || fullName;
 
-    if (!fullName || !email || !password) {
+    if (!userName || !email || !password) {
       return res.status(400).json({
         success: false,
-        message: 'Vui lòng cung cấp đầy đủ họ tên, email và mật khẩu.'
+        message: 'Vui lòng cung cấp đầy đủ tên, email và mật khẩu.',
+        errors: ['Tên, email và mật khẩu là bắt buộc']
       });
     }
 
-    const existingUser = await User.findOne({ email });
+    if (!isValidEmail(email)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Định dạng email không hợp lệ.',
+        errors: ['Email không đúng định dạng chuẩn']
+      });
+    }
+
+    if (!isValidPassword(password)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Mật khẩu phải từ 6 ký tự trở lên.',
+        errors: ['Mật khẩu tối thiểu 6 ký tự']
+      });
+    }
+
+    const existingUser = await User.findOne({ email: email.toLowerCase().trim() });
     if (existingUser) {
       return res.status(400).json({
         success: false,
-        message: 'Email này đã được sử dụng.'
+        message: 'Email này đã được sử dụng.',
+        errors: ['Email đã tồn tại trong hệ thống']
       });
     }
 
     const user = await User.create({
-      fullName,
-      email,
+      name: userName,
+      fullName: userName,
+      email: email.toLowerCase().trim(),
       password,
-      phone,
-      address,
-      role: 'customer'
+      phone: phone || '',
+      address: address || '',
+      role: 'customer',
+      status: 'active'
     });
 
     const token = jwt.sign(
@@ -45,9 +67,13 @@ exports.register = async (req, res, next) => {
         token,
         user: {
           id: user._id,
+          name: user.name,
           fullName: user.fullName,
           email: user.email,
-          role: user.role
+          phone: user.phone,
+          address: user.address,
+          role: user.role,
+          status: user.status
         }
       }
     });
@@ -66,15 +92,17 @@ exports.login = async (req, res, next) => {
     if (!email || !password) {
       return res.status(400).json({
         success: false,
-        message: 'Vui lòng nhập email và mật khẩu.'
+        message: 'Vui lòng nhập email và mật khẩu.',
+        errors: ['Thiếu email hoặc mật khẩu']
       });
     }
 
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email: email.toLowerCase().trim() }).select('+password');
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'Email hoặc mật khẩu không chính xác.'
+        message: 'Email hoặc mật khẩu không chính xác.',
+        errors: ['Thông tin đăng nhập không hợp lệ']
       });
     }
 
@@ -82,14 +110,16 @@ exports.login = async (req, res, next) => {
     if (!isMatch) {
       return res.status(401).json({
         success: false,
-        message: 'Email hoặc mật khẩu không chính xác.'
+        message: 'Email hoặc mật khẩu không chính xác.',
+        errors: ['Thông tin đăng nhập không hợp lệ']
       });
     }
 
     if (user.status === 'blocked') {
       return res.status(403).json({
         success: false,
-        message: 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.'
+        message: 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.',
+        errors: ['Tài khoản đang bị khóa']
       });
     }
 
@@ -106,9 +136,13 @@ exports.login = async (req, res, next) => {
         token,
         user: {
           id: user._id,
+          name: user.name,
           fullName: user.fullName,
           email: user.email,
-          role: user.role
+          phone: user.phone,
+          address: user.address,
+          role: user.role,
+          status: user.status
         }
       }
     });
@@ -118,15 +152,16 @@ exports.login = async (req, res, next) => {
 };
 
 /**
- * Lấy thông tin cá nhân của người dùng hiện tại
+ * Lấy thông tin người dùng hiện tại (GET /api/auth/me & GET /api/auth/profile)
  */
-exports.getProfile = async (req, res, next) => {
+exports.getMe = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.id);
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy người dùng.'
+        message: 'Không tìm thấy người dùng.',
+        errors: ['Người dùng không tồn tại']
       });
     }
 
@@ -138,3 +173,5 @@ exports.getProfile = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.getProfile = exports.getMe;
