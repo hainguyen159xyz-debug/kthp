@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (status === 'cancelled') {
       s1.querySelector('.timeline-label').textContent = 'Đơn đã hủy';
       s1.className = 'timeline-step active';
-      s1.querySelector('.timeline-node').textContent = '✕';
+      s1.querySelector('.timeline-node').textContent = 'X';
       s1.querySelector('.timeline-node').style.background = 'var(--color-danger)';
       s2.style.display = 'none';
       s3.style.display = 'none';

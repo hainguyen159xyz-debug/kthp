@@ -131,16 +131,27 @@ input, button, select, textarea {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--text-main);
   white-space: nowrap;
 }
 
-.brand-logo .logo-icon {
+.brand-logo .logo-badge {
   display: inline-flex;
-  font-size: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #b83308 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(255, 87, 34, 0.4);
 }
 
 .brand-logo span {
@@ -183,12 +194,14 @@ input, button, select, textarea {
 .nav-search {
   position: relative;
   flex: 1;
-  max-width: 340px;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-search input {
   width: 100%;
-  padding: 9px 16px 9px 40px;
+  padding: 9px 18px;
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
@@ -204,62 +217,51 @@ input, button, select, textarea {
   background: var(--bg-card);
 }
 
-.nav-search .search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-dim);
-  pointer-events: none;
-  font-size: 0.95rem;
-}
-
-/* Action Icons (Wishlist, Cart, User) */
+/* Action Buttons (Wishlist, Cart, User) - Clean Icon-Free Design */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
+.nav-text-btn,
 .nav-icon-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
+  gap: 8px;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
   background: var(--bg-surface);
   color: var(--text-main);
   border: 1px solid var(--border-color);
   cursor: pointer;
   transition: var(--transition-fast);
-  font-size: 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
+.nav-text-btn:hover,
 .nav-icon-btn:hover {
   background: var(--bg-surface-hover);
-  border-color: var(--border-light);
-  transform: translateY(-2px);
+  border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 .nav-badge-count {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
   background: var(--color-primary);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 700;
   border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--bg-main);
 }
 
 /* User Dropdown */
@@ -354,11 +356,21 @@ input, button, select, textarea {
 /* Mobile Nav Toggle */
 .mobile-nav-toggle {
   display: none;
-  background: transparent;
-  border: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
   color: var(--text-main);
-  font-size: 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.mobile-nav-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 /* ==========================================================================

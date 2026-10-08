@@ -105,7 +105,7 @@ function renderPoTable(pos) {
     supplier_confirmed: { label: 'NCC xác nhận', badge: 'badge-purple' },
     receiving: { label: 'Đang nhập hàng', badge: 'badge-warning' },
     in_transit: { label: 'Đang vận chuyển', badge: 'badge-warning' },
-    received: { label: '✓ ĐÃ NHẬP KHO', badge: 'badge-success' },
+    received: { label: 'ĐÃ NHẬP KHO', badge: 'badge-success' },
     cancelled: { label: 'Đã hủy', badge: 'badge-danger' }
   };
 
@@ -379,7 +379,7 @@ function setupPoEvents() {
         });
 
         if (newStatus === 'received') {
-          adminToast.success('✓ Đã xác nhận nhập kho và TỰ ĐỘNG CẬP NHẬT TỒN KHO thành công!', 'Nhập kho hoàn tất');
+          adminToast.success('Đã xác nhận nhập kho và TỰ ĐỘNG CẬP NHẬT TỒN KHO thành công!', 'Nhập kho hoàn tất');
         } else {
           adminToast.success(`Đã chuyển trạng thái phiếu sang "${newStatus}".`);
         }

@@ -47,10 +47,10 @@ function renderSuppliersTable(suppliers) {
         <td style="text-align: right;">
           <div style="display: flex; gap: 6px; justify-content: flex-end;">
             <button class="btn btn-secondary btn-sm" onclick="openEditSupplier('${s._id}')">
-              ✏️ Sửa
+              Sửa
             </button>
             <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteSupplier('${s._id}', '${s.name.replace(/'/g, "\\'")}')">
-              🗑️ Xóa
+              Xóa
             </button>
           </div>
         </td>

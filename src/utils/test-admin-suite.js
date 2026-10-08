@@ -66,18 +66,18 @@ function request(method, path, data = null, token = null) {
 
 async function runAdminTests() {
   console.log('====================================================');
-  console.log('🧪 BẮT ĐẦU KIỂM THỬ TOÀN DIỆN ADMIN DASHBOARD & PHÂN QUYỀN');
+  console.log('[TEST] BẮT ĐẦU KIỂM THỬ TOÀN DIỆN ADMIN DASHBOARD & PHÂN QUYỀN');
   console.log('====================================================');
 
   try {
     if (mongoose.connection.readyState !== 1) {
       await mongoose.connect(process.env.MONGODB_URI);
-      console.log('✓ Kết nối MongoDB Atlas thành công');
+      console.log('[PASS] Kết nối MongoDB Atlas thành công');
     }
 
     await new Promise((resolve) => {
       server = app.listen(PORT, () => {
-        console.log(`✓ Test Server Admin đang lắng nghe trên cổng: ${PORT}`);
+        console.log(`[PASS] Test Server Admin đang lắng nghe trên cổng: ${PORT}`);
         resolve();
       });
     });
@@ -91,7 +91,7 @@ async function runAdminTests() {
     const aToken = adminRes.data.data?.token || adminRes.data.token;
     if (adminRes.status === 200 && adminUser && adminUser.role === 'admin') {
       adminToken = aToken;
-      console.log('✓ 1. Test Admin Login (200 & role=admin): PASS');
+      console.log('[PASS] 1. Test Admin Login (200 & role=admin): PASS');
     } else {
       throw new Error(`Admin login failed: ${JSON.stringify(adminRes)}`);
     }
@@ -106,7 +106,7 @@ async function runAdminTests() {
     if (custRes.status === 200 && custUser && custUser.role === 'customer') {
       customerToken = cToken;
       customerId = custUser.id || custUser._id;
-      console.log('✓ 2. Test Customer Login (200 & role=customer): PASS');
+      console.log('[PASS] 2. Test Customer Login (200 & role=customer): PASS');
     } else {
       throw new Error(`Customer login failed: ${JSON.stringify(custRes)}`);
     }
@@ -124,7 +124,7 @@ async function runAdminTests() {
     for (const test of forbiddenTests) {
       const res = await request(test.method, test.path, test.data, customerToken);
       if (res.status === 403) {
-        console.log(`✓ 3. Security Guard [${test.name}] với Customer Token -> 403 Forbidden: PASS`);
+        console.log(`[PASS] 3. Security Guard [${test.name}] với Customer Token -> 403 Forbidden: PASS`);
       } else {
         throw new Error(`Security failed for ${test.name}: Expected 403, got ${res.status}`);
       }
@@ -133,7 +133,7 @@ async function runAdminTests() {
     // 4. Admin calls Dashboard Stats -> 200
     const statsRes = await request('GET', '/api/dashboard/stats', null, adminToken);
     if (statsRes.status === 200 && statsRes.data.data.financials && statsRes.data.data.revenueTrends) {
-      console.log('✓ 4. Admin GET /api/dashboard/stats (KPIs, Charts data): PASS');
+      console.log('[PASS] 4. Admin GET /api/dashboard/stats (KPIs, Charts data): PASS');
     } else {
       throw new Error(`Dashboard stats failed: ${JSON.stringify(statsRes)}`);
     }
@@ -146,7 +146,7 @@ async function runAdminTests() {
     }, adminToken);
     if (catRes.status === 201) {
       testCategoryId = catRes.data.data._id;
-      console.log('✓ 5. Admin POST /api/categories: PASS');
+      console.log('[PASS] 5. Admin POST /api/categories: PASS');
     } else {
       throw new Error(`Create category failed: ${JSON.stringify(catRes)}`);
     }
@@ -159,7 +159,7 @@ async function runAdminTests() {
     }, adminToken);
     if (brandRes.status === 201) {
       testBrandId = brandRes.data.data._id;
-      console.log('✓ 6. Admin POST /api/brands: PASS');
+      console.log('[PASS] 6. Admin POST /api/brands: PASS');
     } else {
       throw new Error(`Create brand failed: ${JSON.stringify(brandRes)}`);
     }
@@ -175,7 +175,7 @@ async function runAdminTests() {
     }, adminToken);
     if (supRes.status === 201) {
       testSupplierId = supRes.data.data._id;
-      console.log('✓ 7. Admin POST /api/suppliers: PASS');
+      console.log('[PASS] 7. Admin POST /api/suppliers: PASS');
     } else {
       throw new Error(`Create supplier failed: ${JSON.stringify(supRes)}`);
     }
@@ -203,7 +203,7 @@ async function runAdminTests() {
     }, adminToken);
     if (prodRes.status === 201) {
       testProductId = prodRes.data.data._id;
-      console.log('✓ 8. Admin POST /api/products (Tạo SP & Variants): PASS');
+      console.log('[PASS] 8. Admin POST /api/products (Tạo SP & Variants): PASS');
     } else {
       throw new Error(`Create product failed: ${JSON.stringify(prodRes)}`);
     }
@@ -211,7 +211,7 @@ async function runAdminTests() {
     // 9. Admin Inventory Check
     const invRes = await request('GET', `/api/inventory/${testProductId}`, null, adminToken);
     if (invRes.status === 200 && invRes.data.data.length > 0) {
-      console.log('✓ 9. Admin GET /api/inventory/:productId: PASS');
+      console.log('[PASS] 9. Admin GET /api/inventory/:productId: PASS');
     } else {
       throw new Error(`Inventory check failed: ${JSON.stringify(invRes)}`);
     }
@@ -233,7 +233,7 @@ async function runAdminTests() {
     }, adminToken);
     if (poRes.status === 201) {
       testPoId = poRes.data.data._id;
-      console.log('✓ 10. Admin POST /api/purchase-orders: PASS');
+      console.log('[PASS] 10. Admin POST /api/purchase-orders: PASS');
     } else {
       throw new Error(`Create PO failed: ${JSON.stringify(poRes)}`);
     }
@@ -243,7 +243,7 @@ async function runAdminTests() {
       status: 'received'
     }, adminToken);
     if (poStatusRes.status === 200) {
-      console.log('✓ 11. Admin PATCH /api/purchase-orders/:id/status (Chuyển sang received): PASS');
+      console.log('[PASS] 11. Admin PATCH /api/purchase-orders/:id/status (Chuyển sang received): PASS');
     } else {
       throw new Error(`Update PO status failed: ${JSON.stringify(poStatusRes)}`);
     }
@@ -252,7 +252,7 @@ async function runAdminTests() {
     const invAfterRes = await request('GET', `/api/inventory/${testProductId}`, null, adminToken);
     const updatedQty = invAfterRes.data.data[0].quantity;
     if (updatedQty === 25) { // Ban đầu 5 + nhập 20 = 25
-      console.log(`✓ 12. Kiểm tra tồn kho sau khi nhập PO received (5 + 20 = ${updatedQty}): PASS`);
+      console.log(`[PASS] 12. Kiểm tra tồn kho sau khi nhập PO received (5 + 20 = ${updatedQty}): PASS`);
     } else {
       throw new Error(`Stock replenishment check failed. Expected 25, got ${updatedQty}`);
     }
@@ -262,7 +262,7 @@ async function runAdminTests() {
     if (custsRes.status === 200 && custsRes.data.data.length > 0) {
       const sample = custsRes.data.data[0];
       if (sample.password === undefined) {
-        console.log('✓ 13. Admin GET /api/admin/customers (Không để lộ password hash): PASS');
+        console.log('[PASS] 13. Admin GET /api/admin/customers (Không để lộ password hash): PASS');
       } else {
         throw new Error('Customer password leaked in API!');
       }
@@ -284,7 +284,7 @@ async function runAdminTests() {
       status: 'active'
     }, adminToken);
     if (promoRes.status === 201) {
-      console.log('✓ 14. Admin POST /api/promotions (Tạo voucher mới): PASS');
+      console.log('[PASS] 14. Admin POST /api/promotions (Tạo voucher mới): PASS');
     } else {
       throw new Error(`Create promotion failed: ${JSON.stringify(promoRes)}`);
     }
@@ -292,7 +292,7 @@ async function runAdminTests() {
     // 15. Admin Review Moderation
     const reviewsRes = await request('GET', '/api/admin/reviews', null, adminToken);
     if (reviewsRes.status === 200) {
-      console.log('✓ 15. Admin GET /api/admin/reviews: PASS');
+      console.log('[PASS] 15. Admin GET /api/admin/reviews: PASS');
     } else {
       throw new Error(`Get reviews failed: ${JSON.stringify(reviewsRes)}`);
     }
@@ -306,24 +306,24 @@ async function runAdminTests() {
         fulfillmentStatus: 'in_stock'
       }, adminToken);
       if (updateOrderRes.status === 200) {
-        console.log('✓ 16. Admin PATCH /api/admin/orders/:id/status: PASS');
+        console.log('[PASS] 16. Admin PATCH /api/admin/orders/:id/status: PASS');
       }
     }
 
     // 17. Static HTML Admin routing check
     const staticRes = await request('GET', '/admin/dashboard.html');
     if (staticRes.status === 200 && staticRes.body.includes('SportZone Admin')) {
-      console.log('✓ 17. Static Serving /admin/dashboard.html: PASS');
+      console.log('[PASS] 17. Static Serving /admin/dashboard.html: PASS');
     } else {
       throw new Error(`Admin static serve failed: status ${staticRes.status}`);
     }
 
     console.log('====================================================');
-    console.log('🎉 TOÀN BỘ 17 BÀI TEST ADMIN & SECURITY ĐỀU PASS 100%!');
+    console.log('[SUCCESS] TOÀN BỘ 17 BÀI TEST ADMIN & SECURITY ĐỀU PASS 100%!');
     console.log('====================================================');
 
   } catch (err) {
-    console.error('❌ Lỗi Test:', err);
+    console.error('[FAIL] Lỗi Test:', err);
     process.exitCode = 1;
   } finally {
     if (server) server.close();

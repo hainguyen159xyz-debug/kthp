@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     btnToggleWishlist.onclick = () => {
       if (product) {
         const added = window.api.wishlist.toggle(product);
-        wishlistIcon.textContent = added ? '❤️' : '🤍';
+        wishlistIcon.textContent = added ? 'Đã lưu' : 'Lưu vào yêu thích';
         window.toast.success(added ? 'Đã thêm vào danh sách yêu thích' : 'Đã xóa khỏi yêu thích');
       }
     };
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Wishlist Status
         if (window.api.wishlist.has(product._id)) {
-          wishlistIcon.textContent = '❤️';
+          wishlistIcon.textContent = 'Đã lưu';
         }
 
         // Render Colors
@@ -325,7 +325,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (totalReviews === 0) {
           container.innerHTML = `
             <div class="empty-state" style="padding: 30px;">
-              <div style="font-size: 2rem;">💬</div>
               <p style="color: var(--text-muted); margin-top: 8px;">Chưa có đánh giá nào cho sản phẩm này. Hãy là người đầu tiên trải nghiệm!</p>
             </div>
           `;
@@ -333,7 +332,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         container.innerHTML = reviews.map((r) => {
-          const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+          const scoreBadge = `<span class="badge badge-in-stock">${r.rating}.0 / 5.0</span>`;
           const userName = r.user ? (r.user.fullName || r.user.name || 'Khách hàng') : 'Khách hàng';
           const dateStr = new Date(r.createdAt).toLocaleDateString('vi-VN');
 
@@ -343,7 +342,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <strong>${userName}</strong>
                 <span style="color: var(--text-dim); font-size: 0.82rem;">${dateStr}</span>
               </div>
-              <div style="color: #f59e0b; font-size: 0.9rem; margin-bottom: 8px;">${stars}</div>
+              <div style="font-size: 0.88rem; margin-bottom: 8px;">Đánh giá: ${scoreBadge}</div>
               <p style="color: var(--text-muted); font-size: 0.92rem;">${r.comment || 'Khách hàng không để lại nhận xét chi tiết.'}</p>
             </div>
           `;

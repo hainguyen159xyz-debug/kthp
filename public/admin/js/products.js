@@ -138,10 +138,10 @@ function renderProductsTable(products) {
         <td style="text-align: right;">
           <div style="display: flex; gap: 6px; justify-content: flex-end;">
             <a href="/admin/product-form.html?id=${p._id}" class="btn btn-secondary btn-sm" title="Chỉnh sửa sản phẩm">
-              ✏️ Sửa
+              Sửa
             </a>
             <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteProduct('${p._id}', '${p.name.replace(/'/g, "\\'")}')">
-              🗑️ Xóa
+              Xóa
             </button>
           </div>
         </td>

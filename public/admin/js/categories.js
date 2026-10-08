@@ -44,10 +44,10 @@ function renderCategoriesTable(categories) {
         <td style="text-align: right;">
           <div style="display: flex; gap: 6px; justify-content: flex-end;">
             <button class="btn btn-secondary btn-sm" onclick="openEditCategory('${cat._id}')">
-              ✏️ Sửa
+              Sửa
             </button>
             <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteCategory('${cat._id}', '${cat.name.replace(/'/g, "\\'")}')">
-              🗑️ Xóa
+              Xóa
             </button>
           </div>
         </td>

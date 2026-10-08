@@ -272,13 +272,13 @@ document.addEventListener('DOMContentLoaded', async () => {
               <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600'">
               <div class="product-card-badge">${stockStatus}</div>
               <button class="product-card-wishlist-btn ${isFav ? 'active' : ''}" onclick="toggleWishlist('${p._id}', this)" title="Yêu thích">
-                ${isFav ? '❤️' : '🤍'}
+                ${isFav ? 'Đã lưu' : 'Lưu'}
               </button>
             </div>
             <div class="product-card-body">
               <div class="product-card-meta">
                 <span class="product-card-brand">${brandName}</span>
-                <span class="product-card-rating">★ 5.0</span>
+                <span class="product-card-rating">5.0 / 5</span>
               </div>
               <h3 class="product-card-title">
                 <a href="/product-detail.html?id=${p._id}">${p.name}</a>
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let html = `
       <button class="page-btn" ${state.page === 1 ? 'disabled' : ''} onclick="changePage(${state.page - 1})">
-        ◀ Trước
+        Trước
       </button>
     `;
 
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     html += `
       <button class="page-btn" ${state.page === totalPages ? 'disabled' : ''} onclick="changePage(${state.page + 1})">
-        Sau ▶
+        Sau
       </button>
     `;
 
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (res.success && res.data) {
         const added = window.api.wishlist.toggle(res.data);
         btn.classList.toggle('active', added);
-        btn.innerHTML = added ? '❤️' : '🤍';
+        btn.innerHTML = added ? 'Đã lưu' : 'Lưu';
         window.toast.success(added ? 'Đã thêm vào yêu thích' : 'Đã xóa khỏi yêu thích');
       }
     } catch (e) {

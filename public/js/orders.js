@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
 
             <a href="/order-detail.html?id=${order._id}" class="btn btn-secondary btn-sm">
-              Xem chi tiết đơn hàng ➔
+              Xem chi tiết đơn hàng
             </a>
           </div>
         </div>

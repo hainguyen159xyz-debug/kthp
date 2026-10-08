@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       try {
         btnSaveProfile.disabled = true;
-        btnSaveProfile.textContent = '⏳ Đang lưu...';
+        btnSaveProfile.textContent = 'Đang lưu...';
 
         const res = await window.api.put('/auth/profile', {
           name,
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       try {
         btnChangePwd.disabled = true;
-        btnChangePwd.textContent = '⏳ Đang cập nhật...';
+        btnChangePwd.textContent = 'Đang cập nhật...';
 
         const res = await window.api.put('/auth/change-password', {
           currentPassword,

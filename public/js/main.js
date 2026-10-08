@@ -21,17 +21,16 @@ const toast = {
     const toastEl = document.createElement('div');
     toastEl.className = `toast toast-${type}`;
 
-    const icons = {
-      success: '✓',
-      error: '✕',
-      warning: '⚠',
-      info: 'ℹ'
+    const tags = {
+      success: 'Thành công',
+      error: 'Lỗi',
+      warning: 'Cảnh báo',
+      info: 'Thông báo'
     };
 
     toastEl.innerHTML = `
-      <div class="toast-icon">${icons[type] || 'ℹ'}</div>
       <div class="toast-content">
-        ${title ? `<div class="toast-title">${title}</div>` : ''}
+        <div class="toast-title"><span class="badge ${type === 'error' ? 'badge-out-of-stock' : type === 'warning' ? 'badge-low-stock' : 'badge-in-stock'}">${tags[type] || 'Thông báo'}</span> ${title ? title : ''}</div>
         <div class="toast-message">${message}</div>
       </div>
       <button class="toast-close" aria-label="Close">&times;</button>
@@ -140,19 +139,19 @@ function initNavbar() {
     if (token && user) {
       userActions.innerHTML = `
         <div class="user-menu-wrapper">
-          <button class="nav-icon-btn" id="btn-user-menu" title="${user.fullName || user.name || 'Tài khoản'}">
-            👤
+          <button class="nav-text-btn" id="btn-user-menu" title="${user.fullName || user.name || 'Tài khoản'}">
+            ${user.fullName || user.name || 'Tài khoản'}
           </button>
           <div class="user-dropdown" id="user-dropdown-menu">
             <div class="user-dropdown-header">
               <div class="user-name">${user.fullName || user.name || 'Khách hàng'}</div>
               <div class="user-email">${user.email}</div>
             </div>
-            <a href="/profile.html">⚙️ Hồ sơ cá nhân</a>
-            <a href="/orders.html">📦 Đơn hàng của tôi</a>
-            <a href="/wishlist.html">❤️ Yêu thích</a>
-            ${user.role === 'admin' ? '<a href="/admin" style="color: var(--color-accent);">🚀 Admin Portal</a>' : ''}
-            <button class="logout-btn" id="btn-logout">🚪 Đăng xuất</button>
+            <a href="/profile.html">Hồ sơ cá nhân</a>
+            <a href="/orders.html">Đơn hàng của tôi</a>
+            <a href="/wishlist.html">Danh sách yêu thích</a>
+            ${user.role === 'admin' ? '<a href="/admin" style="color: var(--color-accent); font-weight: 700;">Quản trị Admin</a>' : ''}
+            <button class="logout-btn" id="btn-logout">Đăng xuất</button>
           </div>
         </div>
       `;

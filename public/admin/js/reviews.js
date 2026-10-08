@@ -47,7 +47,7 @@ function renderReviewsTable(reviews) {
     const u = r.user || {};
     const imgUrl = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100';
     const userName = u.fullName || u.name || 'Khách hàng';
-    const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+    const scoreBadge = `<span class="badge badge-success">${r.rating}.0 / 5.0</span>`;
 
     return `
       <tr>
@@ -64,8 +64,7 @@ function renderReviewsTable(reviews) {
           <div style="font-size: 0.78rem; color: var(--text-dim);">${u.email || ''}</div>
         </td>
         <td>
-          <span style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 2px;">${stars}</span>
-          <span style="font-size: 0.8rem; color: var(--text-dim); margin-left: 4px;">(${r.rating}/5)</span>
+          ${scoreBadge}
         </td>
         <td style="max-width: 320px; white-space: normal; color: #fff;">
           ${r.comment ? `"${r.comment}"` : '<span style="color: var(--text-dim); font-style: italic;">Không có bình luận chữ</span>'}
@@ -73,7 +72,7 @@ function renderReviewsTable(reviews) {
         <td style="color: var(--text-muted); font-size: 0.82rem;">${formatDateTime(r.createdAt)}</td>
         <td style="text-align: right;">
           <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteReview('${r._id}')">
-            🗑️ Xóa đánh giá
+            Xóa đánh giá
           </button>
         </td>
       </tr>

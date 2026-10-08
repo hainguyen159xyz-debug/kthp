@@ -63,10 +63,10 @@ function renderPromotionsTable(promotions) {
         <td style="text-align: right;">
           <div style="display: flex; gap: 6px; justify-content: flex-end;">
             <button class="btn btn-secondary btn-sm" onclick="openEditPromotion('${p._id}')">
-              ✏️ Sửa
+              Sửa
             </button>
             <button class="btn btn-danger-outline btn-sm" onclick="handleDeletePromotion('${p._id}', '${p.code}')">
-              🗑️ Xóa
+              Xóa
             </button>
           </div>
         </td>

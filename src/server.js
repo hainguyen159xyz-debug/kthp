@@ -10,10 +10,10 @@ connectDB();
 // Khởi chạy server
 const server = app.listen(PORT, () => {
   console.log(`====================================================`);
-  console.log(`👟 Sport Shoes Inventory System Server đang chạy!`);
-  console.log(`🌐 Storefront: http://localhost:${PORT}`);
-  console.log(`⚙️  Admin Portal: http://localhost:${PORT}/admin`);
-  console.log(`🚀 REST API Health: http://localhost:${PORT}/api/health`);
+  console.log(`[SERVER] Sport Shoes Inventory System Server dang chay!`);
+  console.log(`[STOREFRONT] http://localhost:${PORT}`);
+  console.log(`[ADMIN] http://localhost:${PORT}/admin`);
+  console.log(`[HEALTH] http://localhost:${PORT}/api/health`);
   console.log(`====================================================`);
 });
 

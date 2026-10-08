@@ -152,14 +152,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
       btnSubmit.disabled = true;
-      btnSubmit.textContent = '⏳ Đang xử lý đặt hàng...';
+      btnSubmit.textContent = 'Đang xử lý đặt hàng...';
 
       const res = await window.api.post('/orders', payload);
 
       if (res.success && res.data) {
         sessionStorage.removeItem('appliedCoupon');
         window.dispatchEvent(new Event('cartChange'));
-        window.toast.success('🎉 Đặt hàng thành công! Đang chuyển hướng...');
+        window.toast.success('Đặt hàng thành công! Đang chuyển hướng...');
 
         setTimeout(() => {
           window.location.href = `/order-detail.html?id=${res.data._id}&new=true`;
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     } catch (error) {
       btnSubmit.disabled = false;
-      btnSubmit.textContent = 'Xác nhận đặt hàng ➔';
+      btnSubmit.textContent = 'Xác nhận đặt hàng';
 
       // Xử lý mã lỗi đặc biệt: OUT_OF_STOCK
       if (error.code === 'OUT_OF_STOCK' && error.items) {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         `).join('');
 
         await window.modal.confirm({
-          title: '⚠️ Tồn kho không đủ',
+          title: 'Tồn kho không đủ',
           message: `
             <p style="margin-bottom: 12px; color: var(--color-danger); font-weight: 600;">Một hoặc nhiều sản phẩm trong giỏ hàng hiện không đủ số lượng tồn kho:</p>
             <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">

@@ -24,23 +24,22 @@ const adminToast = {
     const toast = document.createElement('div');
     toast.className = `admin-toast toast-${type}`;
 
-    let icon = 'ℹ️';
+    let tag = 'THÔNG BÁO';
     let defaultTitle = 'Thông báo';
     if (type === 'success') {
-      icon = '✓';
+      tag = 'THÀNH CÔNG';
       defaultTitle = 'Thành công';
     } else if (type === 'error') {
-      icon = '✕';
+      tag = 'LỖI';
       defaultTitle = 'Lỗi hệ thống';
     } else if (type === 'warning') {
-      icon = '⚠️';
+      tag = 'CẢNH BÁO';
       defaultTitle = 'Cảnh báo';
     }
 
     toast.innerHTML = `
-      <div class="toast-icon">${icon}</div>
       <div class="toast-content">
-        <div class="toast-title">${title || defaultTitle}</div>
+        <div class="toast-title"><span class="badge ${type === 'error' ? 'badge-danger' : type === 'warning' ? 'badge-warning' : 'badge-success'}">${tag}</span> ${title || defaultTitle}</div>
         <div class="toast-msg">${message}</div>
       </div>
     `;

@@ -115,13 +115,13 @@ function renderOrderPage(order) {
   document.getElementById('pay-method').textContent = (order.paymentMethod || 'COD').toUpperCase();
   const isPaid = order.paymentStatus === 'paid';
   document.getElementById('pay-status').innerHTML = isPaid
-    ? '<span class="badge badge-success">✓ Đã thanh toán</span>'
-    : '<span class="badge badge-warning">⏳ Chờ thanh toán</span>';
+    ? '<span class="badge badge-success">Đã thanh toán</span>'
+    : '<span class="badge badge-warning">Chờ thanh toán</span>';
 
   const jitMap = {
-    in_stock: '<span class="badge badge-success">✓ Đã có sẵn trong kho</span>',
-    waiting_supplier: '<span class="badge badge-warning">⚠️ Đang chờ nhập hàng từ NCC (JIT)</span>',
-    fulfilled: '<span class="badge badge-info">✓ Đã đáp ứng hàng</span>'
+    in_stock: '<span class="badge badge-success">Đã có sẵn trong kho</span>',
+    waiting_supplier: '<span class="badge badge-warning">Đang chờ nhập hàng từ NCC (JIT)</span>',
+    fulfilled: '<span class="badge badge-info">Đã đáp ứng hàng</span>'
   };
   document.getElementById('jit-fulfillment').innerHTML = jitMap[order.fulfillmentStatus] || `<span class="badge badge-neutral">${order.fulfillmentStatus || 'N/A'}</span>`;
 }
@@ -144,7 +144,7 @@ function renderTimeline(status) {
 
   if (status === 'cancelled') {
     badgeEl.className = 'badge badge-danger';
-    badgeEl.textContent = '🚫 ĐÃ HỦY ĐƠN HÀNG';
+    badgeEl.textContent = 'ĐÃ HỦY ĐƠN HÀNG';
     return;
   }
 

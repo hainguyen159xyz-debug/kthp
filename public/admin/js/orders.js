@@ -81,9 +81,9 @@ function renderOrdersTable(orders) {
 
     // Fulfillment JIT badges
     const jitMap = {
-      in_stock: { label: '✓ Sẵn hàng kho', badge: 'badge-success' },
-      waiting_supplier: { label: '⚠️ Chờ NCC', badge: 'badge-warning' },
-      fulfilled: { label: '✓ Đã đáp ứng', badge: 'badge-info' }
+      in_stock: { label: 'Sẵn hàng kho', badge: 'badge-success' },
+      waiting_supplier: { label: 'Chờ NCC', badge: 'badge-warning' },
+      fulfilled: { label: 'Đã đáp ứng', badge: 'badge-info' }
     };
     const jit = jitMap[o.fulfillmentStatus] || { label: o.fulfillmentStatus || 'N/A', badge: 'badge-neutral' };
 

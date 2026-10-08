@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           sessionStorage.setItem('appliedCoupon', JSON.stringify(appliedCoupon));
 
           couponMsg.style.color = 'var(--color-success)';
-          couponMsg.textContent = `✓ Đã áp dụng mã "${appliedCoupon.code}": Giảm ${window.api.formatCurrency(appliedCoupon.discountAmount)}`;
+          couponMsg.textContent = `Đã áp dụng mã "${appliedCoupon.code}": Giảm ${window.api.formatCurrency(appliedCoupon.discountAmount)}`;
           window.toast.success(`Áp dụng mã ${appliedCoupon.code} thành công!`);
 
           updateSummary(subtotal);
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         appliedCoupon = null;
         sessionStorage.removeItem('appliedCoupon');
         couponMsg.style.color = 'var(--color-danger)';
-        couponMsg.textContent = `✕ ${err.message || 'Mã giảm giá không hợp lệ hoặc không đủ điều kiện.'}`;
+        couponMsg.textContent = err.message || 'Mã giảm giá không hợp lệ hoặc không đủ điều kiện.';
         window.toast.error(err.message || 'Mã giảm giá không hợp lệ.');
         updateSummary(subtotal);
       } finally {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           </td>
           <td>
             <button class="btn btn-outline btn-sm" onclick="removeItem('${item._id}')" title="Xóa" style="color: var(--color-danger); border-color: rgba(239, 68, 68, 0.3);">
-              🗑️
+              Xóa
             </button>
           </td>
         </tr>
@@ -244,10 +244,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   function showLoginPrompt() {
     emptyState.style.display = 'block';
     emptyState.innerHTML = `
-      <div class="empty-state-icon">🔒</div>
       <h3 class="empty-state-title">Vui lòng đăng nhập để xem giỏ hàng</h3>
       <p class="empty-state-desc">Đăng nhập tài khoản giúp bạn lưu giữ các sản phẩm đã chọn và thanh toán thuận tiện hơn.</p>
-      <a href="/login.html?redirect=${encodeURIComponent('/cart.html')}" class="btn btn-primary">Đăng nhập ngay ➔</a>
+      <a href="/login.html?redirect=${encodeURIComponent('/cart.html')}" class="btn btn-primary">Đăng nhập ngay</a>
     `;
     contentGrid.style.display = 'none';
     countLabel.textContent = 'Cần đăng nhập';

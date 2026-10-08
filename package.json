@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "seed": "node src/utils/seed.js"
+    "seed": "node src/utils/seed.js",
+    "test": "node src/utils/test-suite.js",
+    "test:admin": "node src/utils/test-admin-suite.js"
   },
   "keywords": [
     "sport-shoes",

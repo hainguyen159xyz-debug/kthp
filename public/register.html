@@ -16,7 +16,7 @@
   <header class="navbar">
     <div class="container nav-container">
       <a href="/" class="brand-logo">
-        <span class="logo-icon">👟</span> Sport<span>Zone</span>
+        <span class="logo-badge">SZ</span> Sport<span>Zone</span>
       </a>
       <a href="/" class="btn btn-secondary btn-sm">Quay về trang chủ</a>
     </div>
@@ -26,7 +26,7 @@
   <main class="container" style="display: flex; align-items: center; justify-content: center; min-height: 75vh; padding: 40px 20px;">
     <div class="card" style="width: 100%; max-width: 480px; padding: 36px 30px;">
       <div style="text-align: center; margin-bottom: 24px;">
-        <span style="font-size: 2.5rem; display: inline-block; margin-bottom: 8px;">👟</span>
+        <div class="badge badge-primary" style="margin-bottom: 12px;">THÀNH VIÊN MỚI</div>
         <h1 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 6px;">Tạo Tài Khoản Mới</h1>
         <p style="color: var(--text-muted); font-size: 0.9rem;">Trở thành thành viên SportZone để nhận nhiều ưu đãi độc quyền</p>
       </div>
@@ -59,7 +59,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn-register-submit" style="margin-top: 10px;">
-          Đăng ký tài khoản ➔
+          Đăng ký tài khoản
         </button>
       </form>
 
@@ -96,7 +96,7 @@
         const confirmPassword = document.getElementById('reg-confirm-password').value;
 
         btnSubmit.disabled = true;
-        btnSubmit.textContent = '⏳ Đang đăng ký...';
+        btnSubmit.textContent = 'Đang đăng ký...';
 
         const success = await window.auth.register({
           name,
@@ -108,7 +108,7 @@
 
         if (!success) {
           btnSubmit.disabled = false;
-          btnSubmit.textContent = 'Đăng ký tài khoản ➔';
+          btnSubmit.textContent = 'Đăng ký tài khoản';
         }
       };
     });

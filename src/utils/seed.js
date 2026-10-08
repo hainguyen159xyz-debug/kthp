@@ -233,17 +233,17 @@ const seedData = async () => {
     ]);
 
     console.log('====================================================');
-    console.log('✅ Khởi tạo dữ liệu mẫu (Seed Data) THÀNH CÔNG!');
+    console.log('[OK] Khởi tạo dữ liệu mẫu (Seed Data) THÀNH CÔNG!');
     console.log('====================================================');
-    console.log('👑 Admin Account:');
+    console.log('[ADMIN] Admin Account:');
     console.log('   Email:    admin@sportshoes.com');
     console.log('   Password: Admin123456');
     console.log('----------------------------------------------------');
-    console.log('👟 Customer Account:');
+    console.log('[SHOES] Customer Account:');
     console.log('   Email:    customer@sportshoes.com');
     console.log('   Password: Customer123456');
     console.log('----------------------------------------------------');
-    console.log('🏷️ Khuyến mãi: WELCOME10, GIAM50K');
+    console.log('[BRAND]️ Khuyến mãi: WELCOME10, GIAM50K');
     console.log('====================================================');
 
     await mongoose.disconnect();

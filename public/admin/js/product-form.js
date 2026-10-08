@@ -258,7 +258,7 @@ function setupFormHandlers() {
       console.error('Lỗi lưu sản phẩm:', err);
       adminToast.error(err.message || 'Không thể lưu sản phẩm.');
       saveBtn.disabled = false;
-      saveBtn.textContent = '💾 Lưu Sản Phẩm';
+      saveBtn.textContent = 'Lưu Sản Phẩm';
     }
   });
 }

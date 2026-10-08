@@ -14,7 +14,7 @@
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-icon">👟</div>
+        <div class="brand-icon">SZ</div>
         <div class="brand-info">
           <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
           <div class="brand-sub">Kho Vận & Bán Hàng</div>
@@ -24,60 +24,49 @@
       <nav class="sidebar-nav">
         <div class="nav-section-title">Tổng quan</div>
         <a href="/admin/dashboard.html" class="nav-item active">
-          <span class="nav-icon">📊</span>
           <span>Dashboard</span>
         </a>
 
         <div class="nav-section-title">Quản lý kho & SP</div>
         <a href="/admin/products.html" class="nav-item">
-          <span class="nav-icon">👟</span>
           <span>Sản phẩm</span>
         </a>
         <a href="/admin/categories.html" class="nav-item">
-          <span class="nav-icon">🗂️</span>
           <span>Danh mục</span>
         </a>
         <a href="/admin/brands.html" class="nav-item">
-          <span class="nav-icon">🏷️</span>
           <span>Thương hiệu</span>
         </a>
         <a href="/admin/inventory.html" class="nav-item">
-          <span class="nav-icon">📦</span>
           <span>Kho hàng (JIT)</span>
         </a>
 
         <div class="nav-section-title">Bán hàng & Chuỗi cung ứng</div>
         <a href="/admin/orders.html" class="nav-item">
-          <span class="nav-icon">🛒</span>
           <span>Đơn hàng</span>
         </a>
         <a href="/admin/customers.html" class="nav-item">
-          <span class="nav-icon">👥</span>
           <span>Khách hàng</span>
         </a>
         <a href="/admin/suppliers.html" class="nav-item">
-          <span class="nav-icon">🏭</span>
           <span>Nhà cung cấp</span>
         </a>
         <a href="/admin/purchase-orders.html" class="nav-item">
-          <span class="nav-icon">📝</span>
           <span>Phiếu nhập hàng</span>
         </a>
 
         <div class="nav-section-title">Marketing & CSKH</div>
         <a href="/admin/promotions.html" class="nav-item">
-          <span class="nav-icon">🎟️</span>
           <span>Khuyến mãi</span>
         </a>
         <a href="/admin/reviews.html" class="nav-item">
-          <span class="nav-icon">⭐</span>
           <span>Đánh giá</span>
         </a>
       </nav>
 
       <div class="sidebar-footer">
         <a href="/" target="_blank" class="btn-storefront">
-          <span>🏪</span> Xem Cửa Hàng
+          Xem Cửa Hàng
         </a>
       </div>
     </aside>
@@ -87,7 +76,7 @@
       <!-- Top Header -->
       <header class="admin-header">
         <div class="header-left">
-          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <button class="mobile-toggle" id="mobile-menu-toggle">MENU</button>
           <div class="breadcrumb-trail">
             <a href="/admin/dashboard.html">Admin</a>
             <span>/</span>
@@ -110,7 +99,7 @@
           </div>
 
           <button class="btn-logout" id="btn-admin-logout" title="Đăng xuất">
-            <span>🚪</span> Đăng xuất
+            Đăng xuất
           </button>
         </div>
       </header>
@@ -124,7 +113,7 @@
           </div>
           <div class="page-actions">
             <button class="btn btn-secondary btn-sm" id="btn-refresh-dashboard">
-              🔄 Làm mới dữ liệu
+              Làm mới dữ liệu
             </button>
             <a href="/admin/purchase-orders.html" class="btn btn-primary btn-sm">
               + Tạo phiếu nhập NCC
@@ -138,7 +127,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Tổng Doanh Thu</span>
-              <div class="kpi-icon-box green">💰</div>
+              <div class="kpi-icon-box green" style="font-size: 0.72rem; font-weight: 800;">VND</div>
             </div>
             <div class="kpi-value" id="kpi-total-revenue">0 ₫</div>
             <div class="kpi-meta">Doanh thu bán hàng thực tế</div>
@@ -148,7 +137,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Tổng Đơn Hàng</span>
-              <div class="kpi-icon-box blue">📦</div>
+              <div class="kpi-icon-box blue" style="font-size: 0.72rem; font-weight: 800;">ĐƠN</div>
             </div>
             <div class="kpi-value" id="kpi-total-orders">0</div>
             <div class="kpi-meta">Đơn hàng trong hệ thống</div>
@@ -158,7 +147,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Đơn Hôm Nay</span>
-              <div class="kpi-icon-box indigo">⚡</div>
+              <div class="kpi-icon-box indigo" style="font-size: 0.72rem; font-weight: 800;">H.NAY</div>
             </div>
             <div class="kpi-value" id="kpi-today-orders">0</div>
             <div class="kpi-meta">Phát sinh từ 00:00 hôm nay</div>
@@ -168,7 +157,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Đang Xử Lý / Chờ</span>
-              <div class="kpi-icon-box amber">⏳</div>
+              <div class="kpi-icon-box amber" style="font-size: 0.72rem; font-weight: 800;">XỬ LÝ</div>
             </div>
             <div class="kpi-value" id="kpi-processing-orders">0</div>
             <div class="kpi-meta" id="kpi-waiting-sub">0 đơn chờ NCC</div>
@@ -178,7 +167,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Tổng Khách Hàng</span>
-              <div class="kpi-icon-box purple">👥</div>
+              <div class="kpi-icon-box purple" style="font-size: 0.72rem; font-weight: 800;">KHÁCH</div>
             </div>
             <div class="kpi-value" id="kpi-total-customers">0</div>
             <div class="kpi-meta">Tài khoản thành viên</div>
@@ -188,7 +177,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Tổng Sản Phẩm</span>
-              <div class="kpi-icon-box blue">👟</div>
+              <div class="kpi-icon-box blue" style="font-size: 0.72rem; font-weight: 800;">MẪU</div>
             </div>
             <div class="kpi-value" id="kpi-total-products">0</div>
             <div class="kpi-meta">Mẫu giày đang kinh doanh</div>
@@ -198,7 +187,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Sắp Hết Hàng (Low Stock)</span>
-              <div class="kpi-icon-box amber">⚠️</div>
+              <div class="kpi-icon-box amber" style="font-size: 0.72rem; font-weight: 800;">SẮP HẾT</div>
             </div>
             <div class="kpi-value" id="kpi-low-stock">0</div>
             <div class="kpi-meta">Biến thể chạm ngưỡng cảnh báo</div>
@@ -208,7 +197,7 @@
           <div class="kpi-card">
             <div class="kpi-card-top">
               <span class="kpi-label">Hết Hàng (Out Of Stock)</span>
-              <div class="kpi-icon-box red">🚫</div>
+              <div class="kpi-icon-box red" style="font-size: 0.72rem; font-weight: 800;">HẾT</div>
             </div>
             <div class="kpi-value" id="kpi-out-of-stock">0</div>
             <div class="kpi-meta">Cần tạo phiếu nhập gấp</div>
@@ -220,7 +209,7 @@
           <!-- Chart 1: Doanh thu & Đơn hàng 7 ngày qua -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
-              <div class="card-header-title">📈 Xu Hướng Doanh Thu & Đơn Hàng (7 Ngày Gần Nhất)</div>
+              <div class="card-header-title">Xu Hướng Doanh Thu & Đơn Hàng (7 Ngày Gần Nhất)</div>
             </div>
             <div style="position: relative; height: 280px; width: 100%;">
               <canvas id="chart-revenue-trend"></canvas>
@@ -230,7 +219,7 @@
           <!-- Chart 2: Phân bổ sản phẩm theo Danh mục -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
-              <div class="card-header-title">🗂️ Sản Phẩm Theo Danh Mục</div>
+              <div class="card-header-title">Sản Phẩm Theo Danh Mục</div>
             </div>
             <div style="position: relative; height: 280px; width: 100%;">
               <canvas id="chart-category-dist"></canvas>
@@ -243,7 +232,7 @@
           <!-- Top Products -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
-              <div class="card-header-title">🔥 Top Sản Phẩm Bán Chạy</div>
+              <div class="card-header-title">Top Sản Phẩm Bán Chạy</div>
               <a href="/admin/products.html" class="btn btn-secondary btn-sm">Xem tất cả</a>
             </div>
             <div class="table-responsive">
@@ -268,7 +257,7 @@
           <!-- JIT Low Stock Alerts -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
-              <div class="card-header-title">⚠️ Cảnh Báo Tồn Kho JIT</div>
+              <div class="card-header-title">Cảnh Báo Tồn Kho JIT</div>
               <a href="/admin/inventory.html" class="btn btn-secondary btn-sm">Xem kho chi tiết</a>
             </div>
             <div class="table-responsive">
@@ -294,7 +283,7 @@
         <!-- Recent Orders Table -->
         <div class="admin-card">
           <div class="card-header-bar">
-            <div class="card-header-title">🛒 Đơn Hàng Mới Nhất</div>
+            <div class="card-header-title">Đơn Hàng Mới Nhất</div>
             <a href="/admin/orders.html" class="btn btn-primary btn-sm">Quản lý toàn bộ đơn hàng</a>
           </div>
           <div class="table-responsive">

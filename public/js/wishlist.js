@@ -34,13 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="product-card-thumb">
             <img src="${thumb}" alt="${p.name}" loading="lazy">
             <button class="product-card-wishlist-btn active" onclick="removeFromWishlist('${p._id}')" title="Xóa khỏi yêu thích">
-              ❌
+              Xóa
             </button>
           </div>
           <div class="product-card-body">
             <div class="product-card-meta">
               <span class="product-card-brand">${brandName}</span>
-              <span class="product-card-rating">★ 5.0</span>
+              <span class="product-card-rating">5.0 / 5</span>
             </div>
             <h3 class="product-card-title">
               <a href="/product-detail.html?id=${p._id}">${p.name}</a>
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="product-card-actions">
               <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm btn-block">
-                🛒 Xem & Chọn Mua
+                Xem & Chọn Mua
               </a>
             </div>
           </div>

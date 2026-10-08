@@ -74,7 +74,7 @@ function renderCustomersTable(customers) {
         <td style="text-align: right;">
           <div style="display: flex; gap: 6px; justify-content: flex-end;">
             <button class="btn btn-secondary btn-sm" onclick="viewCustomerDetail('${c._id}')">
-              👁️ Xem
+              Xem
             </button>
             <button class="btn ${isBlocked ? 'btn-success' : 'btn-danger-outline'} btn-sm" onclick="toggleCustomerStatus('${c._id}', '${isBlocked ? 'active' : 'blocked'}', '${name.replace(/'/g, "\\'")}')">
               ${isBlocked ? 'Mở khóa' : 'Khóa'}

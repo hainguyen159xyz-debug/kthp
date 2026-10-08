@@ -84,11 +84,11 @@ function renderInventoryTable(items) {
 
     let statusBadge = '';
     if (avail === 0) {
-      statusBadge = '<span class="badge badge-danger">🚫 Hết hàng</span>';
+      statusBadge = '<span class="badge badge-danger">Hết hàng</span>';
     } else if (avail <= threshold) {
-      statusBadge = '<span class="badge badge-warning">⚠️ Sắp hết</span>';
+      statusBadge = '<span class="badge badge-warning">Sắp hết</span>';
     } else {
-      statusBadge = '<span class="badge badge-success">✓ Còn hàng</span>';
+      statusBadge = '<span class="badge badge-success">Còn hàng</span>';
     }
 
     return `
@@ -118,7 +118,7 @@ function renderInventoryTable(items) {
         <td style="text-align: right;">
           <div style="display: flex; gap: 6px; justify-content: flex-end;">
             <button class="btn btn-secondary btn-sm" onclick="openEditInventory('${item._id}')">
-              ⚙️ Điều chỉnh
+              Điều chỉnh
             </button>
             <a href="/admin/purchase-orders.html" class="btn btn-primary btn-sm" title="Nhập hàng từ NCC">
               + Nhập NCC

@@ -225,7 +225,7 @@ function renderLowStockAlerts(alerts) {
   if (!tbody) return;
 
   if (alerts.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--success); padding: 24px;">✓ Kho hàng ổn định, không có biến thể chạm ngưỡng cảnh báo</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--success); padding: 24px;">Kho hàng ổn định, không có biến thể chạm ngưỡng cảnh báo</td></tr>`;
     return;
   }
 
