@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập Quản Trị - SportZone Admin</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/admin-components.css">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top right, #1e1b4b, #0b0f19 70%);
+      padding: 20px;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .login-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .login-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .login-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .error-alert {
+      display: none;
+      padding: 12px 14px;
+      background-color: var(--danger-bg);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-radius: var(--radius-md);
+      color: #f87171;
+      font-size: 0.84rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .credentials-hint {
+      margin-top: 24px;
+      padding: 12px 14px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px dashed rgba(99, 102, 241, 0.3);
+      border-radius: var(--radius-md);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .credentials-hint strong {
+      color: #a5b4fc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-logo">👟</div>
+        <h1 class="login-title">SportZone Admin</h1>
+        <p class="login-desc">Hệ Thống Quản Trị Tồn Kho & Chuỗi Cung Ứng</p>
+      </div>
+
+      <div id="login-error-box" class="error-alert"></div>
+
+      <form id="admin-login-form">
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="login-email">Email Quản Trị <span class="req">*</span></label>
+          <input type="email" id="login-email" class="form-control" placeholder="admin@sportshoes.com" required autofocus>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label class="form-label" for="login-password">Mật Khẩu <span class="req">*</span></label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">
+          Đăng Nhập Quản Trị
+        </button>
+      </form>
+
+      <div class="credentials-hint">
+        <div>💡 <strong>Tài khoản Admin mặc định:</strong></div>
+        <div style="margin-top: 4px;">Email: <code>admin@sportshoes.com</code></div>
+        <div>Mật khẩu: <code>Admin123456</code></div>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <a href="/" style="font-size: 0.82rem; color: var(--text-dim); text-decoration: underline;">
+          ← Quay về cửa hàng khách hàng
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/admin/js/admin-api.js"></script>
+  <script src="/admin/js/admin-auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Nếu đã có token và là admin, chuyển sang dashboard
+      const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+      if (token && userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          if (user.role === 'admin') {
+            window.location.replace('/admin/dashboard.html');
+            return;
+          }
+        } catch (e) {}
+      }
+
+      // Check url params
+      const urlParams = new URLSearchParams(window.location.search);
+      const errorBox = document.getElementById('login-error-box');
+      if (urlParams.get('error') === 'unauthorized') {
+        errorBox.textContent = 'Tài khoản của bạn không có quyền Quản trị viên (Admin). Vui lòng đăng nhập với tài khoản Admin!';
+        errorBox.style.display = 'block';
+      }
+
+      const form = document.getElementById('admin-login-form');
+      const submitBtn = document.getElementById('btn-submit-login');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorBox.style.display = 'none';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Đang xác thực...';
+
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+
+        try {
+          await adminAuth.login(email, password);
+          adminToast.success('Đăng nhập thành công! Đang chuyển hướng...', 'Chào mừng');
+          setTimeout(() => {
+            window.location.href = '/admin/dashboard.html';
+          }, 800);
+        } catch (err) {
+          errorBox.textContent = err.message || 'Email hoặc mật khẩu không chính xác.';
+          errorBox.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Đăng Nhập Quản Trị';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

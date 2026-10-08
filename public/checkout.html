@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh Toán & Đặt Hàng - SportZone</title>
+  <meta name="description" content="Điền thông tin nhận hàng và chọn phương thức thanh toán để hoàn tất đơn hàng giày thể thao tại SportZone.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/client.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" id="nav-brand-logo">
+        <span class="logo-icon">👟</span> Sport<span>Zone</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-main-links">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/products.html">Sản phẩm</a></li>
+          <li><a href="/cart.html">Giỏ hàng</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/cart.html" class="nav-icon-btn" title="Quay lại giỏ hàng">
+          🛒
+          <span class="nav-badge-count" id="nav-cart-badge" style="display: none;">0</span>
+        </a>
+        <div id="nav-user-actions"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="breadcrumb" style="margin-top: 24px;">
+      <a href="/">Trang chủ</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="/cart.html">Giỏ hàng</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Thanh toán</span>
+    </div>
+
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div>
+        <h1 class="section-title">Thanh Toán Đơn Hàng</h1>
+        <p class="section-desc">Vui lòng kiểm tra kỹ địa chỉ nhận hàng và danh sách sản phẩm</p>
+      </div>
+    </div>
+
+    <!-- Checkout Grid -->
+    <div class="checkout-grid">
+      <!-- Left: Delivery Information & Payment Method -->
+      <div>
+        <!-- Shipping Address Card -->
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+            📍 Thông Tin Nhận Hàng
+          </h3>
+
+          <form id="checkout-form">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label" for="checkout-fullname">Họ và tên người nhận *</label>
+                <input type="text" id="checkout-fullname" class="form-control" placeholder="Nguyễn Văn A" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="checkout-phone">Số điện thoại liên hệ *</label>
+                <input type="tel" id="checkout-phone" class="form-control" placeholder="09xxxxxxxx" required>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label" for="checkout-city">Tỉnh / Thành phố *</label>
+                <input type="text" id="checkout-city" class="form-control" placeholder="TP. Hồ Chí Minh, Hà Nội..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="checkout-district">Quận / Huyện</label>
+                <input type="text" id="checkout-district" class="form-control" placeholder="Quận 1, Cầu Giấy...">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-street">Địa chỉ chi tiết (Số nhà, tên đường, phường/xã) *</label>
+              <input type="text" id="checkout-street" class="form-control" placeholder="Số 123 đường ABC, Phường XYZ" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-note">Ghi chú giao hàng (Tùy chọn)</label>
+              <textarea id="checkout-note" class="form-control" rows="2" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi đến..."></textarea>
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment Method Card -->
+        <div class="card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+            💳 Phương Thức Thanh Toán
+          </h3>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <label class="card" style="padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; border-color: var(--color-primary); background: var(--bg-surface);">
+              <input type="radio" name="paymentMethod" value="COD" checked style="accent-color: var(--color-primary);">
+              <div>
+                <strong style="display: block; font-size: 0.95rem;">💵 Thanh toán khi nhận hàng (COD)</strong>
+                <span style="font-size: 0.82rem; color: var(--text-muted);">Kiểm tra hàng trước khi thanh toán tiền mặt cho nhân viên giao hàng</span>
+              </div>
+            </label>
+
+            <label class="card" style="padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="bank_transfer" style="accent-color: var(--color-primary);">
+              <div>
+                <strong style="display: block; font-size: 0.95rem;">🏦 Chuyển khoản ngân hàng (Bank Transfer)</strong>
+                <span style="font-size: 0.82rem; color: var(--text-muted);">Quét mã QR thanh toán nhanh qua ứng dụng ngân hàng</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Order Review & Submit -->
+      <div>
+        <div class="summary-box">
+          <h3>Đơn Hàng Của Bạn</h3>
+
+          <!-- Items Mini List -->
+          <div id="checkout-items-mini-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 18px; display: flex; flex-direction: column; gap: 12px;">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <div class="summary-row">
+            <span>Tạm tính:</span>
+            <strong id="checkout-subtotal">0 ₫</strong>
+          </div>
+
+          <div class="summary-row" id="checkout-discount-row" style="display: none; color: var(--color-success);">
+            <span>Giảm giá (Mã <span id="checkout-promo-code"></span>):</span>
+            <strong id="checkout-discount-val">-0 ₫</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Phí vận chuyển:</span>
+            <span style="color: var(--color-success); font-weight: 600;">Miễn phí toàn quốc</span>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Tổng thanh toán:</span>
+            <span class="total-amount" id="checkout-final-total">0 ₫</span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-submit-order" style="margin-top: 24px;">
+            Xác nhận đặt hàng ➔
+          </button>
+
+          <p style="text-align: center; font-size: 0.8rem; color: var(--text-dim); margin-top: 12px;">
+            🔒 Thông tin của bạn được bảo mật tuyệt đối với hệ thống SportZone
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom">
+      <div>© 2026 SportZone Inc. Tất cả quyền được bảo lưu.</div>
+      <div>Quản trị chuỗi cung ứng tồn kho Just-In-Time</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

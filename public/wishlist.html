@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Sách Yêu Thích - SportZone</title>
+  <meta name="description" content="Danh sách những đôi giày thể thao bạn yêu thích nhất tại SportZone.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/client.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" id="nav-brand-logo">
+        <span class="logo-icon">👟</span> Sport<span>Zone</span>
+      </a>
+
+      <!-- Search Bar -->
+      <form class="nav-search" id="nav-search-form">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="nav-search-input" placeholder="Tìm kiếm sản phẩm..." autocomplete="off">
+      </form>
+
+      <nav>
+        <ul class="nav-links" id="nav-main-links">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/products.html">Sản phẩm</a></li>
+          <li><a href="/wishlist.html" class="active">Yêu thích</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/wishlist.html" class="nav-icon-btn" title="Yêu thích">
+          ❤️
+          <span class="nav-badge-count" id="nav-wishlist-badge" style="display: none;">0</span>
+        </a>
+
+        <a href="/cart.html" class="nav-icon-btn" title="Giỏ hàng">
+          🛒
+          <span class="nav-badge-count" id="nav-cart-badge" style="display: none;">0</span>
+        </a>
+
+        <div id="nav-user-actions"></div>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="breadcrumb" style="margin-top: 24px;">
+      <a href="/">Trang chủ</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Danh sách yêu thích</span>
+    </div>
+
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div>
+        <h1 class="section-title">Giày Thể Thao Yêu Thích</h1>
+        <p class="section-desc" id="wishlist-count-label">Những mẫu giày bạn đã lưu lại để tham khảo hoặc mua sau</p>
+      </div>
+    </div>
+
+    <!-- Wishlist Grid -->
+    <div class="product-grid" id="wishlist-products-grid">
+      <!-- Rendered dynamically -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="wishlist-empty-state" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">❤️</div>
+      <h3 class="empty-state-title">Danh sách yêu thích trống</h3>
+      <p class="empty-state-desc">Bạn chưa lưu sản phẩm nào. Hãy bấm biểu tượng trái tim ở các sản phẩm để lưu lại tại đây!</p>
+      <a href="/products.html" class="btn btn-primary">Khám phá sản phẩm ngay ➔</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom">
+      <div>© 2026 SportZone Inc. Tất cả quyền được bảo lưu.</div>
+      <div>Website bán giày thể thao quản trị chuỗi cung ứng JIT</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/wishlist.js"></script>
+</body>
+</html>

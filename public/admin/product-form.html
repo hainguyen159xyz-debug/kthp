@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông Tin Sản Phẩm - SportZone Admin</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/admin-components.css">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+  <style>
+    .variant-row {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">👟</div>
+        <div class="brand-info">
+          <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
+          <div class="brand-sub">Kho Vận & Bán Hàng</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Tổng quan</div>
+        <a href="/admin/dashboard.html" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="nav-section-title">Quản lý kho & SP</div>
+        <a href="/admin/products.html" class="nav-item active">
+          <span class="nav-icon">👟</span>
+          <span>Sản phẩm</span>
+        </a>
+        <a href="/admin/categories.html" class="nav-item">
+          <span class="nav-icon">🗂️</span>
+          <span>Danh mục</span>
+        </a>
+        <a href="/admin/brands.html" class="nav-item">
+          <span class="nav-icon">🏷️</span>
+          <span>Thương hiệu</span>
+        </a>
+        <a href="/admin/inventory.html" class="nav-item">
+          <span class="nav-icon">📦</span>
+          <span>Kho hàng (JIT)</span>
+        </a>
+
+        <div class="nav-section-title">Bán hàng & Chuỗi cung ứng</div>
+        <a href="/admin/orders.html" class="nav-item">
+          <span class="nav-icon">🛒</span>
+          <span>Đơn hàng</span>
+        </a>
+        <a href="/admin/customers.html" class="nav-item">
+          <span class="nav-icon">👥</span>
+          <span>Khách hàng</span>
+        </a>
+        <a href="/admin/suppliers.html" class="nav-item">
+          <span class="nav-icon">🏭</span>
+          <span>Nhà cung cấp</span>
+        </a>
+        <a href="/admin/purchase-orders.html" class="nav-item">
+          <span class="nav-icon">📝</span>
+          <span>Phiếu nhập hàng</span>
+        </a>
+
+        <div class="nav-section-title">Marketing & CSKH</div>
+        <a href="/admin/promotions.html" class="nav-item">
+          <span class="nav-icon">🎟️</span>
+          <span>Khuyến mãi</span>
+        </a>
+        <a href="/admin/reviews.html" class="nav-item">
+          <span class="nav-icon">⭐</span>
+          <span>Đánh giá</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" class="btn-storefront">
+          <span>🏪</span> Xem Cửa Hàng
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="breadcrumb-trail">
+            <a href="/admin/dashboard.html">Admin</a>
+            <span>/</span>
+            <a href="/admin/products.html">Sản Phẩm</a>
+            <span>/</span>
+            <span id="breadcrumb-current-action">Thêm Mới</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>MongoDB Live</span>
+          </div>
+
+          <div class="admin-profile">
+            <div class="admin-avatar" id="header-admin-avatar">A</div>
+            <div class="admin-info">
+              <span class="admin-name" id="header-admin-name">Administrator</span>
+              <span class="admin-role">Admin</span>
+            </div>
+          </div>
+
+          <button class="btn-logout" id="btn-admin-logout" title="Đăng xuất">
+            <span>🚪</span> Đăng xuất
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-container" style="max-width: 1000px;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title" id="form-heading">Thêm Sản Phẩm Giày Mới</h1>
+            <p class="page-subtitle">Nhập thông tin sản phẩm, cấu hình giá, hình ảnh và phân bổ biến thể tồn kho</p>
+          </div>
+          <div class="page-actions">
+            <a href="/admin/products.html" class="btn btn-secondary">
+              ← Quay lại danh sách
+            </a>
+          </div>
+        </div>
+
+        <form id="product-form">
+          <!-- 1. Thông tin cơ bản -->
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div class="card-header-title">📌 Thông Tin Chung</div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group col-span-2">
+                <label class="form-label" for="prod-name">Tên sản phẩm <span class="req">*</span></label>
+                <input type="text" id="prod-name" class="form-control" placeholder="Ví dụ: Giày Chạy Bộ Nike Air Zoom Pegasus 40" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="prod-brand">Thương hiệu <span class="req">*</span></label>
+                <select id="prod-brand" class="form-control" required>
+                  <option value="">-- Chọn thương hiệu --</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="prod-category">Danh mục <span class="req">*</span></label>
+                <select id="prod-category" class="form-control" required>
+                  <option value="">-- Chọn danh mục --</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="prod-cost-price">Giá vốn nhập NCC (₫)</label>
+                <input type="number" id="prod-cost-price" class="form-control" placeholder="1200000" min="0" value="0">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="prod-sale-price">Giá bán lẻ (₫) <span class="req">*</span></label>
+                <input type="number" id="prod-sale-price" class="form-control" placeholder="1850000" min="0" required>
+              </div>
+
+              <div class="form-group col-span-2">
+                <label class="form-label" for="prod-description">Mô tả sản phẩm</label>
+                <textarea id="prod-description" class="form-control" placeholder="Mô tả chất liệu, đệm êm, đối tượng sử dụng và đặc tính nổi bật..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Hình ảnh & Cài đặt nâng cao -->
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div class="card-header-title">🖼️ Hình Ảnh & Thiết Lập</div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label" for="prod-images">Đường dẫn hình ảnh (Mỗi link một dòng hoặc cách nhau bởi dấu phẩy)</label>
+              <textarea id="prod-images" class="form-control" style="min-height: 80px;" placeholder="https://images.unsplash.com/photo-1542291026-7eec264c27ff
+https://images.unsplash.com/photo-1608231387042-66d1773070a5"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+              <label class="form-check">
+                <input type="checkbox" id="prod-is-active" checked>
+                <span>Kích hoạt bán ngay (Active)</span>
+              </label>
+
+              <label class="form-check">
+                <input type="checkbox" id="prod-is-featured">
+                <span>⭐ Sản phẩm nổi bật (Featured)</span>
+              </label>
+
+              <label class="form-check">
+                <input type="checkbox" id="prod-is-fast-moving">
+                <span>🔥 Mặt hàng bán chạy (Ưu tiên tồn JIT)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Biến thể sản phẩm (Size + Màu + Tồn kho) -->
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div>
+                <div class="card-header-title">👟 Biến Thể Giày (Variants)</div>
+                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 2px;">
+                  Quản lý số lượng tồn kho theo từng Size và Màu sắc thực tế trong CSDL
+                </p>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-add-variant">
+                + Thêm biến thể
+              </button>
+            </div>
+
+            <div id="variants-container">
+              <!-- Variant rows rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+            <a href="/admin/products.html" class="btn btn-secondary">Hủy bỏ</a>
+            <button type="submit" id="btn-save-product" class="btn btn-primary" style="min-width: 160px;">
+              💾 Lưu Sản Phẩm
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/admin/js/admin-api.js"></script>
+  <script src="/admin/js/admin-auth.js"></script>
+  <script src="/admin/js/product-form.js"></script>
+</body>
+</html>

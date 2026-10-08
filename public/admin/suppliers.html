@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Nhà Cung Cấp - SportZone Admin</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/admin-components.css">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+</head>
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">👟</div>
+        <div class="brand-info">
+          <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
+          <div class="brand-sub">Kho Vận & Bán Hàng</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Tổng quan</div>
+        <a href="/admin/dashboard.html" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="nav-section-title">Quản lý kho & SP</div>
+        <a href="/admin/products.html" class="nav-item">
+          <span class="nav-icon">👟</span>
+          <span>Sản phẩm</span>
+        </a>
+        <a href="/admin/categories.html" class="nav-item">
+          <span class="nav-icon">🗂️</span>
+          <span>Danh mục</span>
+        </a>
+        <a href="/admin/brands.html" class="nav-item">
+          <span class="nav-icon">🏷️</span>
+          <span>Thương hiệu</span>
+        </a>
+        <a href="/admin/inventory.html" class="nav-item">
+          <span class="nav-icon">📦</span>
+          <span>Kho hàng (JIT)</span>
+        </a>
+
+        <div class="nav-section-title">Bán hàng & Chuỗi cung ứng</div>
+        <a href="/admin/orders.html" class="nav-item">
+          <span class="nav-icon">🛒</span>
+          <span>Đơn hàng</span>
+        </a>
+        <a href="/admin/customers.html" class="nav-item">
+          <span class="nav-icon">👥</span>
+          <span>Khách hàng</span>
+        </a>
+        <a href="/admin/suppliers.html" class="nav-item active">
+          <span class="nav-icon">🏭</span>
+          <span>Nhà cung cấp</span>
+        </a>
+        <a href="/admin/purchase-orders.html" class="nav-item">
+          <span class="nav-icon">📝</span>
+          <span>Phiếu nhập hàng</span>
+        </a>
+
+        <div class="nav-section-title">Marketing & CSKH</div>
+        <a href="/admin/promotions.html" class="nav-item">
+          <span class="nav-icon">🎟️</span>
+          <span>Khuyến mãi</span>
+        </a>
+        <a href="/admin/reviews.html" class="nav-item">
+          <span class="nav-icon">⭐</span>
+          <span>Đánh giá</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" class="btn-storefront">
+          <span>🏪</span> Xem Cửa Hàng
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="mobile-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="breadcrumb-trail">
+            <a href="/admin/dashboard.html">Admin</a>
+            <span>/</span>
+            <span>Nhà Cung Cấp</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>MongoDB Live</span>
+          </div>
+
+          <div class="admin-profile">
+            <div class="admin-avatar" id="header-admin-avatar">A</div>
+            <div class="admin-info">
+              <span class="admin-name" id="header-admin-name">Administrator</span>
+              <span class="admin-role">Admin</span>
+            </div>
+          </div>
+
+          <button class="btn-logout" id="btn-admin-logout" title="Đăng xuất">
+            <span>🚪</span> Đăng xuất
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Quản Lý Nhà Cung Cấp (Suppliers)</h1>
+            <p class="page-subtitle">Đối tác cung ứng phục vụ mô hình nhập hàng Just-In-Time</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn btn-primary" id="btn-open-create-supplier">
+              + Thêm Nhà Cung Cấp
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="admin-card" style="padding: 16px 20px; margin-bottom: 20px;">
+          <div class="toolbar-bar" style="margin-bottom: 0;">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="supplier-search" class="search-input" placeholder="Tìm kiếm theo tên nhà cung cấp, liên hệ, SĐT...">
+            </div>
+          </div>
+        </div>
+
+        <!-- Suppliers Table -->
+        <div class="admin-card">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Tên nhà cung cấp</th>
+                  <th>Người liên hệ</th>
+                  <th>Số điện thoại</th>
+                  <th>Email</th>
+                  <th>Địa chỉ</th>
+                  <th>Thời gian giao (Lead Time)</th>
+                  <th>Trạng thái</th>
+                  <th style="text-align: right;">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="suppliers-table-body">
+                <tr>
+                  <td colspan="8" style="text-align: center; color: var(--text-dim); padding: 40px;">Đang tải danh sách nhà cung cấp...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Create / Edit Supplier Modal -->
+  <div class="modal-overlay" id="supplier-modal">
+    <div class="modal-box modal-md">
+      <div class="modal-header">
+        <h3 class="modal-title" id="sup-modal-title">Thêm Nhà Cung Cấp Mới</h3>
+        <button class="modal-close" onclick="adminModal.close('supplier-modal')">&times;</button>
+      </div>
+      <form id="supplier-form">
+        <div class="modal-body">
+          <input type="hidden" id="sup-id">
+          
+          <div class="form-grid">
+            <div class="form-group col-span-2">
+              <label class="form-label" for="sup-name">Tên nhà cung cấp <span class="req">*</span></label>
+              <input type="text" id="sup-name" class="form-control" placeholder="Ví dụ: Công ty Phân Phối Thể Thao Nike VN" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-contact">Người liên hệ</label>
+              <input type="text" id="sup-contact" class="form-control" placeholder="Nguyễn Văn A">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-phone">Số điện thoại <span class="req">*</span></label>
+              <input type="text" id="sup-phone" class="form-control" placeholder="0901234567" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-email">Email liên hệ <span class="req">*</span></label>
+              <input type="email" id="sup-email" class="form-control" placeholder="supplier@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-leadtime">Thời gian cung ứng (Số ngày)</label>
+              <input type="number" id="sup-leadtime" class="form-control" min="1" value="2" placeholder="2">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="sup-address">Địa chỉ kho NCC</label>
+              <input type="text" id="sup-address" class="form-control" placeholder="Khu Công Nghiệp Tân Bình, TP.HCM">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-check">
+                <input type="checkbox" id="sup-status" checked>
+                <span>Đang hợp tác (Active)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="adminModal.close('supplier-modal')">Hủy</button>
+          <button type="submit" class="btn btn-primary btn-sm" id="btn-save-supplier">Lưu Nhà Cung Cấp</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/js/admin-api.js"></script>
+  <script src="/admin/js/admin-auth.js"></script>
+  <script src="/admin/js/suppliers.js"></script>
+</body>
+</html>

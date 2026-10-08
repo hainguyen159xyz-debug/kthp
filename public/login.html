@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập Tài Khoản - SportZone</title>
+  <meta name="description" content="Đăng nhập tài khoản SportZone để quản lý đơn hàng giày thể thao và nhận các ưu đãi độc quyền.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/client.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header Minimal -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <span class="logo-icon">👟</span> Sport<span>Zone</span>
+      </a>
+      <a href="/" class="btn btn-secondary btn-sm">Quay về trang chủ</a>
+    </div>
+  </header>
+
+  <!-- Main Login Form -->
+  <main class="container" style="display: flex; align-items: center; justify-content: center; min-height: 70vh; padding: 40px 20px;">
+    <div class="card" style="width: 100%; max-width: 440px; padding: 36px 30px;">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <span style="font-size: 2.5rem; display: inline-block; margin-bottom: 8px;">🔑</span>
+        <h1 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 6px;">Chào Mừng Trở Lại</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Đăng nhập để theo dõi đơn hàng và giỏ hàng của bạn</p>
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email đăng nhập</label>
+          <input type="email" id="login-email" class="form-control" placeholder="example@email.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Mật khẩu</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; font-size: 0.88rem;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-muted);">
+            <input type="checkbox" id="remember-me" checked style="accent-color: var(--color-primary);">
+            <span>Ghi nhớ đăng nhập</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn-login-submit">
+          Đăng nhập ngay ➔
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">
+        Chưa có tài khoản?
+        <a href="/register.html" style="color: var(--color-primary); font-weight: 700; margin-left: 4px;">Đăng ký miễn phí</a>
+      </div>
+
+      <!-- Quick Demo Credentials Box -->
+      <div style="margin-top: 24px; padding: 14px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-dim);">
+        <strong>Tài khoản thử nghiệm có sẵn:</strong><br>
+        • Khách hàng: <code>customer@sportshoes.com</code> / <code>Customer123456</code><br>
+        • Admin: <code>admin@sportshoes.com</code> / <code>Admin123456</code>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom">
+      <div>© 2026 SportZone Inc. Tất cả quyền được bảo lưu.</div>
+      <div>Bảo mật xác thực JWT & mật khẩu băm bcrypt</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Nếu đã đăng nhập thì tự động chuyển hướng
+      if (window.api.isLoggedIn()) {
+        const redirect = new URLSearchParams(window.location.search).get('redirect') || '/index.html';
+        window.location.href = redirect;
+        return;
+      }
+
+      const form = document.getElementById('login-form');
+      const btnSubmit = document.getElementById('btn-login-submit');
+
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = '⏳ Đang đăng nhập...';
+
+        const success = await window.auth.login(email, password);
+        if (!success) {
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = 'Đăng nhập ngay ➔';
+        }
+      };
+    });
+  </script>
+</body>
+</html>

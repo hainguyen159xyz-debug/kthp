@@ -1,0 +1,179 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN RULES - SPORT SHOES E-COMMERCE
+   ========================================================================== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .nav-search {
+    max-width: 240px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .catalog-layout {
+    grid-template-columns: 240px 1fr !important;
+  }
+
+  .product-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .cart-grid, .checkout-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile & Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    align-items: flex-start;
+    display: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.05rem;
+    width: 100%;
+  }
+
+  .nav-search {
+    display: none; /* In mobile, search can be placed in hero or mobile search bar */
+  }
+
+  .hero h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .hero p {
+    font-size: 1rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .status-card {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .status-indicator {
+    flex-direction: column;
+  }
+
+  .catalog-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .filter-sidebar {
+    display: none; /* Hidden by default on mobile, toggleable */
+  }
+
+  .filter-sidebar.open-mobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background: var(--bg-card);
+    z-index: 2000;
+    padding: 24px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .mobile-filter-trigger {
+    display: flex !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  #toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    min-width: 100%;
+  }
+
+  .order-history-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .brand-logo {
+    font-size: 1.25rem;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-icon-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cart-table th:nth-child(3),
+  .cart-table td:nth-child(3) {
+    display: none; /* Hide unit price column on tiny screens */
+  }
+}

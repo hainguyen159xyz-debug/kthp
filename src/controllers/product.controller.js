@@ -29,7 +29,9 @@ exports.getProducts = async (req, res, next) => {
 
     // Chỉ lọc sản phẩm active cho khách, hoặc theo status nếu admin truyền vào
     if (status) {
-      filter.status = status;
+      if (status !== 'all') {
+        filter.status = status;
+      }
     } else {
       filter.status = 'active';
     }

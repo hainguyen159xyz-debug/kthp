@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đơn Hàng Của Tôi - SportZone</title>
+  <meta name="description" content="Tra cứu lịch sử và theo dõi trạng thái giao hàng các đơn hàng giày thể thao tại SportZone.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/client.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" id="nav-brand-logo">
+        <span class="logo-icon">👟</span> Sport<span>Zone</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-main-links">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/products.html">Sản phẩm</a></li>
+          <li><a href="/orders.html" class="active">Đơn hàng</a></li>
+          <li><a href="/wishlist.html">Yêu thích</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/wishlist.html" class="nav-icon-btn" title="Yêu thích">
+          ❤️
+          <span class="nav-badge-count" id="nav-wishlist-badge" style="display: none;">0</span>
+        </a>
+
+        <a href="/cart.html" class="nav-icon-btn" title="Giỏ hàng">
+          🛒
+          <span class="nav-badge-count" id="nav-cart-badge" style="display: none;">0</span>
+        </a>
+
+        <div id="nav-user-actions"></div>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="breadcrumb" style="margin-top: 24px;">
+      <a href="/">Trang chủ</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Đơn hàng của tôi</span>
+    </div>
+
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div>
+        <h1 class="section-title">Lịch Sử Đơn Hàng</h1>
+        <p class="section-desc">Theo dõi tiến trình xử lý và vận chuyển đơn hàng của bạn</p>
+      </div>
+    </div>
+
+    <!-- Status Tabs -->
+    <div class="order-tabs-nav" id="order-status-tabs">
+      <button class="order-tab-btn active" data-status="all">Tất cả</button>
+      <button class="order-tab-btn" data-status="pending">Chờ xác nhận</button>
+      <button class="order-tab-btn" data-status="processing">Đang xử lý</button>
+      <button class="order-tab-btn" data-status="shipping">Đang giao</button>
+      <button class="order-tab-btn" data-status="completed">Đã hoàn thành</button>
+      <button class="order-tab-btn" data-status="cancelled">Đã hủy</button>
+    </div>
+
+    <!-- Orders List Container -->
+    <div id="orders-list-container">
+      <div class="card skeleton" style="height: 180px; margin-bottom: 20px;"></div>
+      <div class="card skeleton" style="height: 180px; margin-bottom: 20px;"></div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="orders-empty-state" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">📦</div>
+      <h3 class="empty-state-title">Bạn chưa có đơn hàng nào</h3>
+      <p class="empty-state-desc">Hãy dạo quanh cửa hàng và chọn cho mình những đôi giày thể thao ưng ý nhất!</p>
+      <a href="/products.html" class="btn btn-primary">Khám phá sản phẩm ngay ➔</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom">
+      <div>© 2026 SportZone Inc. Tất cả quyền được bảo lưu.</div>
+      <div>Hệ thống bán giày thể thao quản trị chuỗi cung ứng JIT</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/orders.js"></script>
+</body>
+</html>

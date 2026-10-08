@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tất Cả Sản Phẩm - SportZone</title>
+  <meta name="description" content="Danh mục giày thể thao chính hãng đa dạng mẫu mã, công nghệ đệm cao cấp và giá tốt nhất tại SportZone.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/client.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" id="nav-brand-logo">
+        <span class="logo-icon">👟</span> Sport<span>Zone</span>
+      </a>
+
+      <!-- Search Bar -->
+      <form class="nav-search" id="nav-search-form">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="nav-search-input" placeholder="Tìm kiếm sản phẩm..." autocomplete="off">
+      </form>
+
+      <nav>
+        <ul class="nav-links" id="nav-main-links">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/products.html" class="active">Sản phẩm</a></li>
+          <li><a href="/products.html?gender=men">Nam</a></li>
+          <li><a href="/products.html?gender=women">Nữ</a></li>
+          <li><a href="/wishlist.html">Yêu thích</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/wishlist.html" class="nav-icon-btn" title="Yêu thích">
+          ❤️
+          <span class="nav-badge-count" id="nav-wishlist-badge" style="display: none;">0</span>
+        </a>
+
+        <a href="/cart.html" class="nav-icon-btn" title="Giỏ hàng">
+          🛒
+          <span class="nav-badge-count" id="nav-cart-badge" style="display: none;">0</span>
+        </a>
+
+        <div id="nav-user-actions"></div>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" style="margin-top: 24px;">
+      <a href="/">Trang chủ</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Danh mục sản phẩm</span>
+    </div>
+
+    <!-- Catalog Layout -->
+    <div class="catalog-layout">
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar" id="catalog-filter-sidebar">
+        <div class="filter-sidebar-header">
+          <h3>Bộ Lọc Sản Phẩm</h3>
+          <button class="filter-reset-btn" id="btn-reset-filters">Xóa bộ lọc</button>
+        </div>
+
+        <!-- Filter: Categories -->
+        <div class="filter-section">
+          <div class="filter-title">Danh mục</div>
+          <div class="filter-list" id="filter-categories-list">
+            <label class="filter-item">
+              <input type="radio" name="category" value="" checked>
+              <span>Tất cả danh mục</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Brands -->
+        <div class="filter-section">
+          <div class="filter-title">Thương hiệu</div>
+          <div class="filter-list" id="filter-brands-list">
+            <label class="filter-item">
+              <input type="radio" name="brand" value="" checked>
+              <span>Tất cả thương hiệu</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Sizes -->
+        <div class="filter-section">
+          <div class="filter-title">Kích thước (Size)</div>
+          <div class="size-pill-group" id="filter-sizes-group">
+            <button type="button" class="option-pill" data-size="39">39</button>
+            <button type="button" class="option-pill" data-size="40">40</button>
+            <button type="button" class="option-pill" data-size="41">41</button>
+            <button type="button" class="option-pill" data-size="42">42</button>
+            <button type="button" class="option-pill" data-size="43">43</button>
+          </div>
+        </div>
+
+        <!-- Filter: Colors -->
+        <div class="filter-section">
+          <div class="filter-title">Màu sắc</div>
+          <div class="filter-list" id="filter-colors-list">
+            <label class="filter-item">
+              <input type="radio" name="color" value="" checked>
+              <span>Tất cả màu sắc</span>
+            </label>
+            <label class="filter-item">
+              <input type="radio" name="color" value="Black">
+              <span>Đen (Black)</span>
+            </label>
+            <label class="filter-item">
+              <input type="radio" name="color" value="White">
+              <span>Trắng (White)</span>
+            </label>
+            <label class="filter-item">
+              <input type="radio" name="color" value="Orange">
+              <span>Cam (Orange)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Price Range -->
+        <div class="filter-section">
+          <div class="filter-title">Khoảng giá (VNĐ)</div>
+          <div class="price-inputs">
+            <input type="number" id="filter-min-price" class="price-input" placeholder="Từ" min="0" step="100000">
+            <span>-</span>
+            <input type="number" id="filter-max-price" class="price-input" placeholder="Đến" min="0" step="100000">
+          </div>
+          <button class="btn btn-secondary btn-sm btn-block" id="btn-apply-price" style="margin-top: 10px;">Áp dụng giá</button>
+        </div>
+      </aside>
+
+      <!-- Products Grid & Toolbar -->
+      <section>
+        <!-- Toolbar -->
+        <div class="catalog-toolbar">
+          <div class="catalog-toolbar-left" id="catalog-count-label">
+            Đang tải dữ liệu sản phẩm...
+          </div>
+          <div class="catalog-toolbar-right">
+            <button class="btn btn-secondary btn-sm mobile-filter-trigger" id="btn-mobile-filter">
+              🔍 Lọc
+            </button>
+            <label for="sort-select" style="font-size: 0.9rem; color: var(--text-muted);">Sắp xếp:</label>
+            <select id="sort-select" class="sort-select">
+              <option value="createdAt-desc">Mới nhất</option>
+              <option value="salePrice-asc">Giá: Thấp đến Cao</option>
+              <option value="salePrice-desc">Giá: Cao đến Thấp</option>
+              <option value="totalSold-desc">Bán chạy nhất</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid Container -->
+        <div class="product-grid" id="catalog-products-grid">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="catalog-empty-state" class="empty-state" style="display: none;">
+          <div class="empty-state-icon">👟</div>
+          <h3 class="empty-state-title">Không tìm thấy sản phẩm nào</h3>
+          <p class="empty-state-desc">Rất tiếc, không có sản phẩm nào phù hợp với bộ lọc hoặc từ khóa tìm kiếm của bạn.</p>
+          <button class="btn btn-primary" id="btn-empty-reset">Xem tất cả sản phẩm</button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container" id="catalog-pagination"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom">
+      <div>© 2026 SportZone Inc. Tất cả quyền được bảo lưu.</div>
+      <div>Website giày thể thao mô hình JIT • Backend MongoDB Atlas</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/products.js"></script>
+</body>
+</html>

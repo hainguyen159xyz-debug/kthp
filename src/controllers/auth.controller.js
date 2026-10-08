@@ -175,3 +175,92 @@ exports.getMe = async (req, res, next) => {
 };
 
 exports.getProfile = exports.getMe;
+
+/**
+ * Cập nhật thông tin cá nhân (PUT /api/auth/profile)
+ */
+exports.updateProfile = async (req, res, next) => {
+  try {
+    const { name, fullName, phone, address } = req.body;
+    const updateName = name || fullName;
+
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'Không tìm thấy người dùng.',
+        errors: ['Người dùng không tồn tại']
+      });
+    }
+
+    if (updateName) {
+      user.name = updateName;
+      user.fullName = updateName;
+    }
+    if (phone !== undefined) user.phone = phone;
+    if (address !== undefined) user.address = address;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'Cập nhật thông tin thành công.',
+      data: user
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Đổi mật khẩu (PUT /api/auth/change-password)
+ */
+exports.changePassword = async (req, res, next) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({
+        success: false,
+        message: 'Vui lòng nhập mật khẩu hiện tại và mật khẩu mới.',
+        errors: ['Thiếu mật khẩu']
+      });
+    }
+
+    if (newPassword.length < 6) {
+      return res.status(400).json({
+        success: false,
+        message: 'Mật khẩu mới phải từ 6 ký tự trở lên.',
+        errors: ['Mật khẩu quá ngắn']
+      });
+    }
+
+    const user = await User.findById(req.user.id).select('+password');
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'Không tìm thấy người dùng.',
+        errors: ['Người dùng không tồn tại']
+      });
+    }
+
+    const isMatch = await user.comparePassword(currentPassword);
+    if (!isMatch) {
+      return res.status(400).json({
+        success: false,
+        message: 'Mật khẩu hiện tại không đúng.',
+        errors: ['Mật khẩu hiện tại sai']
+      });
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'Đổi mật khẩu thành công.'
+    });
+  } catch (error) {
+    next(error);
+  }
+};
