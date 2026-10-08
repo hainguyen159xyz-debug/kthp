@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Quản Trị Tồn Kho SportZone</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        👟 SportZone <span>Admin</span>
+      </div>
+
+      <nav>
+        <ul class="admin-nav">
+          <li><a href="/admin" class="active" id="menu-dashboard">📊 Tổng quan (Dashboard)</a></li>
+          <li><a href="#products" id="menu-products">👟 Quản lý sản phẩm</a></li>
+          <li><a href="#inventory" id="menu-inventory">📦 Quản lý tồn kho JIT</a></li>
+          <li><a href="#orders" id="menu-orders">🛒 Quản lý đơn hàng</a></li>
+          <li><a href="#suppliers" id="menu-suppliers">🏭 Nhà cung cấp</a></li>
+          <li><a href="#purchase-orders" id="menu-po">📝 Phiếu nhập hàng</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-color);">
+        <a href="/" class="btn btn-secondary" style="width: 100%;" id="btn-back-storefront">← Xem Storefront</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <div>
+          <h1 style="font-size: 1.8rem; font-weight: 700;">Bảng Điều Khiển Quản Trị Kho</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Theo dõi doanh thu, chi phí nhập hàng từ NCC và rủi ro tồn kho</p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <span class="badge badge-in-stock" id="admin-session-badge">Admin System Ready</span>
+        </div>
+      </header>
+
+      <!-- KPI Cards -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Tổng Doanh Thu Bán</div>
+          <div class="kpi-value" id="kpi-revenue">0 ₫</div>
+          <div class="kpi-sub">Doanh thu từ các đơn hàng</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">Chi Phí Nhập Hàng (NCC)</div>
+          <div class="kpi-value" id="kpi-cost" style="color: var(--color-warning);">0 ₫</div>
+          <div class="kpi-sub" style="color: var(--text-muted);">Giá vốn hàng đã nhập kho</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">Lợi Nhuận Gộp Ước Tính</div>
+          <div class="kpi-value" id="kpi-profit" style="color: var(--color-success);">0 ₫</div>
+          <div class="kpi-sub">Doanh thu - Chi phí nhập</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-title">Đơn Chờ Nhập Hàng (JIT)</div>
+          <div class="kpi-value" id="kpi-waiting-orders" style="color: var(--color-primary);">0</div>
+          <div class="kpi-sub" style="color: var(--text-muted);">Đơn hàng thiếu tồn cần nhập NCC</div>
+        </div>
+      </section>
+
+      <!-- Low Stock Alert Table -->
+      <section class="card" style="margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h2 style="font-size: 1.2rem; font-weight: 700;">⚠️ Cảnh Báo Tồn Kho Thấp & Cần Nhập Hàng (JIT Alerts)</h2>
+          <span class="badge badge-backorder" id="badge-low-stock-count">0 mặt hàng</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">
+          Các biến thể giày có số lượng thực tế trong kho chạm ngưỡng hoặc bằng 0, cần tạo phiếu yêu cầu nhập từ nhà cung cấp.
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Sản phẩm</th>
+                <th>Mã SKU</th>
+                <th>Size</th>
+                <th>Màu sắc</th>
+                <th>Tồn kho hiện tại</th>
+                <th>Phân loại</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="low-stock-table-body">
+              <tr>
+                <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 30px;">
+                  Chưa có dữ liệu sản phẩm trong CSDL hoặc toàn bộ sản phẩm đang an toàn.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Business Workflow Note -->
+      <section class="card">
+        <h3 style="margin-bottom: 12px; font-size: 1.1rem;">📌 Quy trình quản lý đơn hàng & chuỗi cung ứng</h3>
+        <ol style="padding-left: 20px; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+          <li>Khách hàng đặt giày → Hệ thống kiểm tra tồn kho của từng biến thể (Size + Màu).</li>
+          <li><strong>Nếu còn hàng:</strong> Trừ tồn kho ngay lập tức, chuyển trạng thái đơn hàng sang <em>In-Stock (Sẵn sàng đóng gói)</em>.</li>
+          <li><strong>Nếu hết hàng:</strong> Đánh dấu <em>Waiting Supplier</em>, hiển thị cảnh báo tại Dashboard để Admin tạo phiếu nhập <em>(Purchase Order)</em>.</li>
+          <li>Khi nhà cung cấp giao hàng tới kho → Admin bấm <em>"Xác nhận nhập kho"</em> → Hệ thống tự động cộng tồn kho và chuyển đơn hàng sang đóng gói giao khách.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

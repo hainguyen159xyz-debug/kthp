@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportZone - Nền Tảng Giày Thể Thao & Quản Trị Tồn Kho JIT</title>
+  <meta name="description" content="Hệ thống bán giày thể thao chính hãng áp dụng mô hình quản trị tồn kho Just-In-Time, giảm thiểu rủi ro đọng vốn và tối ưu dòng tiền.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/client.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" id="nav-brand-logo">
+        👟 Sport<span>Zone</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/" class="active" id="nav-link-home">Trang chủ</a></li>
+          <li><a href="#inventory-model" id="nav-link-model">Mô hình tồn kho JIT</a></li>
+          <li><a href="#features" id="nav-link-features">Tính năng</a></li>
+          <li><a href="/admin" id="nav-link-admin">Admin Portal</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#api-status-section" class="btn btn-secondary" id="btn-api-status">Kiểm tra API</a>
+        <a href="/admin" class="btn btn-primary" id="btn-to-admin">Vào trang quản trị</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-tag">⚡ Giải pháp quản trị chuỗi cung ứng thương mại điện tử</div>
+      <h1>Hệ Thống Bán Giày Thể Thao <br><span class="highlight">Quản Trị Tồn Kho Just-In-Time</span></h1>
+      <p>
+        Mô hình kết hợp thông minh: Lưu trữ lượng nhỏ cho sản phẩm bán chạy,
+        đặt hàng trực tiếp từ nhà cung cấp cho sản phẩm bán chậm hoặc hết kho.
+        Giảm thiểu rủi ro tồn kho, tối ưu hóa vốn lưu động.
+      </p>
+      <div class="hero-actions">
+        <a href="/admin" class="btn btn-primary" id="hero-admin-btn">Trải nghiệm Admin Dashboard</a>
+        <a href="#inventory-model" class="btn btn-secondary" id="hero-model-btn">Tìm hiểu mô hình JIT</a>
+      </div>
+    </section>
+
+    <!-- System Status Section -->
+    <section id="api-status-section" class="status-card">
+      <div class="status-indicator">
+        <div class="status-dot"></div>
+        <div>
+          <strong id="api-status">Đang kết nối tới Backend...</strong>
+          <div id="server-time" style="font-size: 0.85rem; color: var(--text-dim);">Vui lòng chờ giây lát...</div>
+        </div>
+      </div>
+      <div>
+        <span class="badge badge-in-stock">Node.js Express + MongoDB</span>
+      </div>
+    </section>
+
+    <!-- Business & Inventory Model -->
+    <section id="inventory-model">
+      <h2 class="section-title">Bài Toán Kinh Tế & Mô Hình Tồn Kho</h2>
+      <p class="section-desc">Cách SportZone giải quyết bài toán vốn tồn đọng trong ngành bán lẻ giày thể thao</p>
+
+      <div class="grid-3">
+        <div class="feature-box">
+          <div class="feature-icon">🔥</div>
+          <h3>Sản Phẩm Bán Chạy (Fast-Moving)</h3>
+          <p>
+            Nhập lượng tồn kho an toàn nhỏ (Safety Stock). Khách hàng đặt mua được giao ngay từ kho lưu trữ.
+            Tự động cảnh báo khi tồn kho giảm xuống dưới ngưỡng an toàn.
+          </p>
+          <div style="margin-top: 16px;">
+            <span class="badge badge-in-stock">In-Stock Fulfillment</span>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">⏱️</div>
+          <h3>Sản Phẩm Bán Chậm (On-Demand / JIT)</h3>
+          <p>
+            Không lưu kho nhiều để tránh rủi ro hạ giá/lỗi mốt. Khi khách hàng đặt hàng,
+            hệ thống tự động kích hoạt tạo yêu cầu nhập từ nhà cung cấp liên kết.
+          </p>
+          <div style="margin-top: 16px;">
+            <span class="badge badge-backorder">Backorder Fulfillment</span>
+          </div>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon">🤝</div>
+          <h3>Quản Trị Nhà Cung Cấp & Phiếu Nhập</h3>
+          <p>
+            Admin theo dõi tiến độ phiếu nhập từ lúc gửi yêu cầu, NCC xác nhận,
+            hàng chuyển về kho và tự động tăng số lượng tồn khi nhận hàng.
+          </p>
+          <div style="margin-top: 16px;">
+            <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: var(--color-accent); border: 1px solid rgba(59, 130, 246, 0.3);">
+              Supplier Lead Time
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Features -->
+    <section id="features">
+      <h2 class="section-title">Kiến Trúc Kỹ Thuật Đạt Chuẩn</h2>
+      <p class="section-desc">Thiết kế phân lớp rõ ràng, chuẩn RESTful API, bảo mật cao và dễ dàng mở rộng</p>
+
+      <div class="grid-3">
+        <div class="feature-box">
+          <div class="feature-icon">🔒</div>
+          <h3>Bảo Mật & Phân Quyền</h3>
+          <p>JWT Token cho phiên đăng nhập, mật khẩu được băm an toàn bằng bcrypt, RBAC phân quyền chặt chẽ giữa Khách hàng và Admin.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">📊</div>
+          <h3>Dashboard Quản Trị</h3>
+          <p>Báo cáo doanh thu, chi phí nhập hàng từ nhà cung cấp, lợi nhuận gộp ước tính, cảnh báo hết hàng cho từng mã SKU.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">👥</div>
+          <h3>Cấu Trúc Cho Nhóm 3 Người</h3>
+          <p>Tách biệt rõ ràng giữa Backend Core/Kho hàng, Storefront Catalog/Orders, và Admin Portal giúp làm việc trên Git song song không xung đột.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 SportZone E-Commerce & Inventory Management Platform. Dự án thực hành công nghệ Web.</p>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
