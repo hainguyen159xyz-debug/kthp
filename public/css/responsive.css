@@ -26,12 +26,8 @@
     grid-template-columns: 1fr !important;
   }
 
-  .hero-v2 {
-    padding: 50px 24px !important;
-  }
-
-  .hero-v2-title {
-    font-size: 2.6rem !important;
+  .hero-campaign-section {
+    margin: 18px 0 40px !important;
   }
 }
 
@@ -75,19 +71,8 @@
     display: none; /* In mobile, search can be placed in hero or mobile search bar */
   }
 
-  .hero h1,
-  .hero-v2-title {
-    font-size: 2rem !important;
-  }
-
-  .hero-v2 {
-    padding: 30px 18px !important;
-    margin: 16px 0 40px !important;
-  }
-
-  .hero p,
-  .hero-v2-desc {
-    font-size: 0.95rem !important;
+  .hero-campaign-section {
+    margin: 12px 0 32px !important;
   }
 
   .hero-actions {

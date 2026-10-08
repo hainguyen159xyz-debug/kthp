@@ -62,32 +62,35 @@
   <!-- Main Content -->
   <main class="container">
 
-    <!-- Hero Section V2 (Centered Hero with Faded Running Background) -->
-    <section class="hero-v2">
-      <div class="hero-v2-bg" aria-hidden="true"></div>
-      <div class="hero-v2-overlay" aria-hidden="true"></div>
-      <div class="hero-v2-content">
-        <div class="hero-v2-tag">CHÍNH HÃNG 100% • MÔ HÌNH TỒN KHO JUST-IN-TIME • BỘ SƯU TẬP 2026</div>
-        <h1 class="hero-v2-title">
-          BƯỚC CHẠY BỨT PHÁ <br>
-          <span class="hero-gradient-text">PHONG CÁCH ĐỈNH CAO</span>
-        </h1>
-        <p class="hero-v2-desc">
-          Trải nghiệm công nghệ đệm khí tiên tiến và thiết kế thể thao đỉnh cao từ các thương hiệu hàng đầu thế giới.
-          Mô hình Just-In-Time tối ưu chi phí lưu kho, mang lại mức giá tốt nhất cùng nguồn hàng chuẩn xác.
-        </p>
-        <div class="hero-v2-actions">
-          <a href="/products.html" class="btn btn-primary btn-lg">Khám phá bộ sưu tập</a>
-          <a href="/products.html?isFastMoving=true" class="btn btn-secondary btn-lg">Hàng sẵn giao ngay</a>
-        </div>
+    <!-- Hero Campaign Banner (Adidas Marathon Style) -->
+    <section class="hero-campaign-section">
+      <div class="hero-campaign-banner">
+        <a href="/products.html" class="hero-campaign-wrapper" title="Sẵn sàng cho ngày đua bắt đầu từ hôm nay - Mua ngay">
+          <img src="/images/hero-banner.png" alt="Sẵn sàng cho ngày đua bắt đầu từ hôm nay - SportZone" class="hero-campaign-img">
+          
+          <!-- Interactive CTA button positioned over "Mua ngay →" -->
+          <div class="hero-campaign-cta-btn" aria-label="Mua ngay">
+            <span>Mua ngay</span>
+            <span class="hero-campaign-arrow">→</span>
+          </div>
+        </a>
+      </div>
 
-        <!-- Trust Metric Strip -->
-        <div class="hero-trust-bar">
-          <span class="hero-trust-item">100% CHÍNH HÃNG</span>
-          <span class="hero-trust-item">GIAO VẬN JIT TỐI ƯU</span>
-          <span class="hero-trust-item">30 NGÀY ĐỔI TRẢ</span>
-          <span class="hero-trust-item">HỖ TRỢ 24/7</span>
-        </div>
+      <!-- Trust Metric Strip -->
+      <div class="hero-campaign-trust-bar">
+        <span class="hero-trust-item">100% CHÍNH HÃNG</span>
+        <span class="hero-trust-item">GIAO VẬN JIT TỐI ƯU</span>
+        <span class="hero-trust-item">30 NGÀY ĐỔI TRẢ</span>
+        <span class="hero-trust-item">HỖ TRỢ 24/7</span>
+      </div>
+
+      <!-- Mobile Fallback Content Block (for small screens < 640px) -->
+      <div class="hero-campaign-mobile-box">
+        <div class="hero-campaign-mobile-tag">SẴN SÀNG CHO NGÀY ĐUA BẮT ĐẦU TỪ HÔM NAY.</div>
+        <p class="hero-campaign-mobile-desc">
+          Dù bạn đang hướng tới thành tích cá nhân tốt nhất hay chuẩn bị chinh phục vạch đích đầu tiên, hãy tìm mọi thứ bạn cần cho mùa giải marathon sắp tới.
+        </p>
+        <a href="/products.html" class="btn btn-primary btn-block">Mua ngay →</a>
       </div>
     </section>
 
