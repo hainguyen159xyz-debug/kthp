@@ -196,12 +196,12 @@ function renderTopProductsTable(products) {
   }
 
   tbody.innerHTML = products.map((p) => {
-    const imgUrl = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100';
+    const imgUrl = (p.images && p.images[0]) || '/images/shoes/1.jpg';
     return `
       <tr>
         <td>
           <div class="table-product-cell">
-            <img src="${imgUrl}" alt="${p.name}" class="table-product-thumb" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100'">
+            <img src="${imgUrl}" alt="${p.name}" class="table-product-thumb" onerror="this.src='/images/shoes/1.jpg'">
             <div class="table-product-info">
               <span class="table-product-name">${p.name}</span>
             </div>

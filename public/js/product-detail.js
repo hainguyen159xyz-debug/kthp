@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Image Gallery
         const images = product.images && product.images.length > 0
           ? product.images
-          : ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600'];
+          : ['/images/shoes/1.jpg'];
 
         mainImg.src = images[0];
         thumbRow.innerHTML = images.map((imgUrl, idx) => `
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         relatedGrid.innerHTML = filtered.map((p) => {
-          const thumb = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600';
+          const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
           return `
             <div class="product-card">
               <div class="product-card-thumb">

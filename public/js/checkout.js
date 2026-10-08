@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Render mini items
         itemsMiniList.innerHTML = items.map((item) => {
           const p = item.product || {};
-          const thumb = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600';
+          const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
           const lineTotal = item.price * item.quantity;
 
           return `

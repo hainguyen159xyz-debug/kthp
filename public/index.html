@@ -62,8 +62,10 @@
   <!-- Main Content -->
   <main class="container">
 
-    <!-- Hero Section V2 (Modern Split Editorial Layout) -->
+    <!-- Hero Section V2 (Centered Hero with Faded Running Background) -->
     <section class="hero-v2">
+      <div class="hero-v2-bg" aria-hidden="true"></div>
+      <div class="hero-v2-overlay" aria-hidden="true"></div>
       <div class="hero-v2-content">
         <div class="hero-v2-tag">CHÍNH HÃNG 100% • MÔ HÌNH TỒN KHO JUST-IN-TIME • BỘ SƯU TẬP 2026</div>
         <h1 class="hero-v2-title">
@@ -85,23 +87,6 @@
           <span class="hero-trust-item">GIAO VẬN JIT TỐI ƯU</span>
           <span class="hero-trust-item">30 NGÀY ĐỔI TRẢ</span>
           <span class="hero-trust-item">HỖ TRỢ 24/7</span>
-        </div>
-      </div>
-
-      <!-- Hero Visual Sneaker Showcase Card -->
-      <div class="hero-showcase-card">
-        <div class="hero-showcase-thumb">
-          <span class="badge badge-discount hero-showcase-badge">PHIÊN BẢN HOT</span>
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" alt="Nike Air Zoom Pegasus 40" loading="lazy">
-        </div>
-        <div class="hero-showcase-body">
-          <span class="product-card-brand">NIKE RUNNING</span>
-          <h2 class="hero-showcase-title">Nike Air Zoom Pegasus 40 JIT</h2>
-          <span style="font-size: 0.82rem; color: var(--text-dim);">Đệm Zoom Air kép • Lưới dệt kỹ thuật số thoáng khí</span>
-          <div class="hero-showcase-meta">
-            <span class="hero-showcase-price">3.490.000 ₫</span>
-            <a href="/products.html" class="btn btn-primary btn-sm">Xem chi tiết</a>
-          </div>
         </div>
       </div>
     </section>
@@ -377,13 +362,13 @@
             ? '<span class="badge badge-low-stock">Sắp hết</span>'
             : '<span class="badge badge-out-of-stock">Tạm hết</span>';
 
-        const thumb = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600';
+        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
         const brandName = p.brand ? (p.brand.name || 'SPORT') : 'SPORT';
 
         return `
           <div class="product-card">
             <div class="product-card-thumb">
-              <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600'">
+              <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='/images/shoes/1.jpg'">
               <div class="product-card-badge">${stockStatus}</div>
               <button class="product-card-wishlist-btn ${isFav ? 'active' : ''}" onclick="toggleWishlist('${p._id}', this)" title="Yêu thích">
                 ${isFav ? 'Đã lưu' : 'Lưu'}

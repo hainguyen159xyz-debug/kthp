@@ -26,7 +26,7 @@
 .card-header-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -92,7 +92,7 @@
 .kpi-value {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-main);
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
@@ -124,7 +124,7 @@
 }
 
 .admin-table th {
-  background-color: rgba(15, 23, 42, 0.6);
+  background-color: #f8fafc;
   color: var(--text-muted);
   font-weight: 600;
   text-transform: uppercase;
@@ -146,7 +146,7 @@
 }
 
 .admin-table tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: #f8fafc;
 }
 
 .admin-table tbody tr:last-child td {
@@ -177,7 +177,7 @@
 
 .table-product-name {
   font-weight: 600;
-  color: #fff;
+  color: var(--text-main);
   white-space: normal;
   max-width: 240px;
   display: -webkit-box;
@@ -217,7 +217,7 @@
 .badge-purple { background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
 .badge-neutral { background: rgba(255, 255, 255, 0.06); color: var(--text-muted); border: 1px solid var(--border-color); }
 
-/* Buttons */
+/* Buttons - Modern White Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -228,7 +228,10 @@
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
   white-space: nowrap;
 }
@@ -250,44 +253,56 @@
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #fff;
+  background: #ffffff;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.15);
 }
 .btn-primary:hover {
-  background: var(--primary-hover);
-  box-shadow: var(--shadow-glow);
+  background: #f5f3ff;
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: var(--bg-card);
+  background: #ffffff;
   color: var(--text-main);
-  border-color: var(--border-color);
+  border: 1px solid #cbd5e1;
 }
 .btn-secondary:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
 }
 
 .btn-success {
-  background: var(--success);
-  color: #fff;
+  background: #ffffff;
+  color: var(--success);
+  border: 1.5px solid var(--success);
 }
 .btn-success:hover {
-  background: #059669;
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #059669;
 }
 
 .btn-danger {
-  background: var(--danger);
-  color: #fff;
+  background: #ffffff;
+  color: var(--danger);
+  border: 1.5px solid var(--danger);
 }
 .btn-danger:hover {
-  background: #dc2626;
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #dc2626;
 }
 
 .btn-danger-outline {
-  background: transparent;
+  background: #ffffff;
   color: var(--danger);
-  border-color: rgba(239, 68, 68, 0.3);
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 .btn-danger-outline:hover {
   background: var(--danger-bg);
@@ -392,7 +407,7 @@
 }
 
 .page-btn {
-  background-color: var(--bg-card);
+  background-color: #ffffff;
   border: 1px solid var(--border-color);
   color: var(--text-muted);
   width: 34px;
@@ -404,19 +419,22 @@
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
 .page-btn:hover:not(:disabled) {
-  background-color: var(--bg-card-hover);
-  color: #fff;
-  border-color: var(--border-focus);
+  background-color: #f8fafc;
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 .page-btn.active {
-  background: var(--primary);
-  color: #fff;
+  background: #ffffff;
+  color: var(--primary);
   border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  font-weight: 700;
 }
 
 .page-btn:disabled {
@@ -455,11 +473,11 @@
 }
 
 .form-control {
-  background-color: var(--bg-input);
+  background-color: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 10px 14px;
-  color: #fff;
+  color: var(--text-main);
   font-size: 0.88rem;
   font-family: inherit;
   transition: var(--transition);
@@ -468,8 +486,9 @@
 
 .form-control:focus {
   outline: none;
+  background-color: #ffffff;
   border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .form-control::placeholder {
@@ -549,7 +568,7 @@ textarea.form-control {
 .modal-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
 }
 
 .modal-close {
@@ -565,8 +584,8 @@ textarea.form-control {
 }
 
 .modal-close:hover {
-  color: #fff;
-  background-color: var(--bg-card);
+  color: var(--text-main);
+  background-color: #f1f5f9;
 }
 
 .modal-body {
@@ -582,7 +601,7 @@ textarea.form-control {
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  background-color: rgba(15, 23, 42, 0.4);
+  background-color: #f8fafc;
 }
 
 /* Toast System */
@@ -600,7 +619,7 @@ textarea.form-control {
 .admin-toast {
   min-width: 320px;
   max-width: 420px;
-  background-color: var(--bg-surface);
+  background-color: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 14px 18px;
@@ -608,7 +627,7 @@ textarea.form-control {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  color: #fff;
+  color: var(--text-main);
   pointer-events: auto;
   animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   transition: all 0.3s ease;
@@ -724,7 +743,7 @@ textarea.form-control {
 }
 
 .timeline-step.active .timeline-label {
-  color: #fff;
+  color: var(--text-main);
 }
 
 /* Empty State */
@@ -746,7 +765,7 @@ textarea.form-control {
 .empty-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 6px;
 }
 

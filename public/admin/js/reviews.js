@@ -45,7 +45,7 @@ function renderReviewsTable(reviews) {
   tbody.innerHTML = reviews.map((r) => {
     const p = r.product || {};
     const u = r.user || {};
-    const imgUrl = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100';
+    const imgUrl = (p.images && p.images[0]) || '/images/shoes/1.jpg';
     const userName = u.fullName || u.name || 'Khách hàng';
     const scoreBadge = `<span class="badge badge-success">${r.rating}.0 / 5.0</span>`;
 
@@ -53,7 +53,7 @@ function renderReviewsTable(reviews) {
       <tr>
         <td>
           <div class="table-product-cell">
-            <img src="${imgUrl}" alt="${p.name || 'SP'}" class="table-product-thumb" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100'">
+            <img src="${imgUrl}" alt="${p.name || 'SP'}" class="table-product-thumb" onerror="this.src='/images/shoes/1.jpg'">
             <div class="table-product-info">
               <span class="table-product-name">${p.name || 'Sản phẩm đã xóa'}</span>
             </div>

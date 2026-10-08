@@ -99,7 +99,7 @@ function renderProductsTable(products) {
   }
 
   tbody.innerHTML = products.map((p) => {
-    const imgUrl = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120';
+    const imgUrl = (p.images && p.images[0]) || '/images/shoes/1.jpg';
     const brandName = p.brand?.name || 'Chưa gán';
     const catName = p.category?.name || 'Chưa gán';
     const isActive = p.status === 'active' || p.isActive !== false;
@@ -109,7 +109,7 @@ function renderProductsTable(products) {
       <tr>
         <td>
           <div class="table-product-cell">
-            <img src="${imgUrl}" alt="${p.name}" class="table-product-thumb" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120'">
+            <img src="${imgUrl}" alt="${p.name}" class="table-product-thumb" onerror="this.src='/images/shoes/1.jpg'">
             <div class="table-product-info">
               <span class="table-product-name" title="${p.name}">${p.name}</span>
               <span class="table-product-sku">Slug: ${p.slug} ${variantsCount > 0 ? `• (${variantsCount} biến thể)` : ''}</span>

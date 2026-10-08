@@ -55,7 +55,7 @@ function renderOrderPage(order) {
   } else {
     itemsTbody.innerHTML = items.map((it) => {
       const p = it.product || {};
-      const imgUrl = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100';
+      const imgUrl = (p.images && p.images[0]) || '/images/shoes/1.jpg';
       const name = it.productName || p.name || 'Sản phẩm';
       const price = it.price || it.unitPrice || 0;
       const subtotal = it.subtotal || (price * (it.quantity || 1));
@@ -64,7 +64,7 @@ function renderOrderPage(order) {
         <tr>
           <td>
             <div class="table-product-cell">
-              <img src="${imgUrl}" alt="${name}" class="table-product-thumb" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100'">
+              <img src="${imgUrl}" alt="${name}" class="table-product-thumb" onerror="this.src='/images/shoes/1.jpg'">
               <div class="table-product-info">
                 <span class="table-product-name">${name}</span>
                 <span class="table-product-sku">SKU: ${it.variantSku || 'N/A'}</span>

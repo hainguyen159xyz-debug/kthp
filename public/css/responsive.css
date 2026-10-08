@@ -27,9 +27,7 @@
   }
 
   .hero-v2 {
-    grid-template-columns: 1fr !important;
-    padding: 40px 32px !important;
-    gap: 36px !important;
+    padding: 50px 24px !important;
   }
 
   .hero-v2-title {

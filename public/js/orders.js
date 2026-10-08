@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const itemsHtml = (order.items || []).map((it) => {
         const p = it.product || {};
-        const thumb = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600';
+        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
         return `
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
             <div style="display: flex; align-items: center; gap: 12px;">

@@ -263,13 +263,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             ? '<span class="badge badge-low-stock">Sắp hết</span>'
             : '<span class="badge badge-out-of-stock">Tạm hết</span>';
 
-        const thumb = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600';
+        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
         const brandName = p.brand ? p.brand.name || 'SPORT' : 'SPORT';
 
         return `
           <div class="product-card">
             <div class="product-card-thumb">
-              <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600'">
+              <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='/images/shoes/1.jpg'">
               <div class="product-card-badge">${stockStatus}</div>
               <button class="product-card-wishlist-btn ${isFav ? 'active' : ''}" onclick="toggleWishlist('${p._id}', this)" title="Yêu thích">
                 ${isFav ? 'Đã lưu' : 'Lưu'}

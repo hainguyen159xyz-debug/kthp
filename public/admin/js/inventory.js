@@ -78,7 +78,7 @@ function renderInventoryTable(items) {
 
   tbody.innerHTML = items.map((item) => {
     const p = item.product || {};
-    const imgUrl = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100';
+    const imgUrl = (p.images && p.images[0]) || '/images/shoes/1.jpg';
     const avail = item.availableQuantity !== undefined ? item.availableQuantity : Math.max(0, item.quantity - item.reservedQuantity);
     const threshold = item.lowStockThreshold || 2;
 
@@ -95,7 +95,7 @@ function renderInventoryTable(items) {
       <tr>
         <td>
           <div class="table-product-cell">
-            <img src="${imgUrl}" alt="${p.name || 'SP'}" class="table-product-thumb" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100'">
+            <img src="${imgUrl}" alt="${p.name || 'SP'}" class="table-product-thumb" onerror="this.src='/images/shoes/1.jpg'">
             <div class="table-product-info">
               <span class="table-product-name">${p.name || 'Sản phẩm đã xóa'}</span>
             </div>

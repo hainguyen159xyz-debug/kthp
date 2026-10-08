@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Render Items
       itemsContainer.innerHTML = (order.items || []).map((it) => {
         const p = it.product || {};
-        const thumb = (p.images && p.images[0]) || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600';
+        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
         const lineTotal = it.subtotal || it.price * it.quantity;
 
         return `

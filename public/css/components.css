@@ -2,7 +2,7 @@
    UI COMPONENTS & DESIGN PATTERNS - SPORT SHOES E-COMMERCE
    ========================================================================== */
 
-/* Buttons */
+/* Buttons - Modern White Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -13,7 +13,10 @@
   font-weight: 600;
   border-radius: var(--radius-full);
   cursor: pointer;
-  border: 1px solid transparent;
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
   outline: none;
   transition: var(--transition-normal);
   text-decoration: none;
@@ -28,50 +31,72 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #e64a19 100%);
-  color: #fff;
-  box-shadow: var(--shadow-primary);
+  background: #ffffff;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 2px 8px rgba(255, 87, 34, 0.15);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #ff7043 0%, var(--color-primary) 100%);
+  background: #fff5f2;
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 87, 34, 0.45);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.25);
 }
 
 .btn-secondary {
-  background: var(--bg-surface);
+  background: #ffffff;
   color: var(--text-main);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover:not(:disabled) {
   background: var(--bg-surface-hover);
-  border-color: var(--border-light);
+  border-color: #94a3b8;
+  color: #0f172a;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
-  background: transparent;
-  color: var(--text-main);
+  background: #ffffff;
+  color: var(--color-primary);
   border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-outline:hover:not(:disabled) {
   border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  background: #fff5f2;
 }
 
 .btn-danger {
-  background: rgba(239, 68, 68, 0.15);
+  background: #ffffff;
   color: var(--color-danger);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  border: 1.5px solid var(--color-danger);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-danger:hover:not(:disabled) {
-  background: var(--color-danger);
-  color: #fff;
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.btn-success {
+  background: #ffffff;
+  color: var(--color-success);
+  border: 1.5px solid var(--color-success);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: #f0fdf4;
+  color: #059669;
+  border-color: #059669;
 }
 
 .btn-sm {
@@ -88,6 +113,14 @@
 
 .btn-block {
   width: 100%;
+}
+
+/* Card Component */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Badges */
@@ -134,6 +167,12 @@
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
+.badge-primary {
+  background: #fff5f2;
+  color: var(--color-primary);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
 /* ==========================================================================
    PRODUCT CARD COMPONENT
    ========================================================================== */
@@ -158,7 +197,7 @@
   position: relative;
   width: 100%;
   padding-top: 80%; /* 4:5 aspect ratio */
-  background: #0f1624;
+  background: #f8fafc;
   overflow: hidden;
 }
 
@@ -191,10 +230,10 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-full);
-  background: rgba(11, 15, 25, 0.7);
-  backdrop-filter: blur(8px);
+  background: #ffffff;
   border: 1px solid var(--border-color);
-  color: var(--text-main);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: var(--text-dim);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,14 +243,15 @@
 }
 
 .product-card-wishlist-btn:hover {
-  background: var(--color-primary);
-  color: #fff;
+  background: #ffffff;
+  color: var(--color-primary);
   border-color: var(--color-primary);
   transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .product-card-wishlist-btn.active {
-  background: rgba(239, 68, 68, 0.2);
+  background: #fef2f2;
   color: var(--color-danger);
   border-color: var(--color-danger);
 }
@@ -274,7 +314,7 @@
 .product-card-price {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-main);
 }
 
 .product-card-old-price {
@@ -394,8 +434,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
   z-index: 9000;
   display: none;
   align-items: center;
@@ -408,7 +448,7 @@
 }
 
 .modal-box {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   width: 100%;
@@ -463,7 +503,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  background: rgba(11, 15, 25, 0.4);
+  background: var(--bg-surface);
 }
 
 /* ==========================================================================
@@ -484,8 +524,8 @@
 .form-control {
   width: 100%;
   padding: 11px 16px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   color: var(--text-main);
   font-size: 0.95rem;
@@ -496,7 +536,7 @@
 .form-control:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
-  background: var(--bg-card);
+  background: #ffffff;
 }
 
 .form-error {
@@ -549,26 +589,29 @@
   min-width: 40px;
   height: 40px;
   padding: 0 14px;
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
 }
 
 .page-btn:hover:not(:disabled) {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  background: #fff5f2;
 }
 
 .page-btn.active {
-  background: var(--color-primary);
+  background: #ffffff;
   border-color: var(--color-primary);
-  color: #fff;
-  box-shadow: var(--shadow-primary);
+  color: var(--color-primary);
+  font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
 }
 
 .page-btn:disabled {
@@ -612,14 +655,15 @@
   align-items: center;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
-  background: var(--bg-surface);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
 .qty-btn {
   width: 36px;
   height: 36px;
-  background: transparent;
+  background: #ffffff;
   border: none;
   color: var(--text-main);
   cursor: pointer;
@@ -631,7 +675,7 @@
 }
 
 .qty-btn:hover:not(:disabled) {
-  background: var(--color-primary-light);
+  background: #fff5f2;
   color: var(--color-primary);
 }
 
@@ -654,7 +698,7 @@
 
 /* Skeletons */
 .skeleton {
-  background: linear-gradient(90deg, #162032 25%, #223048 50%, #162032 75%);
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
   background-size: 200% 100%;
   animation: skeletonPulse 1.5s infinite;
   border-radius: var(--radius-sm);
