@@ -141,6 +141,7 @@ const seedData = async () => {
       stock: 26,
       status: 'active',
       featured: true,
+      gender: 'unisex',
       isFastMoving: true,
       defaultSupplier: supplierNike._id,
       variants: [
@@ -165,6 +166,7 @@ const seedData = async () => {
       stock: 15,
       status: 'active',
       featured: true,
+      gender: 'women',
       isFastMoving: false,
       defaultSupplier: supplierAdidas._id,
       variants: [

@@ -108,6 +108,11 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    gender: {
+      type: String,
+      enum: ['men', 'women', 'unisex'],
+      default: 'men'
+    },
     variants: [productVariantSchema],
     defaultSupplier: {
       type: mongoose.Schema.Types.ObjectId,

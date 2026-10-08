@@ -19,6 +19,7 @@ exports.getProducts = async (req, res, next) => {
       size,
       color,
       isFastMoving,
+      gender,
       sortBy = 'createdAt',
       order = 'desc',
       page = 1,
@@ -46,6 +47,17 @@ exports.getProducts = async (req, res, next) => {
 
     if (brand) {
       filter.brand = brand;
+    }
+
+    if (gender) {
+      const g = String(gender).toLowerCase().trim();
+      if (g === 'men') {
+        filter.gender = { $in: ['men', 'unisex'] };
+      } else if (g === 'women') {
+        filter.gender = { $in: ['women', 'unisex'] };
+      } else if (g === 'unisex') {
+        filter.gender = 'unisex';
+      }
     }
 
     if (featured !== undefined) {
@@ -206,6 +218,7 @@ exports.createProduct = async (req, res, next) => {
       status: status || 'active',
       featured: featured || false,
       variants: variants || [],
+      gender: req.body.gender || 'men',
       defaultSupplier,
       isFastMoving: isFastMoving || false
     });

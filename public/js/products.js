@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     search: urlParams.get('search') || '',
     category: urlParams.get('category') || '',
     brand: urlParams.get('brand') || '',
+    gender: urlParams.get('gender') || '',
     size: urlParams.get('size') || '',
     color: urlParams.get('color') || '',
     minPrice: urlParams.get('minPrice') || '',
@@ -36,6 +37,99 @@ document.addEventListener('DOMContentLoaded', async () => {
   const btnApplyPrice = document.getElementById('btn-apply-price');
   const mobileFilterBtn = document.getElementById('btn-mobile-filter');
   const filterSidebar = document.getElementById('catalog-filter-sidebar');
+  const navProducts = document.getElementById('nav-link-products');
+  const navMen = document.getElementById('nav-link-men');
+  const navWomen = document.getElementById('nav-link-women');
+  const breadcrumbTitle = document.getElementById('catalog-breadcrumb-title');
+
+  function updateActiveNavAndTitle() {
+    if (navProducts) navProducts.classList.remove('active');
+    if (navMen) navMen.classList.remove('active');
+    if (navWomen) navWomen.classList.remove('active');
+
+    if (state.gender === 'men') {
+      if (navMen) navMen.classList.add('active');
+      if (breadcrumbTitle) breadcrumbTitle.textContent = 'Giày Nam';
+      document.title = 'Giày Thể Thao Nam Chính Hãng | SportZone';
+    } else if (state.gender === 'women') {
+      if (navWomen) navWomen.classList.add('active');
+      if (breadcrumbTitle) breadcrumbTitle.textContent = 'Giày Nữ';
+      document.title = 'Giày Thể Thao Nữ Chính Hãng | SportZone';
+    } else {
+      if (navProducts) navProducts.classList.add('active');
+      if (breadcrumbTitle) breadcrumbTitle.textContent = 'Danh mục sản phẩm';
+      document.title = 'Tất Cả Sản Phẩm | SportZone';
+    }
+  }
+
+  function syncGenderInputs() {
+    document.querySelectorAll('#filter-gender-list input').forEach((input) => {
+      input.checked = input.value === state.gender;
+    });
+  }
+
+  // Khởi tạo trạng thái ban đầu của Nav & Title & Giới tính
+  updateActiveNavAndTitle();
+  syncGenderInputs();
+
+  // Bắt sự kiện click chuyển trực tiếp giữa Giày Nam / Giày Nữ / Tất Cả trên thanh Navbar
+  if (navMen) {
+    navMen.addEventListener('click', (e) => {
+      e.preventDefault();
+      state.gender = 'men';
+      state.page = 1;
+      syncGenderInputs();
+      updateActiveNavAndTitle();
+      history.pushState(null, '', '/products.html?gender=men');
+      fetchProducts();
+    });
+  }
+
+  if (navWomen) {
+    navWomen.addEventListener('click', (e) => {
+      e.preventDefault();
+      state.gender = 'women';
+      state.page = 1;
+      syncGenderInputs();
+      updateActiveNavAndTitle();
+      history.pushState(null, '', '/products.html?gender=women');
+      fetchProducts();
+    });
+  }
+
+  if (navProducts) {
+    navProducts.addEventListener('click', (e) => {
+      e.preventDefault();
+      state.gender = '';
+      state.page = 1;
+      syncGenderInputs();
+      updateActiveNavAndTitle();
+      history.pushState(null, '', '/products.html');
+      fetchProducts();
+    });
+  }
+
+  // Xử lý radio button giới tính trong sidebar
+  document.querySelectorAll('#filter-gender-list input').forEach((input) => {
+    input.addEventListener('change', (e) => {
+      state.gender = e.target.value;
+      state.page = 1;
+      updateActiveNavAndTitle();
+      const newUrl = state.gender ? `/products.html?gender=${state.gender}` : '/products.html';
+      history.pushState(null, '', newUrl);
+      fetchProducts();
+    });
+  });
+
+  // Đồng bộ khi người dùng bấm nút Back/Forward trên trình duyệt
+  window.addEventListener('popstate', () => {
+    const params = new URLSearchParams(window.location.search);
+    state.gender = params.get('gender') || '';
+    state.page = Number(params.get('page')) || 1;
+    syncGenderInputs();
+    updateActiveNavAndTitle();
+    fetchProducts();
+  });
 
   if (state.minPrice) minPriceInput.value = state.minPrice;
   if (state.maxPrice) maxPriceInput.value = state.maxPrice;
@@ -61,6 +155,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const handleReset = () => {
     state.category = '';
     state.brand = '';
+    state.gender = '';
     state.size = '';
     state.color = '';
     state.minPrice = '';
@@ -74,6 +169,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     maxPriceInput.value = '';
 
     // Reset radio buttons
+    syncGenderInputs();
+    updateActiveNavAndTitle();
     document.querySelectorAll('#filter-categories-list input').forEach((r) => (r.checked = r.value === ''));
     document.querySelectorAll('#filter-brands-list input').forEach((r) => (r.checked = r.value === ''));
     document.querySelectorAll('#filter-colors-list input').forEach((r) => (r.checked = r.value === ''));
@@ -212,6 +309,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (state.maxPrice) query.set('maxPrice', state.maxPrice);
     if (state.featured) query.set('featured', state.featured);
     if (state.isFastMoving) query.set('isFastMoving', state.isFastMoving);
+    if (state.gender) query.set('gender', state.gender);
 
     try {
       const res = await window.api.get(`/products?${query.toString()}`);

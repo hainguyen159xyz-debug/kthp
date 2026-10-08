@@ -27,9 +27,9 @@
       <nav>
         <ul class="nav-links" id="nav-main-links">
           <li><a href="/">Trang chủ</a></li>
-          <li><a href="/products.html" class="active">Sản phẩm</a></li>
-          <li><a href="/products.html?gender=men">Nam</a></li>
-          <li><a href="/products.html?gender=women">Nữ</a></li>
+          <li><a href="/products.html" id="nav-link-products">Sản phẩm</a></li>
+          <li><a href="/products.html?gender=men" id="nav-link-men">Giày Nam</a></li>
+          <li><a href="/products.html?gender=women" id="nav-link-women">Giày Nữ</a></li>
           <li><a href="/wishlist.html">Yêu thích</a></li>
         </ul>
       </nav>
@@ -57,7 +57,7 @@
     <div class="breadcrumb" style="margin-top: 24px;">
       <a href="/">Trang chủ</a>
       <span class="breadcrumb-separator">/</span>
-      <span class="breadcrumb-current">Danh mục sản phẩm</span>
+      <span class="breadcrumb-current" id="catalog-breadcrumb-title">Danh mục sản phẩm</span>
     </div>
 
     <!-- Catalog Layout -->
@@ -67,6 +67,25 @@
         <div class="filter-sidebar-header">
           <h3>Bộ Lọc Sản Phẩm</h3>
           <button class="filter-reset-btn" id="btn-reset-filters">Xóa bộ lọc</button>
+        </div>
+
+        <!-- Filter: Gender -->
+        <div class="filter-section">
+          <div class="filter-title">Giới tính</div>
+          <div class="filter-list" id="filter-gender-list">
+            <label class="filter-item">
+              <input type="radio" name="gender" value="" checked>
+              <span>Tất cả</span>
+            </label>
+            <label class="filter-item">
+              <input type="radio" name="gender" value="men">
+              <span>Giày Nam</span>
+            </label>
+            <label class="filter-item">
+              <input type="radio" name="gender" value="women">
+              <span>Giày Nữ</span>
+            </label>
+          </div>
         </div>
 
         <!-- Filter: Categories -->
