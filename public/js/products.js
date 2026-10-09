@@ -251,15 +251,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
       }
 
-      // Render Brands
+      // Render Brands (chỉ giữ các brand thật)
       const brandList = document.getElementById('filter-brands-list');
       if (brandsRes.success && brandList) {
+        const validBrands = (brandsRes.data || []).filter(b =>
+          b.name && !b.name.toLowerCase().includes('test') && !((b.slug || '').toLowerCase().includes('test'))
+        );
         brandList.innerHTML = `
           <label class="filter-item">
             <input type="radio" name="brand" value="" ${!state.brand ? 'checked' : ''}>
             <span>Tất cả thương hiệu</span>
           </label>
-        ` + brandsRes.data.map((b) => `
+        ` + validBrands.map((b) => `
           <label class="filter-item">
             <input type="radio" name="brand" value="${b._id}" ${state.brand === b._id ? 'checked' : ''}>
             <span>${b.name}</span>

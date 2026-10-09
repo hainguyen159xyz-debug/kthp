@@ -88,7 +88,7 @@
       <!-- Trust Metric Strip -->
       <div class="hero-campaign-trust-bar">
         <span class="hero-trust-item">100% CHÍNH HÃNG</span>
-        <span class="hero-trust-item">GIAO VẬN JIT TỐI ƯU</span>
+        <span class="hero-trust-item">TƯ VẤN NHIỆT TÌNH</span>
         <span class="hero-trust-item">30 NGÀY ĐỔI TRẢ</span>
         <span class="hero-trust-item">HỖ TRỢ 24/7</span>
       </div>
@@ -107,21 +107,22 @@
       </div>
     </section>
 
-    <!-- Categories Section -->
-    <section style="margin-bottom: 70px;">
+    <!-- Categories Discovery Section -->
+    <section class="categories-showcase-section" style="margin-bottom: 70px;">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Danh Mục Thể Thao</h2>
-          <p class="section-desc">Lựa chọn chuyên biệt cho từng bộ môn và phong cách vận động</p>
+          <h2 class="section-title">Tìm đôi giày dành riêng cho bạn</h2>
+          <p class="section-desc">Từ sân đấu đến đường phố — khám phá bộ sưu tập giày thể thao phù hợp với phong cách và mục tiêu của bạn.</p>
         </div>
-        <a href="/products.html" class="section-link">Xem tất cả danh mục</a>
+        <a href="/products.html" class="section-link">Xem tất cả bộ sưu tập →</a>
       </div>
-      <div class="category-grid" id="home-categories-grid">
+      <div class="category-showcase-grid" id="home-categories-grid">
         <!-- Rendered dynamically from API -->
-        <div class="category-card skeleton" style="height: 140px;"></div>
-        <div class="category-card skeleton" style="height: 140px;"></div>
-        <div class="category-card skeleton" style="height: 140px;"></div>
-        <div class="category-card skeleton" style="height: 140px;"></div>
+        <div class="category-showcase-card skeleton featured" style="min-height: 380px;"></div>
+        <div class="category-showcase-card skeleton featured" style="min-height: 380px;"></div>
+        <div class="category-showcase-card skeleton" style="min-height: 330px;"></div>
+        <div class="category-showcase-card skeleton" style="min-height: 330px;"></div>
+        <div class="category-showcase-card skeleton" style="min-height: 330px;"></div>
       </div>
     </section>
 
@@ -323,32 +324,105 @@
   <script src="/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Tải danh mục từ API
+      // 1. Tải danh mục từ API (Bộ sưu tập thể thao chuyên nghiệp)
       try {
         const catRes = await window.api.get('/categories');
         const catGrid = document.getElementById('home-categories-grid');
-        if (catRes.success && catRes.data && catGrid) {
-          catGrid.innerHTML = catRes.data.map((cat, idx) => `
-            <a href="/products.html?category=${cat._id}" class="category-card-v2">
-              <div>
-                <span class="cat-num">0${idx + 1} / CATEGORY</span>
-                <h3>${cat.name}</h3>
-                <p>${cat.description || 'Khám phá các mẫu giày thiết kế chuyên biệt'}</p>
-              </div>
-              <span class="cat-cta">Xem bộ sưu tập</span>
-            </a>
-          `).join('');
+        if (catRes.success && Array.isArray(catRes.data) && catGrid) {
+          // Lọc bỏ dữ liệu test nếu có
+          const validCats = catRes.data.filter(cat => 
+            cat && cat.name && 
+            !cat.name.toLowerCase().includes('test') && 
+            !((cat.slug || '').toLowerCase().includes('test'))
+          );
+
+          // Cấu hình hiển thị theo bộ sưu tập thể thao chuyên nghiệp
+          const categoryPresets = {
+            running: {
+              title: 'Giày Chạy Bộ',
+              tagline: 'Chạy xa hơn. Bứt phá giới hạn.',
+              image: '/images/categories/running.jpg',
+              featured: true,
+              order: 1
+            },
+            lifestyle: {
+              title: 'Giày Thể Thao Hằng Ngày',
+              tagline: 'Phong cách riêng. Chất riêng.',
+              image: '/images/categories/lifestyle.jpg',
+              featured: true,
+              order: 2
+            },
+            basketball: {
+              title: 'Giày Bóng Rổ',
+              tagline: 'Bứt phá trên mọi sân đấu.',
+              image: '/images/categories/basketball.jpg',
+              featured: false,
+              order: 3
+            },
+            football: {
+              title: 'Giày Bóng Đá',
+              tagline: 'Làm chủ từng pha bóng.',
+              image: '/images/categories/football.jpg',
+              featured: false,
+              order: 4
+            },
+            training: {
+              title: 'Giày Tập Luyện',
+              tagline: 'Mạnh mẽ trong từng chuyển động.',
+              image: '/images/categories/training.jpg',
+              featured: false,
+              order: 5
+            }
+          };
+
+          // Sắp xếp danh mục theo thứ tự bố cục tối ưu
+          validCats.sort((a, b) => {
+            const orderA = (categoryPresets[a.slug] && categoryPresets[a.slug].order) || 99;
+            const orderB = (categoryPresets[b.slug] && categoryPresets[b.slug].order) || 99;
+            return orderA - orderB;
+          });
+
+          catGrid.innerHTML = validCats.map((cat) => {
+            const preset = categoryPresets[cat.slug] || {};
+            const title = preset.title || cat.name;
+            const tagline = preset.tagline || cat.description || 'Khám phá bộ sưu tập chuyên nghiệp';
+            const imgUrl = cat.image || preset.image || '/images/hero-running.jpg';
+            const isFeatured = preset.featured ? 'featured' : '';
+
+            return `
+              <a href="/products.html?category=${cat._id}" class="category-showcase-card ${isFeatured}" title="${title}">
+                <div class="cat-card-media">
+                  <img src="${imgUrl}" alt="${title}" class="cat-card-img" loading="lazy" onerror="this.src='/images/hero-running.jpg'">
+                  <div class="cat-card-gradient"></div>
+                </div>
+                <div class="cat-card-badge-row">
+                  <span class="cat-card-badge">BỘ SƯU TẬP</span>
+                </div>
+                <div class="cat-card-content">
+                  <h3 class="cat-card-title">${title}</h3>
+                  <p class="cat-card-tagline">${tagline}</p>
+                  <div class="cat-card-cta">
+                    <span>Khám phá bộ sưu tập</span>
+                    <span class="cat-card-arrow">→</span>
+                  </div>
+                </div>
+              </a>
+            `;
+          }).join('');
         }
       } catch (e) {
         console.error('Lỗi tải danh mục:', e);
       }
 
-      // 2. Tải thương hiệu từ API
+      // 2. Tải thương hiệu từ API (chỉ giữ lại các brand thật)
       try {
         const brandRes = await window.api.get('/brands');
         const brandRow = document.getElementById('home-brands-row');
         if (brandRes.success && brandRes.data && brandRow) {
-          brandRow.innerHTML = brandRes.data.map(b => `
+          const realBrands = brandRes.data.filter(b => 
+            b.name && !b.name.toLowerCase().includes('test') && !((b.slug || '').toLowerCase().includes('test'))
+          );
+          brandRow.innerHTML = realBrands.map(b => `
             <a href="/products.html?brand=${b._id}" class="brand-pill">${b.name}</a>
           `).join('');
         }
