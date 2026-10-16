@@ -35,7 +35,7 @@ exports.getMyOrders = async (req, res, next) => {
     const orders = await Order.find({
       $or: [{ user: req.user.id }, { customer: req.user.id }]
     })
-      .populate('items.product', 'name slug images')
+      .populate('items.product', 'name slug images colorVariants')
       .sort({ createdAt: -1 });
 
     res.status(200).json({
@@ -66,7 +66,7 @@ exports.getOrderById = async (req, res, next) => {
     const order = await Order.findById(id)
       .populate('user', 'name fullName email phone')
       .populate('customer', 'name fullName email phone')
-      .populate('items.product', 'name slug images salePrice');
+      .populate('items.product', 'name slug images salePrice colorVariants');
 
     if (!order) {
       return res.status(404).json({

@@ -1,0 +1,3547 @@
+[
+  {
+    "id": "6ac79ac4af9a10d2d9fb35ed",
+    "index": 1,
+    "name": "Nike Air Zoom Pegasus 40",
+    "brand": "Nike",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/1.jpg",
+      "/images/shoes/1-white.jpg"
+    ],
+    "colors": [
+      "Đen",
+      "Trắng"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen",
+        "image": "/images/shoes/1.jpg",
+        "_id": "6ad07fc8e3dbba3cdf3ebd9e",
+        "id": "6ad07fc8e3dbba3cdf3ebd9e"
+      },
+      {
+        "color": "Trắng",
+        "image": "/images/shoes/1-white.jpg",
+        "_id": "6ad07fc8e3dbba3cdf3ebd9f",
+        "id": "6ad07fc8e3dbba3cdf3ebd9f"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-A-39-ĐEN",
+        "color": "Đen",
+        "size": 39,
+        "image": "/images/shoes/1.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-A-40-ĐEN",
+        "color": "Đen",
+        "size": 40,
+        "image": "/images/shoes/1.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-41-ĐEN",
+        "color": "Đen",
+        "size": 41,
+        "image": "/images/shoes/1.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-42-ĐEN",
+        "color": "Đen",
+        "size": 42,
+        "image": "/images/shoes/1.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "NIKE-A-43-ĐEN",
+        "color": "Đen",
+        "size": 43,
+        "image": "/images/shoes/1.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "NIKE-A-39-TRẮ",
+        "color": "Trắng",
+        "size": 39,
+        "image": "/images/shoes/1-white.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-40-TRẮ",
+        "color": "Trắng",
+        "size": 40,
+        "image": "/images/shoes/1-white.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-A-41-TRẮ",
+        "color": "Trắng",
+        "size": 41,
+        "image": "/images/shoes/1-white.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "NIKE-A-42-TRẮ",
+        "color": "Trắng",
+        "size": 42,
+        "image": "/images/shoes/1-white.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-43-TRẮ",
+        "color": "Trắng",
+        "size": 43,
+        "image": "/images/shoes/1-white.jpg",
+        "stock": 9
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac5af9a10d2d9fb3603",
+    "index": 2,
+    "name": "Adidas Ultraboost Light",
+    "brand": "Adidas",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/2.jpg",
+      "/images/shoes/2-mint.jpg",
+      "/images/shoes/2-purple.jpg"
+    ],
+    "colors": [
+      "Hồng Pastel",
+      "Xanh Bạc Hà",
+      "Tím Lavender"
+    ],
+    "colorVariants": [
+      {
+        "color": "Hồng Pastel",
+        "image": "/images/shoes/2.jpg",
+        "_id": "6ad07fcae3dbba3cdf3ebdb5",
+        "id": "6ad07fcae3dbba3cdf3ebdb5"
+      },
+      {
+        "color": "Xanh Bạc Hà",
+        "image": "/images/shoes/2-mint.jpg",
+        "_id": "6ad07fcae3dbba3cdf3ebdb6",
+        "id": "6ad07fcae3dbba3cdf3ebdb6"
+      },
+      {
+        "color": "Tím Lavender",
+        "image": "/images/shoes/2-purple.jpg",
+        "_id": "6ad07fcae3dbba3cdf3ebdb7",
+        "id": "6ad07fcae3dbba3cdf3ebdb7"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-40-HONG",
+        "color": "Hồng Pastel",
+        "size": 40,
+        "image": "/images/shoes/2.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-HONG",
+        "color": "Hồng Pastel",
+        "size": 41,
+        "image": "/images/shoes/2.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-HONG",
+        "color": "Hồng Pastel",
+        "size": 42,
+        "image": "/images/shoes/2.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-HONG",
+        "color": "Hồng Pastel",
+        "size": 43,
+        "image": "/images/shoes/2.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Bạc Hà",
+        "size": 40,
+        "image": "/images/shoes/2-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Bạc Hà",
+        "size": 41,
+        "image": "/images/shoes/2-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Bạc Hà",
+        "size": 42,
+        "image": "/images/shoes/2-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-XANH",
+        "color": "Xanh Bạc Hà",
+        "size": 43,
+        "image": "/images/shoes/2-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-TIML",
+        "color": "Tím Lavender",
+        "size": 40,
+        "image": "/images/shoes/2-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-TIML",
+        "color": "Tím Lavender",
+        "size": 41,
+        "image": "/images/shoes/2-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-TIML",
+        "color": "Tím Lavender",
+        "size": 42,
+        "image": "/images/shoes/2-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-TIML",
+        "color": "Tím Lavender",
+        "size": 43,
+        "image": "/images/shoes/2-purple.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac6af9a10d2d9fb3615",
+    "index": 3,
+    "name": "Puma Velocity Nitro 2",
+    "brand": "Puma",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/3.jpg",
+      "/images/shoes/3-blue.jpg",
+      "/images/shoes/3-red.jpg"
+    ],
+    "colors": [
+      "Trắng Cổ Điển",
+      "Xanh Dương Ice",
+      "Đỏ Crimson"
+    ],
+    "colorVariants": [
+      {
+        "color": "Trắng Cổ Điển",
+        "image": "/images/shoes/3.jpg",
+        "_id": "6ad07fcce3dbba3cdf3ebdd1",
+        "id": "6ad07fcce3dbba3cdf3ebdd1"
+      },
+      {
+        "color": "Xanh Dương Ice",
+        "image": "/images/shoes/3-blue.jpg",
+        "_id": "6ad07fcce3dbba3cdf3ebdd2",
+        "id": "6ad07fcce3dbba3cdf3ebdd2"
+      },
+      {
+        "color": "Đỏ Crimson",
+        "image": "/images/shoes/3-red.jpg",
+        "_id": "6ad07fcce3dbba3cdf3ebdd3",
+        "id": "6ad07fcce3dbba3cdf3ebdd3"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-39-TRAN",
+        "color": "Trắng Cổ Điển",
+        "size": 39,
+        "image": "/images/shoes/3.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-TRAN",
+        "color": "Trắng Cổ Điển",
+        "size": 40,
+        "image": "/images/shoes/3.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-TRAN",
+        "color": "Trắng Cổ Điển",
+        "size": 41,
+        "image": "/images/shoes/3.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-TRAN",
+        "color": "Trắng Cổ Điển",
+        "size": 42,
+        "image": "/images/shoes/3.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-XANH",
+        "color": "Xanh Dương Ice",
+        "size": 39,
+        "image": "/images/shoes/3-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Dương Ice",
+        "size": 40,
+        "image": "/images/shoes/3-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Dương Ice",
+        "size": 41,
+        "image": "/images/shoes/3-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Dương Ice",
+        "size": 42,
+        "image": "/images/shoes/3-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 39,
+        "image": "/images/shoes/3-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 40,
+        "image": "/images/shoes/3-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 41,
+        "image": "/images/shoes/3-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 42,
+        "image": "/images/shoes/3-red.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac6af9a10d2d9fb3627",
+    "index": 4,
+    "name": "Nike Air Jordan 1 Low",
+    "brand": "Nike",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/4.jpg",
+      "/images/shoes/4-blue.jpg"
+    ],
+    "colors": [
+      "Đỏ Đen",
+      "Trắng Xanh"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đỏ Đen",
+        "image": "/images/shoes/4.jpg",
+        "_id": "6ad07fcfe3dbba3cdf3ebded",
+        "id": "6ad07fcfe3dbba3cdf3ebded"
+      },
+      {
+        "color": "Trắng Xanh",
+        "image": "/images/shoes/4-blue.jpg",
+        "_id": "6ad07fcfe3dbba3cdf3ebdee",
+        "id": "6ad07fcfe3dbba3cdf3ebdee"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-A-40-ĐỎ",
+        "color": "Đỏ Đen",
+        "size": 40,
+        "image": "/images/shoes/4.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-41-ĐỎ",
+        "color": "Đỏ Đen",
+        "size": 41,
+        "image": "/images/shoes/4.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-A-42-ĐỎ",
+        "color": "Đỏ Đen",
+        "size": 42,
+        "image": "/images/shoes/4.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "NIKE-A-43-ĐỎ",
+        "color": "Đỏ Đen",
+        "size": 43,
+        "image": "/images/shoes/4.jpg",
+        "stock": 8
+      },
+      {
+        "sku": "NIKE-A-40-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 40,
+        "image": "/images/shoes/4-blue.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "NIKE-A-41-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 41,
+        "image": "/images/shoes/4-blue.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-A-42-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 42,
+        "image": "/images/shoes/4-blue.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "NIKE-A-43-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 43,
+        "image": "/images/shoes/4-blue.jpg",
+        "stock": 7
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac7af9a10d2d9fb3639",
+    "index": 5,
+    "name": "Adidas Stan Smith Primegreen",
+    "brand": "Adidas",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/5.jpg",
+      "/images/shoes/5-black.jpg"
+    ],
+    "colors": [
+      "Trắng Xanh",
+      "Trắng Đen"
+    ],
+    "colorVariants": [
+      {
+        "color": "Trắng Xanh",
+        "image": "/images/shoes/5.jpg",
+        "_id": "6ad07fd0e3dbba3cdf3ebe00",
+        "id": "6ad07fd0e3dbba3cdf3ebe00"
+      },
+      {
+        "color": "Trắng Đen",
+        "image": "/images/shoes/5-black.jpg",
+        "_id": "6ad07fd0e3dbba3cdf3ebe01",
+        "id": "6ad07fd0e3dbba3cdf3ebe01"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADIDAS-38-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 38,
+        "image": "/images/shoes/5.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADIDAS-39-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 39,
+        "image": "/images/shoes/5.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "ADIDAS-40-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 40,
+        "image": "/images/shoes/5.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "ADIDAS-41-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 41,
+        "image": "/images/shoes/5.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "ADIDAS-42-TRẮ",
+        "color": "Trắng Xanh",
+        "size": 42,
+        "image": "/images/shoes/5.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "ADIDAS-38-TRẮ",
+        "color": "Trắng Đen",
+        "size": 38,
+        "image": "/images/shoes/5-black.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "ADIDAS-39-TRẮ",
+        "color": "Trắng Đen",
+        "size": 39,
+        "image": "/images/shoes/5-black.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "ADIDAS-40-TRẮ",
+        "color": "Trắng Đen",
+        "size": 40,
+        "image": "/images/shoes/5-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADIDAS-41-TRẮ",
+        "color": "Trắng Đen",
+        "size": 41,
+        "image": "/images/shoes/5-black.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "ADIDAS-42-TRẮ",
+        "color": "Trắng Đen",
+        "size": 42,
+        "image": "/images/shoes/5-black.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac8af9a10d2d9fb364f",
+    "index": 6,
+    "name": "Nike Dunk Low Retro Panda",
+    "brand": "Nike",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/6.jpg",
+      "/images/shoes/6-mint.jpg",
+      "/images/shoes/6-lavender.jpg"
+    ],
+    "colors": [
+      "Đen Trắng",
+      "Xanh Mint Hồng",
+      "Tím Lavender"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/6.jpg",
+        "_id": "6ad07fd2e3dbba3cdf3ebe17",
+        "id": "6ad07fd2e3dbba3cdf3ebe17"
+      },
+      {
+        "color": "Xanh Mint Hồng",
+        "image": "/images/shoes/6-mint.jpg",
+        "_id": "6ad07fd2e3dbba3cdf3ebe18",
+        "id": "6ad07fd2e3dbba3cdf3ebe18"
+      },
+      {
+        "color": "Tím Lavender",
+        "image": "/images/shoes/6-lavender.jpg",
+        "_id": "6ad07fd2e3dbba3cdf3ebe19",
+        "id": "6ad07fd2e3dbba3cdf3ebe19"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-D-39-ĐEN",
+        "color": "Đen Trắng",
+        "size": 39,
+        "image": "/images/shoes/6.jpg",
+        "stock": 8
+      },
+      {
+        "sku": "NIKE-D-40-ĐEN",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/6.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "NIKE-D-41-ĐEN",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/6.jpg",
+        "stock": 8
+      },
+      {
+        "sku": "NIKE-D-42-ĐEN",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/6.jpg",
+        "stock": 8
+      },
+      {
+        "sku": "NIKE-D-43-ĐEN",
+        "color": "Đen Trắng",
+        "size": 43,
+        "image": "/images/shoes/6.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-39-XANH",
+        "color": "Xanh Mint Hồng",
+        "size": 39,
+        "image": "/images/shoes/6-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Mint Hồng",
+        "size": 40,
+        "image": "/images/shoes/6-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Mint Hồng",
+        "size": 41,
+        "image": "/images/shoes/6-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Mint Hồng",
+        "size": 42,
+        "image": "/images/shoes/6-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Mint Hồng",
+        "size": 43,
+        "image": "/images/shoes/6-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-39-TIML",
+        "color": "Tím Lavender",
+        "size": 39,
+        "image": "/images/shoes/6-lavender.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-TIML",
+        "color": "Tím Lavender",
+        "size": 40,
+        "image": "/images/shoes/6-lavender.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-TIML",
+        "color": "Tím Lavender",
+        "size": 41,
+        "image": "/images/shoes/6-lavender.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-TIML",
+        "color": "Tím Lavender",
+        "size": 42,
+        "image": "/images/shoes/6-lavender.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-TIML",
+        "color": "Tím Lavender",
+        "size": 43,
+        "image": "/images/shoes/6-lavender.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac8af9a10d2d9fb365b",
+    "index": 7,
+    "name": "Puma Deviate Nitro Elite 2",
+    "brand": "Puma",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/7.jpg",
+      "/images/shoes/7-coral.jpg",
+      "/images/shoes/7-blue.jpg"
+    ],
+    "colors": [
+      "Xanh Neon",
+      "Cam San Hô",
+      "Xanh Electric"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xanh Neon",
+        "image": "/images/shoes/7.jpg",
+        "_id": "6ad07fd4e3dbba3cdf3ebe39",
+        "id": "6ad07fd4e3dbba3cdf3ebe39"
+      },
+      {
+        "color": "Cam San Hô",
+        "image": "/images/shoes/7-coral.jpg",
+        "_id": "6ad07fd4e3dbba3cdf3ebe3a",
+        "id": "6ad07fd4e3dbba3cdf3ebe3a"
+      },
+      {
+        "color": "Xanh Electric",
+        "image": "/images/shoes/7-blue.jpg",
+        "_id": "6ad07fd4e3dbba3cdf3ebe3b",
+        "id": "6ad07fd4e3dbba3cdf3ebe3b"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-D-40-XAN",
+        "color": "Xanh Neon",
+        "size": 40,
+        "image": "/images/shoes/7.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-D-41-XAN",
+        "color": "Xanh Neon",
+        "size": 41,
+        "image": "/images/shoes/7.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "PUMA-D-42-XAN",
+        "color": "Xanh Neon",
+        "size": 42,
+        "image": "/images/shoes/7.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "PUMA-40-CAMS",
+        "color": "Cam San Hô",
+        "size": 40,
+        "image": "/images/shoes/7-coral.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-CAMS",
+        "color": "Cam San Hô",
+        "size": 41,
+        "image": "/images/shoes/7-coral.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-CAMS",
+        "color": "Cam San Hô",
+        "size": 42,
+        "image": "/images/shoes/7-coral.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Electric",
+        "size": 40,
+        "image": "/images/shoes/7-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Electric",
+        "size": 41,
+        "image": "/images/shoes/7-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Electric",
+        "size": 42,
+        "image": "/images/shoes/7-blue.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac9af9a10d2d9fb3669",
+    "index": 8,
+    "name": "Nike ZoomX Vaporfly 3",
+    "brand": "Nike",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/8.jpg",
+      "/images/shoes/8-pink.jpg",
+      "/images/shoes/8-blue.jpg"
+    ],
+    "colors": [
+      "Vàng Cam",
+      "Hồng Neon",
+      "Xanh Biển"
+    ],
+    "colorVariants": [
+      {
+        "color": "Vàng Cam",
+        "image": "/images/shoes/8.jpg",
+        "_id": "6ad07fd6e3dbba3cdf3ebe4f",
+        "id": "6ad07fd6e3dbba3cdf3ebe4f"
+      },
+      {
+        "color": "Hồng Neon",
+        "image": "/images/shoes/8-pink.jpg",
+        "_id": "6ad07fd6e3dbba3cdf3ebe50",
+        "id": "6ad07fd6e3dbba3cdf3ebe50"
+      },
+      {
+        "color": "Xanh Biển",
+        "image": "/images/shoes/8-blue.jpg",
+        "_id": "6ad07fd6e3dbba3cdf3ebe51",
+        "id": "6ad07fd6e3dbba3cdf3ebe51"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-40-VANG",
+        "color": "Vàng Cam",
+        "size": 40,
+        "image": "/images/shoes/8.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-VANG",
+        "color": "Vàng Cam",
+        "size": 41,
+        "image": "/images/shoes/8.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-VANG",
+        "color": "Vàng Cam",
+        "size": 42,
+        "image": "/images/shoes/8.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-VANG",
+        "color": "Vàng Cam",
+        "size": 43,
+        "image": "/images/shoes/8.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-HONG",
+        "color": "Hồng Neon",
+        "size": 40,
+        "image": "/images/shoes/8-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-HONG",
+        "color": "Hồng Neon",
+        "size": 41,
+        "image": "/images/shoes/8-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-HONG",
+        "color": "Hồng Neon",
+        "size": 42,
+        "image": "/images/shoes/8-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-HONG",
+        "color": "Hồng Neon",
+        "size": 43,
+        "image": "/images/shoes/8-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Biển",
+        "size": 40,
+        "image": "/images/shoes/8-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Biển",
+        "size": 41,
+        "image": "/images/shoes/8-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Biển",
+        "size": 42,
+        "image": "/images/shoes/8-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Biển",
+        "size": 43,
+        "image": "/images/shoes/8-blue.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ac9af9a10d2d9fb367b",
+    "index": 9,
+    "name": "Adidas Adizero Adios Pro 3",
+    "brand": "Adidas",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/9.jpg",
+      "/images/shoes/9-blue.jpg",
+      "/images/shoes/9-red.jpg"
+    ],
+    "colors": [
+      "Đen Vàng Neon",
+      "Đen Xanh Cyan",
+      "Đen Đỏ Solar"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Vàng Neon",
+        "image": "/images/shoes/9.jpg",
+        "_id": "6ad07fd7e3dbba3cdf3ebe6b",
+        "id": "6ad07fd7e3dbba3cdf3ebe6b"
+      },
+      {
+        "color": "Đen Xanh Cyan",
+        "image": "/images/shoes/9-blue.jpg",
+        "_id": "6ad07fd7e3dbba3cdf3ebe6c",
+        "id": "6ad07fd7e3dbba3cdf3ebe6c"
+      },
+      {
+        "color": "Đen Đỏ Solar",
+        "image": "/images/shoes/9-red.jpg",
+        "_id": "6ad07fd7e3dbba3cdf3ebe6d",
+        "id": "6ad07fd7e3dbba3cdf3ebe6d"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-40-ENVA",
+        "color": "Đen Vàng Neon",
+        "size": 40,
+        "image": "/images/shoes/9.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-ENVA",
+        "color": "Đen Vàng Neon",
+        "size": 41,
+        "image": "/images/shoes/9.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-ENVA",
+        "color": "Đen Vàng Neon",
+        "size": 42,
+        "image": "/images/shoes/9.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-ENXA",
+        "color": "Đen Xanh Cyan",
+        "size": 40,
+        "image": "/images/shoes/9-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-ENXA",
+        "color": "Đen Xanh Cyan",
+        "size": 41,
+        "image": "/images/shoes/9-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-ENXA",
+        "color": "Đen Xanh Cyan",
+        "size": 42,
+        "image": "/images/shoes/9-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-ENOS",
+        "color": "Đen Đỏ Solar",
+        "size": 40,
+        "image": "/images/shoes/9-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-ENOS",
+        "color": "Đen Đỏ Solar",
+        "size": 41,
+        "image": "/images/shoes/9-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-ENOS",
+        "color": "Đen Đỏ Solar",
+        "size": 42,
+        "image": "/images/shoes/9-red.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79acaaf9a10d2d9fb3689",
+    "index": 10,
+    "name": "Nike Air Force 1 07 All White",
+    "brand": "Nike",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/10.jpg",
+      "/images/shoes/10-black.jpg"
+    ],
+    "colors": [
+      "Trắng",
+      "Đen"
+    ],
+    "colorVariants": [
+      {
+        "color": "Trắng",
+        "image": "/images/shoes/10.jpg",
+        "_id": "6ad07fd9e3dbba3cdf3ebe81",
+        "id": "6ad07fd9e3dbba3cdf3ebe81"
+      },
+      {
+        "color": "Đen",
+        "image": "/images/shoes/10-black.jpg",
+        "_id": "6ad07fd9e3dbba3cdf3ebe82",
+        "id": "6ad07fd9e3dbba3cdf3ebe82"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-A-38-TRẮ",
+        "color": "Trắng",
+        "size": 38,
+        "image": "/images/shoes/10.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-A-39-TRẮ",
+        "color": "Trắng",
+        "size": 39,
+        "image": "/images/shoes/10.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "NIKE-A-40-TRẮ",
+        "color": "Trắng",
+        "size": 40,
+        "image": "/images/shoes/10.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-41-TRẮ",
+        "color": "Trắng",
+        "size": 41,
+        "image": "/images/shoes/10.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "NIKE-A-42-TRẮ",
+        "color": "Trắng",
+        "size": 42,
+        "image": "/images/shoes/10.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "NIKE-A-43-TRẮ",
+        "color": "Trắng",
+        "size": 43,
+        "image": "/images/shoes/10.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "NIKE-38-EN",
+        "color": "Đen",
+        "size": 38,
+        "image": "/images/shoes/10-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "AF1-BLK-39",
+        "color": "Đen",
+        "size": 39,
+        "image": "/images/shoes/10-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "AF1-BLK-40",
+        "color": "Đen",
+        "size": 40,
+        "image": "/images/shoes/10-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "AF1-BLK-41",
+        "color": "Đen",
+        "size": 41,
+        "image": "/images/shoes/10-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "AF1-BLK-42",
+        "color": "Đen",
+        "size": 42,
+        "image": "/images/shoes/10-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "AF1-BLK-43",
+        "color": "Đen",
+        "size": 43,
+        "image": "/images/shoes/10-black.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79acaaf9a10d2d9fb3697",
+    "index": 11,
+    "name": "Adidas Samba OG Classic",
+    "brand": "Adidas",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/11.jpg",
+      "/images/shoes/11-black.jpg"
+    ],
+    "colors": [
+      "Trắng Đen",
+      "Đen Trắng"
+    ],
+    "colorVariants": [
+      {
+        "color": "Trắng Đen",
+        "image": "/images/shoes/11.jpg",
+        "_id": "6ad07fdbe3dbba3cdf3ebe9c",
+        "id": "6ad07fdbe3dbba3cdf3ebe9c"
+      },
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/11-black.jpg",
+        "_id": "6ad07fdbe3dbba3cdf3ebe9d",
+        "id": "6ad07fdbe3dbba3cdf3ebe9d"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADIDAS-39-TRẮ",
+        "color": "Trắng Đen",
+        "size": 39,
+        "image": "/images/shoes/11.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "ADIDAS-40-TRẮ",
+        "color": "Trắng Đen",
+        "size": 40,
+        "image": "/images/shoes/11.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "ADIDAS-41-TRẮ",
+        "color": "Trắng Đen",
+        "size": 41,
+        "image": "/images/shoes/11.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "ADIDAS-42-TRẮ",
+        "color": "Trắng Đen",
+        "size": 42,
+        "image": "/images/shoes/11.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "ADIDAS-39-ĐEN",
+        "color": "Đen Trắng",
+        "size": 39,
+        "image": "/images/shoes/11-black.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "ADIDAS-40-ĐEN",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/11-black.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "ADIDAS-41-ĐEN",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/11-black.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADIDAS-42-ĐEN",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/11-black.jpg",
+        "stock": 9
+      }
+    ]
+  },
+  {
+    "id": "6ac79accaf9a10d2d9fb36a9",
+    "index": 12,
+    "name": "Puma Future 7 Match FG/AG",
+    "brand": "Puma",
+    "category": "Giày Bóng Đá",
+    "images": [
+      "/images/shoes/12.jpg",
+      "/images/shoes/12-white.jpg",
+      "/images/shoes/12-blue.jpg"
+    ],
+    "colors": [
+      "Đen Trắng",
+      "Trắng Bạc",
+      "Xanh Electric"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/12.jpg",
+        "_id": "6ad07fdce3dbba3cdf3ebeaf",
+        "id": "6ad07fdce3dbba3cdf3ebeaf"
+      },
+      {
+        "color": "Trắng Bạc",
+        "image": "/images/shoes/12-white.jpg",
+        "_id": "6ad07fdce3dbba3cdf3ebeb0",
+        "id": "6ad07fdce3dbba3cdf3ebeb0"
+      },
+      {
+        "color": "Xanh Electric",
+        "image": "/images/shoes/12-blue.jpg",
+        "_id": "6ad07fdce3dbba3cdf3ebeb1",
+        "id": "6ad07fdce3dbba3cdf3ebeb1"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-39-ENTR",
+        "color": "Đen Trắng",
+        "size": 39,
+        "image": "/images/shoes/12.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-ENTR",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/12.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-ENTR",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/12.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-ENTR",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/12.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-43-ENTR",
+        "color": "Đen Trắng",
+        "size": 43,
+        "image": "/images/shoes/12.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-TRAN",
+        "color": "Trắng Bạc",
+        "size": 39,
+        "image": "/images/shoes/12-white.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-TRAN",
+        "color": "Trắng Bạc",
+        "size": 40,
+        "image": "/images/shoes/12-white.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-TRAN",
+        "color": "Trắng Bạc",
+        "size": 41,
+        "image": "/images/shoes/12-white.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-TRAN",
+        "color": "Trắng Bạc",
+        "size": 42,
+        "image": "/images/shoes/12-white.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-43-TRAN",
+        "color": "Trắng Bạc",
+        "size": 43,
+        "image": "/images/shoes/12-white.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-XANH",
+        "color": "Xanh Electric",
+        "size": 39,
+        "image": "/images/shoes/12-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Electric",
+        "size": 40,
+        "image": "/images/shoes/12-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Electric",
+        "size": 41,
+        "image": "/images/shoes/12-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Electric",
+        "size": 42,
+        "image": "/images/shoes/12-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-43-XANH",
+        "color": "Xanh Electric",
+        "size": 43,
+        "image": "/images/shoes/12-blue.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79acdaf9a10d2d9fb36bf",
+    "index": 13,
+    "name": "Nike Mercurial Superfly 9 Academy",
+    "brand": "Nike",
+    "category": "Giày Bóng Đá",
+    "images": [
+      "/images/shoes/13.jpg",
+      "/images/shoes/13-blue.jpg",
+      "/images/shoes/13-yellow.jpg"
+    ],
+    "colors": [
+      "Đồng Đỏ",
+      "Xanh Biển Chrome",
+      "Vàng Chanh Solar"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đồng Đỏ",
+        "image": "/images/shoes/13.jpg",
+        "_id": "6ad07fdfe3dbba3cdf3ebed1",
+        "id": "6ad07fdfe3dbba3cdf3ebed1"
+      },
+      {
+        "color": "Xanh Biển Chrome",
+        "image": "/images/shoes/13-blue.jpg",
+        "_id": "6ad07fdfe3dbba3cdf3ebed2",
+        "id": "6ad07fdfe3dbba3cdf3ebed2"
+      },
+      {
+        "color": "Vàng Chanh Solar",
+        "image": "/images/shoes/13-yellow.jpg",
+        "_id": "6ad07fdfe3dbba3cdf3ebed3",
+        "id": "6ad07fdfe3dbba3cdf3ebed3"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-M-39-ĐỒN",
+        "color": "Đồng Đỏ",
+        "size": 39,
+        "image": "/images/shoes/13.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "NIKE-M-40-ĐỒN",
+        "color": "Đồng Đỏ",
+        "size": 40,
+        "image": "/images/shoes/13.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-M-41-ĐỒN",
+        "color": "Đồng Đỏ",
+        "size": 41,
+        "image": "/images/shoes/13.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "NIKE-M-42-ĐỒN",
+        "color": "Đồng Đỏ",
+        "size": 42,
+        "image": "/images/shoes/13.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "NIKE-M-43-ĐỒN",
+        "color": "Đồng Đỏ",
+        "size": 43,
+        "image": "/images/shoes/13.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "NIKE-39-XANH",
+        "color": "Xanh Biển Chrome",
+        "size": 39,
+        "image": "/images/shoes/13-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Biển Chrome",
+        "size": 40,
+        "image": "/images/shoes/13-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Biển Chrome",
+        "size": 41,
+        "image": "/images/shoes/13-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Biển Chrome",
+        "size": 42,
+        "image": "/images/shoes/13-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Biển Chrome",
+        "size": 43,
+        "image": "/images/shoes/13-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-39-VANG",
+        "color": "Vàng Chanh Solar",
+        "size": 39,
+        "image": "/images/shoes/13-yellow.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-VANG",
+        "color": "Vàng Chanh Solar",
+        "size": 40,
+        "image": "/images/shoes/13-yellow.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-VANG",
+        "color": "Vàng Chanh Solar",
+        "size": 41,
+        "image": "/images/shoes/13-yellow.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-VANG",
+        "color": "Vàng Chanh Solar",
+        "size": 42,
+        "image": "/images/shoes/13-yellow.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-VANG",
+        "color": "Vàng Chanh Solar",
+        "size": 43,
+        "image": "/images/shoes/13-yellow.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79aceaf9a10d2d9fb36d5",
+    "index": 14,
+    "name": "Adidas Predator Elite FT",
+    "brand": "Adidas",
+    "category": "Giày Bóng Đá",
+    "images": [
+      "/images/shoes/14.jpg",
+      "/images/shoes/14-purple.jpg",
+      "/images/shoes/14-green.jpg"
+    ],
+    "colors": [
+      "Xanh Đỏ Trắng",
+      "Tím Đen Solar",
+      "Xanh Lá Lục Bảo"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xanh Đỏ Trắng",
+        "image": "/images/shoes/14.jpg",
+        "_id": "6ad07fe3e3dbba3cdf3ebef3",
+        "id": "6ad07fe3e3dbba3cdf3ebef3"
+      },
+      {
+        "color": "Tím Đen Solar",
+        "image": "/images/shoes/14-purple.jpg",
+        "_id": "6ad07fe3e3dbba3cdf3ebef4",
+        "id": "6ad07fe3e3dbba3cdf3ebef4"
+      },
+      {
+        "color": "Xanh Lá Lục Bảo",
+        "image": "/images/shoes/14-green.jpg",
+        "_id": "6ad07fe3e3dbba3cdf3ebef5",
+        "id": "6ad07fe3e3dbba3cdf3ebef5"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Đỏ Trắng",
+        "size": 40,
+        "image": "/images/shoes/14.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Đỏ Trắng",
+        "size": 41,
+        "image": "/images/shoes/14.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Đỏ Trắng",
+        "size": 42,
+        "image": "/images/shoes/14.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-XANH",
+        "color": "Xanh Đỏ Trắng",
+        "size": 43,
+        "image": "/images/shoes/14.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-TIME",
+        "color": "Tím Đen Solar",
+        "size": 40,
+        "image": "/images/shoes/14-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-TIME",
+        "color": "Tím Đen Solar",
+        "size": 41,
+        "image": "/images/shoes/14-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-TIME",
+        "color": "Tím Đen Solar",
+        "size": 42,
+        "image": "/images/shoes/14-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-TIME",
+        "color": "Tím Đen Solar",
+        "size": 43,
+        "image": "/images/shoes/14-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Lá Lục Bảo",
+        "size": 40,
+        "image": "/images/shoes/14-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Lá Lục Bảo",
+        "size": 41,
+        "image": "/images/shoes/14-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Lá Lục Bảo",
+        "size": 42,
+        "image": "/images/shoes/14-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-XANH",
+        "color": "Xanh Lá Lục Bảo",
+        "size": 43,
+        "image": "/images/shoes/14-green.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79aceaf9a10d2d9fb36df",
+    "index": 15,
+    "name": "Puma King Pro 21 FG/AG",
+    "brand": "Puma",
+    "category": "Giày Bóng Đá",
+    "images": [
+      "/images/shoes/15.jpg",
+      "/images/shoes/15-blue.jpg",
+      "/images/shoes/15-red.jpg"
+    ],
+    "colors": [
+      "Đen Trắng",
+      "Xanh Hoàng Gia",
+      "Đỏ Ruby"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/15.jpg",
+        "_id": "6ad07fe5e3dbba3cdf3ebf0f",
+        "id": "6ad07fe5e3dbba3cdf3ebf0f"
+      },
+      {
+        "color": "Xanh Hoàng Gia",
+        "image": "/images/shoes/15-blue.jpg",
+        "_id": "6ad07fe5e3dbba3cdf3ebf10",
+        "id": "6ad07fe5e3dbba3cdf3ebf10"
+      },
+      {
+        "color": "Đỏ Ruby",
+        "image": "/images/shoes/15-red.jpg",
+        "_id": "6ad07fe5e3dbba3cdf3ebf11",
+        "id": "6ad07fe5e3dbba3cdf3ebf11"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-K-40-ĐEN",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/15.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "PUMA-K-41-ĐEN",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/15.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "PUMA-K-42-ĐEN",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/15.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Hoàng Gia",
+        "size": 40,
+        "image": "/images/shoes/15-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Hoàng Gia",
+        "size": 41,
+        "image": "/images/shoes/15-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Hoàng Gia",
+        "size": 42,
+        "image": "/images/shoes/15-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 40,
+        "image": "/images/shoes/15-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 41,
+        "image": "/images/shoes/15-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 42,
+        "image": "/images/shoes/15-red.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79aceaf9a10d2d9fb36e7",
+    "index": 16,
+    "name": "Nike Giannis Freak 5",
+    "brand": "Nike",
+    "category": "Giày Bóng Rổ",
+    "images": [
+      "/images/shoes/16.jpg",
+      "/images/shoes/16-purple.jpg",
+      "/images/shoes/16-green.jpg"
+    ],
+    "colors": [
+      "Xanh Đỏ",
+      "Tím Vàng Showtime",
+      "Xanh Lá Cam Volt"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xanh Đỏ",
+        "image": "/images/shoes/16.jpg",
+        "_id": "6ad07fe7e3dbba3cdf3ebf25",
+        "id": "6ad07fe7e3dbba3cdf3ebf25"
+      },
+      {
+        "color": "Tím Vàng Showtime",
+        "image": "/images/shoes/16-purple.jpg",
+        "_id": "6ad07fe7e3dbba3cdf3ebf26",
+        "id": "6ad07fe7e3dbba3cdf3ebf26"
+      },
+      {
+        "color": "Xanh Lá Cam Volt",
+        "image": "/images/shoes/16-green.jpg",
+        "_id": "6ad07fe7e3dbba3cdf3ebf27",
+        "id": "6ad07fe7e3dbba3cdf3ebf27"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-G-41-XAN",
+        "color": "Xanh Đỏ",
+        "size": 41,
+        "image": "/images/shoes/16.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "NIKE-G-42-XAN",
+        "color": "Xanh Đỏ",
+        "size": 42,
+        "image": "/images/shoes/16.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-G-43-XAN",
+        "color": "Xanh Đỏ",
+        "size": 43,
+        "image": "/images/shoes/16.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "NIKE-G-44-XAN",
+        "color": "Xanh Đỏ",
+        "size": 44,
+        "image": "/images/shoes/16.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "NIKE-41-TIMV",
+        "color": "Tím Vàng Showtime",
+        "size": 41,
+        "image": "/images/shoes/16-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-TIMV",
+        "color": "Tím Vàng Showtime",
+        "size": 42,
+        "image": "/images/shoes/16-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-TIMV",
+        "color": "Tím Vàng Showtime",
+        "size": 43,
+        "image": "/images/shoes/16-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-44-TIMV",
+        "color": "Tím Vàng Showtime",
+        "size": 44,
+        "image": "/images/shoes/16-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Lá Cam Volt",
+        "size": 41,
+        "image": "/images/shoes/16-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Lá Cam Volt",
+        "size": 42,
+        "image": "/images/shoes/16-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Lá Cam Volt",
+        "size": 43,
+        "image": "/images/shoes/16-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-44-XANH",
+        "color": "Xanh Lá Cam Volt",
+        "size": 44,
+        "image": "/images/shoes/16-green.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79acfaf9a10d2d9fb36f9",
+    "index": 17,
+    "name": "Adidas Dame 8 EXTPLY",
+    "brand": "Adidas",
+    "category": "Giày Bóng Rổ",
+    "images": [
+      "/images/shoes/17.jpg",
+      "/images/shoes/17-aqua.jpg",
+      "/images/shoes/17-red.jpg"
+    ],
+    "colors": [
+      "Đen Xám",
+      "Xanh Aqua",
+      "Đỏ Crimson"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Xám",
+        "image": "/images/shoes/17.jpg",
+        "_id": "6ad07fe9e3dbba3cdf3ebf41",
+        "id": "6ad07fe9e3dbba3cdf3ebf41"
+      },
+      {
+        "color": "Xanh Aqua",
+        "image": "/images/shoes/17-aqua.jpg",
+        "_id": "6ad07fe9e3dbba3cdf3ebf42",
+        "id": "6ad07fe9e3dbba3cdf3ebf42"
+      },
+      {
+        "color": "Đỏ Crimson",
+        "image": "/images/shoes/17-red.jpg",
+        "_id": "6ad07fe9e3dbba3cdf3ebf43",
+        "id": "6ad07fe9e3dbba3cdf3ebf43"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-41-ENXA",
+        "color": "Đen Xám",
+        "size": 41,
+        "image": "/images/shoes/17.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-ENXA",
+        "color": "Đen Xám",
+        "size": 42,
+        "image": "/images/shoes/17.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-ENXA",
+        "color": "Đen Xám",
+        "size": 43,
+        "image": "/images/shoes/17.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Aqua",
+        "size": 41,
+        "image": "/images/shoes/17-aqua.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Aqua",
+        "size": 42,
+        "image": "/images/shoes/17-aqua.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-XANH",
+        "color": "Xanh Aqua",
+        "size": 43,
+        "image": "/images/shoes/17-aqua.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 41,
+        "image": "/images/shoes/17-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 42,
+        "image": "/images/shoes/17-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-OCRI",
+        "color": "Đỏ Crimson",
+        "size": 43,
+        "image": "/images/shoes/17-red.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79acfaf9a10d2d9fb3707",
+    "index": 18,
+    "name": "Puma MB.03 LaMelo Ball",
+    "brand": "Puma",
+    "category": "Giày Bóng Rổ",
+    "images": [
+      "/images/shoes/18.jpg",
+      "/images/shoes/18-pink.jpg",
+      "/images/shoes/18-purple.jpg"
+    ],
+    "colors": [
+      "Xanh Neon Độc Đáo",
+      "Hồng Cam Toxic",
+      "Tím Nebula Galaxy"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xanh Neon Độc Đáo",
+        "image": "/images/shoes/18.jpg",
+        "_id": "6ad07febe3dbba3cdf3ebf57",
+        "id": "6ad07febe3dbba3cdf3ebf57"
+      },
+      {
+        "color": "Hồng Cam Toxic",
+        "image": "/images/shoes/18-pink.jpg",
+        "_id": "6ad07febe3dbba3cdf3ebf58",
+        "id": "6ad07febe3dbba3cdf3ebf58"
+      },
+      {
+        "color": "Tím Nebula Galaxy",
+        "image": "/images/shoes/18-purple.jpg",
+        "_id": "6ad07febe3dbba3cdf3ebf59",
+        "id": "6ad07febe3dbba3cdf3ebf59"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-M-41-XAN",
+        "color": "Xanh Neon Độc Đáo",
+        "size": 41,
+        "image": "/images/shoes/18.jpg",
+        "stock": 11
+      },
+      {
+        "sku": "PUMA-M-42-XAN",
+        "color": "Xanh Neon Độc Đáo",
+        "size": 42,
+        "image": "/images/shoes/18.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "PUMA-M-43-XAN",
+        "color": "Xanh Neon Độc Đáo",
+        "size": 43,
+        "image": "/images/shoes/18.jpg",
+        "stock": 9
+      },
+      {
+        "sku": "PUMA-M-44-XAN",
+        "color": "Xanh Neon Độc Đáo",
+        "size": 44,
+        "image": "/images/shoes/18.jpg",
+        "stock": 5
+      },
+      {
+        "sku": "PUMA-41-HONG",
+        "color": "Hồng Cam Toxic",
+        "size": 41,
+        "image": "/images/shoes/18-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-HONG",
+        "color": "Hồng Cam Toxic",
+        "size": 42,
+        "image": "/images/shoes/18-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-43-HONG",
+        "color": "Hồng Cam Toxic",
+        "size": 43,
+        "image": "/images/shoes/18-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-44-HONG",
+        "color": "Hồng Cam Toxic",
+        "size": 44,
+        "image": "/images/shoes/18-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-TIMN",
+        "color": "Tím Nebula Galaxy",
+        "size": 41,
+        "image": "/images/shoes/18-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-TIMN",
+        "color": "Tím Nebula Galaxy",
+        "size": 42,
+        "image": "/images/shoes/18-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-43-TIMN",
+        "color": "Tím Nebula Galaxy",
+        "size": 43,
+        "image": "/images/shoes/18-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-44-TIMN",
+        "color": "Tím Nebula Galaxy",
+        "size": 44,
+        "image": "/images/shoes/18-purple.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad0af9a10d2d9fb3711",
+    "index": 19,
+    "name": "Nike Metcon 9 Training",
+    "brand": "Nike",
+    "category": "Giày Tập Luyện",
+    "images": [
+      "/images/shoes/19.jpg",
+      "/images/shoes/19-blue.jpg",
+      "/images/shoes/19-green.jpg"
+    ],
+    "colors": [
+      "Xám Cam",
+      "Xanh Dương Navy",
+      "Xanh Rêu Quân Đội"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xám Cam",
+        "image": "/images/shoes/19.jpg",
+        "_id": "6ad07fece3dbba3cdf3ebf73",
+        "id": "6ad07fece3dbba3cdf3ebf73"
+      },
+      {
+        "color": "Xanh Dương Navy",
+        "image": "/images/shoes/19-blue.jpg",
+        "_id": "6ad07fece3dbba3cdf3ebf74",
+        "id": "6ad07fece3dbba3cdf3ebf74"
+      },
+      {
+        "color": "Xanh Rêu Quân Đội",
+        "image": "/images/shoes/19-green.jpg",
+        "_id": "6ad07fece3dbba3cdf3ebf75",
+        "id": "6ad07fece3dbba3cdf3ebf75"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-39-XAMC",
+        "color": "Xám Cam",
+        "size": 39,
+        "image": "/images/shoes/19.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XAMC",
+        "color": "Xám Cam",
+        "size": 40,
+        "image": "/images/shoes/19.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XAMC",
+        "color": "Xám Cam",
+        "size": 41,
+        "image": "/images/shoes/19.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XAMC",
+        "color": "Xám Cam",
+        "size": 42,
+        "image": "/images/shoes/19.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XAMC",
+        "color": "Xám Cam",
+        "size": 43,
+        "image": "/images/shoes/19.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-39-XANH",
+        "color": "Xanh Dương Navy",
+        "size": 39,
+        "image": "/images/shoes/19-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Dương Navy",
+        "size": 40,
+        "image": "/images/shoes/19-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Dương Navy",
+        "size": 41,
+        "image": "/images/shoes/19-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Dương Navy",
+        "size": 42,
+        "image": "/images/shoes/19-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Dương Navy",
+        "size": 43,
+        "image": "/images/shoes/19-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-39-XANH",
+        "color": "Xanh Rêu Quân Đội",
+        "size": 39,
+        "image": "/images/shoes/19-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Rêu Quân Đội",
+        "size": 40,
+        "image": "/images/shoes/19-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Rêu Quân Đội",
+        "size": 41,
+        "image": "/images/shoes/19-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Rêu Quân Đội",
+        "size": 42,
+        "image": "/images/shoes/19-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Rêu Quân Đội",
+        "size": 43,
+        "image": "/images/shoes/19-green.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad0af9a10d2d9fb3727",
+    "index": 20,
+    "name": "Adidas Dropset 2 Trainer",
+    "brand": "Adidas",
+    "category": "Giày Tập Luyện",
+    "images": [
+      "/images/shoes/20.jpg",
+      "/images/shoes/20-blue.jpg",
+      "/images/shoes/20-red.jpg"
+    ],
+    "colors": [
+      "Đen Trắng",
+      "Xanh Dương Thể Thao",
+      "Đỏ Năng Động"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/20.jpg",
+        "_id": "6ad07feee3dbba3cdf3ebf95",
+        "id": "6ad07feee3dbba3cdf3ebf95"
+      },
+      {
+        "color": "Xanh Dương Thể Thao",
+        "image": "/images/shoes/20-blue.jpg",
+        "_id": "6ad07feee3dbba3cdf3ebf96",
+        "id": "6ad07feee3dbba3cdf3ebf96"
+      },
+      {
+        "color": "Đỏ Năng Động",
+        "image": "/images/shoes/20-red.jpg",
+        "_id": "6ad07feee3dbba3cdf3ebf97",
+        "id": "6ad07feee3dbba3cdf3ebf97"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADIDAS-40-ĐEN",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/20.jpg",
+        "stock": 4
+      },
+      {
+        "sku": "ADIDAS-41-ĐEN",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/20.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADIDAS-42-ĐEN",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/20.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Dương Thể Thao",
+        "size": 40,
+        "image": "/images/shoes/20-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Dương Thể Thao",
+        "size": 41,
+        "image": "/images/shoes/20-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Dương Thể Thao",
+        "size": 42,
+        "image": "/images/shoes/20-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-ONAN",
+        "color": "Đỏ Năng Động",
+        "size": 40,
+        "image": "/images/shoes/20-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-ONAN",
+        "color": "Đỏ Năng Động",
+        "size": 41,
+        "image": "/images/shoes/20-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-ONAN",
+        "color": "Đỏ Năng Động",
+        "size": 42,
+        "image": "/images/shoes/20-red.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad1af9a10d2d9fb372f",
+    "index": 21,
+    "name": "Puma Fuse 2.0 Workout Trainer",
+    "brand": "Puma",
+    "category": "Giày Tập Luyện",
+    "images": [
+      "/images/shoes/21.jpg",
+      "/images/shoes/21-blue.jpg",
+      "/images/shoes/21-orange.jpg"
+    ],
+    "colors": [
+      "Trắng Bạc",
+      "Xanh Dương Neon",
+      "Cam Lửa"
+    ],
+    "colorVariants": [
+      {
+        "color": "Trắng Bạc",
+        "image": "/images/shoes/21.jpg",
+        "_id": "6ad07fefe3dbba3cdf3ebfab",
+        "id": "6ad07fefe3dbba3cdf3ebfab"
+      },
+      {
+        "color": "Xanh Dương Neon",
+        "image": "/images/shoes/21-blue.jpg",
+        "_id": "6ad07fefe3dbba3cdf3ebfac",
+        "id": "6ad07fefe3dbba3cdf3ebfac"
+      },
+      {
+        "color": "Cam Lửa",
+        "image": "/images/shoes/21-orange.jpg",
+        "_id": "6ad07fefe3dbba3cdf3ebfad",
+        "id": "6ad07fefe3dbba3cdf3ebfad"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-39-TRAN",
+        "color": "Trắng Bạc",
+        "size": 39,
+        "image": "/images/shoes/21.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-TRAN",
+        "color": "Trắng Bạc",
+        "size": 40,
+        "image": "/images/shoes/21.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-TRAN",
+        "color": "Trắng Bạc",
+        "size": 41,
+        "image": "/images/shoes/21.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-TRAN",
+        "color": "Trắng Bạc",
+        "size": 42,
+        "image": "/images/shoes/21.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-XANH",
+        "color": "Xanh Dương Neon",
+        "size": 39,
+        "image": "/images/shoes/21-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Dương Neon",
+        "size": 40,
+        "image": "/images/shoes/21-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Dương Neon",
+        "size": 41,
+        "image": "/images/shoes/21-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Dương Neon",
+        "size": 42,
+        "image": "/images/shoes/21-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-CAML",
+        "color": "Cam Lửa",
+        "size": 39,
+        "image": "/images/shoes/21-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-CAML",
+        "color": "Cam Lửa",
+        "size": 40,
+        "image": "/images/shoes/21-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-CAML",
+        "color": "Cam Lửa",
+        "size": 41,
+        "image": "/images/shoes/21-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-CAML",
+        "color": "Cam Lửa",
+        "size": 42,
+        "image": "/images/shoes/21-orange.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad2af9a10d2d9fb3741",
+    "index": 22,
+    "name": "Nike Invincible 3 Max Cushion",
+    "brand": "Nike",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/22.jpg",
+      "/images/shoes/22-teal.jpg",
+      "/images/shoes/22-pink.jpg"
+    ],
+    "colors": [
+      "Trắng Xám",
+      "Xanh Ngọc Bích",
+      "Hồng Pastel"
+    ],
+    "colorVariants": [
+      {
+        "color": "Trắng Xám",
+        "image": "/images/shoes/22.jpg",
+        "_id": "6ad07ff1e3dbba3cdf3ebfc7",
+        "id": "6ad07ff1e3dbba3cdf3ebfc7"
+      },
+      {
+        "color": "Xanh Ngọc Bích",
+        "image": "/images/shoes/22-teal.jpg",
+        "_id": "6ad07ff1e3dbba3cdf3ebfc8",
+        "id": "6ad07ff1e3dbba3cdf3ebfc8"
+      },
+      {
+        "color": "Hồng Pastel",
+        "image": "/images/shoes/22-pink.jpg",
+        "_id": "6ad07ff1e3dbba3cdf3ebfc9",
+        "id": "6ad07ff1e3dbba3cdf3ebfc9"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-40-TRAN",
+        "color": "Trắng Xám",
+        "size": 40,
+        "image": "/images/shoes/22.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-TRAN",
+        "color": "Trắng Xám",
+        "size": 41,
+        "image": "/images/shoes/22.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-TRAN",
+        "color": "Trắng Xám",
+        "size": 42,
+        "image": "/images/shoes/22.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-TRAN",
+        "color": "Trắng Xám",
+        "size": 43,
+        "image": "/images/shoes/22.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Ngọc Bích",
+        "size": 40,
+        "image": "/images/shoes/22-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Ngọc Bích",
+        "size": 41,
+        "image": "/images/shoes/22-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Ngọc Bích",
+        "size": 42,
+        "image": "/images/shoes/22-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Ngọc Bích",
+        "size": 43,
+        "image": "/images/shoes/22-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-HONG",
+        "color": "Hồng Pastel",
+        "size": 40,
+        "image": "/images/shoes/22-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-HONG",
+        "color": "Hồng Pastel",
+        "size": 41,
+        "image": "/images/shoes/22-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-HONG",
+        "color": "Hồng Pastel",
+        "size": 42,
+        "image": "/images/shoes/22-pink.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-HONG",
+        "color": "Hồng Pastel",
+        "size": 43,
+        "image": "/images/shoes/22-pink.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad2af9a10d2d9fb3753",
+    "index": 23,
+    "name": "Adidas Boston 12 Energy Rods",
+    "brand": "Adidas",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/23.jpg",
+      "/images/shoes/23-cyan.jpg",
+      "/images/shoes/23-orange.jpg"
+    ],
+    "colors": [
+      "Đen Trắng",
+      "Xanh Cyan Tốc Độ",
+      "Cam Solar"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/23.jpg",
+        "_id": "6ad07ff3e3dbba3cdf3ebfe3",
+        "id": "6ad07ff3e3dbba3cdf3ebfe3"
+      },
+      {
+        "color": "Xanh Cyan Tốc Độ",
+        "image": "/images/shoes/23-cyan.jpg",
+        "_id": "6ad07ff3e3dbba3cdf3ebfe4",
+        "id": "6ad07ff3e3dbba3cdf3ebfe4"
+      },
+      {
+        "color": "Cam Solar",
+        "image": "/images/shoes/23-orange.jpg",
+        "_id": "6ad07ff3e3dbba3cdf3ebfe5",
+        "id": "6ad07ff3e3dbba3cdf3ebfe5"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-40-ENTR",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/23.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-ENTR",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/23.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-ENTR",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/23.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-ENTR",
+        "color": "Đen Trắng",
+        "size": 43,
+        "image": "/images/shoes/23.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Cyan Tốc Độ",
+        "size": 40,
+        "image": "/images/shoes/23-cyan.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Cyan Tốc Độ",
+        "size": 41,
+        "image": "/images/shoes/23-cyan.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Cyan Tốc Độ",
+        "size": 42,
+        "image": "/images/shoes/23-cyan.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-XANH",
+        "color": "Xanh Cyan Tốc Độ",
+        "size": 43,
+        "image": "/images/shoes/23-cyan.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-CAMS",
+        "color": "Cam Solar",
+        "size": 40,
+        "image": "/images/shoes/23-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-CAMS",
+        "color": "Cam Solar",
+        "size": 41,
+        "image": "/images/shoes/23-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-CAMS",
+        "color": "Cam Solar",
+        "size": 42,
+        "image": "/images/shoes/23-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-CAMS",
+        "color": "Cam Solar",
+        "size": 43,
+        "image": "/images/shoes/23-orange.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad3af9a10d2d9fb3765",
+    "index": 24,
+    "name": "Puma Magnify Nitro 2 Comfort",
+    "brand": "Puma",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/24.jpg",
+      "/images/shoes/24-red.jpg",
+      "/images/shoes/24-green.jpg"
+    ],
+    "colors": [
+      "Xanh Navy Tím",
+      "Đỏ Ruby",
+      "Xanh Lục Bảo"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xanh Navy Tím",
+        "image": "/images/shoes/24.jpg",
+        "_id": "6ad07ff5e3dbba3cdf3ebfff",
+        "id": "6ad07ff5e3dbba3cdf3ebfff"
+      },
+      {
+        "color": "Đỏ Ruby",
+        "image": "/images/shoes/24-red.jpg",
+        "_id": "6ad07ff5e3dbba3cdf3ec000",
+        "id": "6ad07ff5e3dbba3cdf3ec000"
+      },
+      {
+        "color": "Xanh Lục Bảo",
+        "image": "/images/shoes/24-green.jpg",
+        "_id": "6ad07ff5e3dbba3cdf3ec001",
+        "id": "6ad07ff5e3dbba3cdf3ec001"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-39-XANH",
+        "color": "Xanh Navy Tím",
+        "size": 39,
+        "image": "/images/shoes/24.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Navy Tím",
+        "size": 40,
+        "image": "/images/shoes/24.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Navy Tím",
+        "size": 41,
+        "image": "/images/shoes/24.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Navy Tím",
+        "size": 42,
+        "image": "/images/shoes/24.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 39,
+        "image": "/images/shoes/24-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 40,
+        "image": "/images/shoes/24-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 41,
+        "image": "/images/shoes/24-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-ORUB",
+        "color": "Đỏ Ruby",
+        "size": 42,
+        "image": "/images/shoes/24-red.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-XANH",
+        "color": "Xanh Lục Bảo",
+        "size": 39,
+        "image": "/images/shoes/24-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Lục Bảo",
+        "size": 40,
+        "image": "/images/shoes/24-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Lục Bảo",
+        "size": 41,
+        "image": "/images/shoes/24-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Lục Bảo",
+        "size": 42,
+        "image": "/images/shoes/24-green.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad3af9a10d2d9fb376f",
+    "index": 25,
+    "name": "Nike Air Max 270 Lifestyle",
+    "brand": "Nike",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/25.jpg",
+      "/images/shoes/25-blue.jpg",
+      "/images/shoes/25-orange.jpg"
+    ],
+    "colors": [
+      "Đen Trắng",
+      "Xanh Biển Đen",
+      "Cam Cháy Đen"
+    ],
+    "colorVariants": [
+      {
+        "color": "Đen Trắng",
+        "image": "/images/shoes/25.jpg",
+        "_id": "6ad07ff7e3dbba3cdf3ec01b",
+        "id": "6ad07ff7e3dbba3cdf3ec01b"
+      },
+      {
+        "color": "Xanh Biển Đen",
+        "image": "/images/shoes/25-blue.jpg",
+        "_id": "6ad07ff7e3dbba3cdf3ec01c",
+        "id": "6ad07ff7e3dbba3cdf3ec01c"
+      },
+      {
+        "color": "Cam Cháy Đen",
+        "image": "/images/shoes/25-orange.jpg",
+        "_id": "6ad07ff7e3dbba3cdf3ec01d",
+        "id": "6ad07ff7e3dbba3cdf3ec01d"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-A-39-ĐEN",
+        "color": "Đen Trắng",
+        "size": 39,
+        "image": "/images/shoes/25.jpg",
+        "stock": 8
+      },
+      {
+        "sku": "NIKE-A-40-ĐEN",
+        "color": "Đen Trắng",
+        "size": 40,
+        "image": "/images/shoes/25.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "NIKE-A-41-ĐEN",
+        "color": "Đen Trắng",
+        "size": 41,
+        "image": "/images/shoes/25.jpg",
+        "stock": 6
+      },
+      {
+        "sku": "NIKE-A-42-ĐEN",
+        "color": "Đen Trắng",
+        "size": 42,
+        "image": "/images/shoes/25.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-A-43-ĐEN",
+        "color": "Đen Trắng",
+        "size": 43,
+        "image": "/images/shoes/25.jpg",
+        "stock": 7
+      },
+      {
+        "sku": "NIKE-39-XANH",
+        "color": "Xanh Biển Đen",
+        "size": 39,
+        "image": "/images/shoes/25-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Biển Đen",
+        "size": 40,
+        "image": "/images/shoes/25-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Biển Đen",
+        "size": 41,
+        "image": "/images/shoes/25-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Biển Đen",
+        "size": 42,
+        "image": "/images/shoes/25-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Biển Đen",
+        "size": 43,
+        "image": "/images/shoes/25-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-39-CAMC",
+        "color": "Cam Cháy Đen",
+        "size": 39,
+        "image": "/images/shoes/25-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-CAMC",
+        "color": "Cam Cháy Đen",
+        "size": 40,
+        "image": "/images/shoes/25-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-CAMC",
+        "color": "Cam Cháy Đen",
+        "size": 41,
+        "image": "/images/shoes/25-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-CAMC",
+        "color": "Cam Cháy Đen",
+        "size": 42,
+        "image": "/images/shoes/25-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-CAMC",
+        "color": "Cam Cháy Đen",
+        "size": 43,
+        "image": "/images/shoes/25-orange.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad4af9a10d2d9fb3785",
+    "index": 26,
+    "name": "Adidas NMD_R1 V3 Urban",
+    "brand": "Adidas",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/26.jpg",
+      "/images/shoes/26-mint.jpg",
+      "/images/shoes/26-purple.jpg"
+    ],
+    "colors": [
+      "Vàng Cát Sa Mạc",
+      "Xanh Mint Bạc",
+      "Tím Khói"
+    ],
+    "colorVariants": [
+      {
+        "color": "Vàng Cát Sa Mạc",
+        "image": "/images/shoes/26.jpg",
+        "_id": "6ad07ff8e3dbba3cdf3ec03d",
+        "id": "6ad07ff8e3dbba3cdf3ec03d"
+      },
+      {
+        "color": "Xanh Mint Bạc",
+        "image": "/images/shoes/26-mint.jpg",
+        "_id": "6ad07ff8e3dbba3cdf3ec03e",
+        "id": "6ad07ff8e3dbba3cdf3ec03e"
+      },
+      {
+        "color": "Tím Khói",
+        "image": "/images/shoes/26-purple.jpg",
+        "_id": "6ad07ff8e3dbba3cdf3ec03f",
+        "id": "6ad07ff8e3dbba3cdf3ec03f"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-40-VANG",
+        "color": "Vàng Cát Sa Mạc",
+        "size": 40,
+        "image": "/images/shoes/26.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-VANG",
+        "color": "Vàng Cát Sa Mạc",
+        "size": 41,
+        "image": "/images/shoes/26.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-VANG",
+        "color": "Vàng Cát Sa Mạc",
+        "size": 42,
+        "image": "/images/shoes/26.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-VANG",
+        "color": "Vàng Cát Sa Mạc",
+        "size": 43,
+        "image": "/images/shoes/26.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Mint Bạc",
+        "size": 40,
+        "image": "/images/shoes/26-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Mint Bạc",
+        "size": 41,
+        "image": "/images/shoes/26-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Mint Bạc",
+        "size": 42,
+        "image": "/images/shoes/26-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-XANH",
+        "color": "Xanh Mint Bạc",
+        "size": 43,
+        "image": "/images/shoes/26-mint.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-TIMK",
+        "color": "Tím Khói",
+        "size": 40,
+        "image": "/images/shoes/26-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-TIMK",
+        "color": "Tím Khói",
+        "size": 41,
+        "image": "/images/shoes/26-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-TIMK",
+        "color": "Tím Khói",
+        "size": 42,
+        "image": "/images/shoes/26-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-43-TIMK",
+        "color": "Tím Khói",
+        "size": 43,
+        "image": "/images/shoes/26-purple.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad5af9a10d2d9fb3797",
+    "index": 27,
+    "name": "Puma RS-X Efekt Remastered",
+    "brand": "Puma",
+    "category": "Giày Thể Thao Hằng Ngày",
+    "images": [
+      "/images/shoes/27.jpg",
+      "/images/shoes/27-blue.jpg",
+      "/images/shoes/27-purple.jpg"
+    ],
+    "colors": [
+      "Cam Nâu Đất",
+      "Xanh Biển Bạc",
+      "Tím Magenta"
+    ],
+    "colorVariants": [
+      {
+        "color": "Cam Nâu Đất",
+        "image": "/images/shoes/27.jpg",
+        "_id": "6ad07ffae3dbba3cdf3ec059",
+        "id": "6ad07ffae3dbba3cdf3ec059"
+      },
+      {
+        "color": "Xanh Biển Bạc",
+        "image": "/images/shoes/27-blue.jpg",
+        "_id": "6ad07ffae3dbba3cdf3ec05a",
+        "id": "6ad07ffae3dbba3cdf3ec05a"
+      },
+      {
+        "color": "Tím Magenta",
+        "image": "/images/shoes/27-purple.jpg",
+        "_id": "6ad07ffae3dbba3cdf3ec05b",
+        "id": "6ad07ffae3dbba3cdf3ec05b"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-39-CAMN",
+        "color": "Cam Nâu Đất",
+        "size": 39,
+        "image": "/images/shoes/27.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-CAMN",
+        "color": "Cam Nâu Đất",
+        "size": 40,
+        "image": "/images/shoes/27.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-CAMN",
+        "color": "Cam Nâu Đất",
+        "size": 41,
+        "image": "/images/shoes/27.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-CAMN",
+        "color": "Cam Nâu Đất",
+        "size": 42,
+        "image": "/images/shoes/27.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-XANH",
+        "color": "Xanh Biển Bạc",
+        "size": 39,
+        "image": "/images/shoes/27-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Biển Bạc",
+        "size": 40,
+        "image": "/images/shoes/27-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Biển Bạc",
+        "size": 41,
+        "image": "/images/shoes/27-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Biển Bạc",
+        "size": 42,
+        "image": "/images/shoes/27-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-39-TIMM",
+        "color": "Tím Magenta",
+        "size": 39,
+        "image": "/images/shoes/27-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-TIMM",
+        "color": "Tím Magenta",
+        "size": 40,
+        "image": "/images/shoes/27-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-TIMM",
+        "color": "Tím Magenta",
+        "size": 41,
+        "image": "/images/shoes/27-purple.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-TIMM",
+        "color": "Tím Magenta",
+        "size": 42,
+        "image": "/images/shoes/27-purple.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad5af9a10d2d9fb37a9",
+    "index": 28,
+    "name": "Nike InfinityRN 4 Flyknit",
+    "brand": "Nike",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/28.jpg",
+      "/images/shoes/28-teal.jpg",
+      "/images/shoes/28-amber.jpg"
+    ],
+    "colors": [
+      "Mận Chín Đen",
+      "Xanh Teal Ngọc",
+      "Cam Hổ Phách"
+    ],
+    "colorVariants": [
+      {
+        "color": "Mận Chín Đen",
+        "image": "/images/shoes/28.jpg",
+        "_id": "6ad07ffde3dbba3cdf3ec075",
+        "id": "6ad07ffde3dbba3cdf3ec075"
+      },
+      {
+        "color": "Xanh Teal Ngọc",
+        "image": "/images/shoes/28-teal.jpg",
+        "_id": "6ad07ffde3dbba3cdf3ec076",
+        "id": "6ad07ffde3dbba3cdf3ec076"
+      },
+      {
+        "color": "Cam Hổ Phách",
+        "image": "/images/shoes/28-amber.jpg",
+        "_id": "6ad07ffde3dbba3cdf3ec077",
+        "id": "6ad07ffde3dbba3cdf3ec077"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "NIKE-40-MANC",
+        "color": "Mận Chín Đen",
+        "size": 40,
+        "image": "/images/shoes/28.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-MANC",
+        "color": "Mận Chín Đen",
+        "size": 41,
+        "image": "/images/shoes/28.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-MANC",
+        "color": "Mận Chín Đen",
+        "size": 42,
+        "image": "/images/shoes/28.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-MANC",
+        "color": "Mận Chín Đen",
+        "size": 43,
+        "image": "/images/shoes/28.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-XANH",
+        "color": "Xanh Teal Ngọc",
+        "size": 40,
+        "image": "/images/shoes/28-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-XANH",
+        "color": "Xanh Teal Ngọc",
+        "size": 41,
+        "image": "/images/shoes/28-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-XANH",
+        "color": "Xanh Teal Ngọc",
+        "size": 42,
+        "image": "/images/shoes/28-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-XANH",
+        "color": "Xanh Teal Ngọc",
+        "size": 43,
+        "image": "/images/shoes/28-teal.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-40-CAMH",
+        "color": "Cam Hổ Phách",
+        "size": 40,
+        "image": "/images/shoes/28-amber.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-41-CAMH",
+        "color": "Cam Hổ Phách",
+        "size": 41,
+        "image": "/images/shoes/28-amber.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-42-CAMH",
+        "color": "Cam Hổ Phách",
+        "size": 42,
+        "image": "/images/shoes/28-amber.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "NIKE-43-CAMH",
+        "color": "Cam Hổ Phách",
+        "size": 43,
+        "image": "/images/shoes/28-amber.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad6af9a10d2d9fb37bb",
+    "index": 29,
+    "name": "Adidas Supernova Rise Dreamstrike",
+    "brand": "Adidas",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/29.jpg",
+      "/images/shoes/29-orange.jpg",
+      "/images/shoes/29-green.jpg"
+    ],
+    "colors": [
+      "Xanh Dương Đậm",
+      "Cam Đỏ Lửa",
+      "Xanh Lá Mạ"
+    ],
+    "colorVariants": [
+      {
+        "color": "Xanh Dương Đậm",
+        "image": "/images/shoes/29.jpg",
+        "_id": "6ad08000e3dbba3cdf3ec091",
+        "id": "6ad08000e3dbba3cdf3ec091"
+      },
+      {
+        "color": "Cam Đỏ Lửa",
+        "image": "/images/shoes/29-orange.jpg",
+        "_id": "6ad08000e3dbba3cdf3ec092",
+        "id": "6ad08000e3dbba3cdf3ec092"
+      },
+      {
+        "color": "Xanh Lá Mạ",
+        "image": "/images/shoes/29-green.jpg",
+        "_id": "6ad08000e3dbba3cdf3ec093",
+        "id": "6ad08000e3dbba3cdf3ec093"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "ADID-39-XANH",
+        "color": "Xanh Dương Đậm",
+        "size": 39,
+        "image": "/images/shoes/29.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Dương Đậm",
+        "size": 40,
+        "image": "/images/shoes/29.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Dương Đậm",
+        "size": 41,
+        "image": "/images/shoes/29.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Dương Đậm",
+        "size": 42,
+        "image": "/images/shoes/29.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-39-CAMO",
+        "color": "Cam Đỏ Lửa",
+        "size": 39,
+        "image": "/images/shoes/29-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-CAMO",
+        "color": "Cam Đỏ Lửa",
+        "size": 40,
+        "image": "/images/shoes/29-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-CAMO",
+        "color": "Cam Đỏ Lửa",
+        "size": 41,
+        "image": "/images/shoes/29-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-CAMO",
+        "color": "Cam Đỏ Lửa",
+        "size": 42,
+        "image": "/images/shoes/29-orange.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-39-XANH",
+        "color": "Xanh Lá Mạ",
+        "size": 39,
+        "image": "/images/shoes/29-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-40-XANH",
+        "color": "Xanh Lá Mạ",
+        "size": 40,
+        "image": "/images/shoes/29-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-41-XANH",
+        "color": "Xanh Lá Mạ",
+        "size": 41,
+        "image": "/images/shoes/29-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "ADID-42-XANH",
+        "color": "Xanh Lá Mạ",
+        "size": 42,
+        "image": "/images/shoes/29-green.jpg",
+        "stock": 10
+      }
+    ]
+  },
+  {
+    "id": "6ac79ad7af9a10d2d9fb37cd",
+    "index": 30,
+    "name": "Puma Fast-R Nitro Elite Carbon",
+    "brand": "Puma",
+    "category": "Giày Chạy Bộ",
+    "images": [
+      "/images/shoes/30.jpg",
+      "/images/shoes/30-green.jpg",
+      "/images/shoes/30-blue.jpg"
+    ],
+    "colors": [
+      "Cam Neon Carbon",
+      "Xanh Lá Neon",
+      "Xanh Dương Điện"
+    ],
+    "colorVariants": [
+      {
+        "color": "Cam Neon Carbon",
+        "image": "/images/shoes/30.jpg",
+        "_id": "6ad08001e3dbba3cdf3ec0ad",
+        "id": "6ad08001e3dbba3cdf3ec0ad"
+      },
+      {
+        "color": "Xanh Lá Neon",
+        "image": "/images/shoes/30-green.jpg",
+        "_id": "6ad08001e3dbba3cdf3ec0ae",
+        "id": "6ad08001e3dbba3cdf3ec0ae"
+      },
+      {
+        "color": "Xanh Dương Điện",
+        "image": "/images/shoes/30-blue.jpg",
+        "_id": "6ad08001e3dbba3cdf3ec0af",
+        "id": "6ad08001e3dbba3cdf3ec0af"
+      }
+    ],
+    "variantsSummary": [
+      {
+        "sku": "PUMA-40-CAMN",
+        "color": "Cam Neon Carbon",
+        "size": 40,
+        "image": "/images/shoes/30.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-CAMN",
+        "color": "Cam Neon Carbon",
+        "size": 41,
+        "image": "/images/shoes/30.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-CAMN",
+        "color": "Cam Neon Carbon",
+        "size": 42,
+        "image": "/images/shoes/30.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Lá Neon",
+        "size": 40,
+        "image": "/images/shoes/30-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Lá Neon",
+        "size": 41,
+        "image": "/images/shoes/30-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Lá Neon",
+        "size": 42,
+        "image": "/images/shoes/30-green.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-40-XANH",
+        "color": "Xanh Dương Điện",
+        "size": 40,
+        "image": "/images/shoes/30-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-41-XANH",
+        "color": "Xanh Dương Điện",
+        "size": 41,
+        "image": "/images/shoes/30-blue.jpg",
+        "stock": 10
+      },
+      {
+        "sku": "PUMA-42-XANH",
+        "color": "Xanh Dương Điện",
+        "size": 42,
+        "image": "/images/shoes/30-blue.jpg",
+        "stock": 10
+      }
+    ]
+  }
+]

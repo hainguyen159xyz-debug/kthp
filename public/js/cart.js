@@ -143,7 +143,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     tbody.innerHTML = items.map((item) => {
       const p = item.product || {};
-      const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
+      let thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
+      if (p.colorVariants && p.colorVariants.length > 0 && item.color) {
+        const cvMatch = p.colorVariants.find(
+          (cv) => cv.color.toLowerCase() === item.color.toLowerCase()
+        );
+        if (cvMatch && cvMatch.image) thumb = cvMatch.image;
+      }
       const itemSubtotal = item.price * item.quantity;
 
       return `

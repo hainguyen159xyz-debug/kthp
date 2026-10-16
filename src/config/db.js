@@ -1,4 +1,12 @@
 const mongoose = require('mongoose');
+const dns = require('dns');
+
+// Thiết lập DNS dự phòng để đảm bảo phân giải SRV của MongoDB Atlas trên Windows
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch (e) {
+  // Bỏ qua nếu môi trường không cho phép setServers
+}
 
 const connectDB = async () => {
   try {

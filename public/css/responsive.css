@@ -1,40 +1,83 @@
 /* ==========================================================================
-   RESPONSIVE DESIGN RULES - SPORT SHOES E-COMMERCE
+   SPORTZONE STOREFRONT RESPONSIVE BREAKPOINTS
+   Breakpoints: 1440px, 1366px, 1024px, 768px, 430px, 375px
    ========================================================================== */
 
-/* Tablet (1024px and below) */
-@media (max-width: 1024px) {
-  .nav-search {
-    max-width: 240px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .catalog-layout {
-    grid-template-columns: 240px 1fr !important;
-  }
-
-  .product-detail-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px !important;
-  }
-
-  .cart-grid, .checkout-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .hero-campaign-section {
-    margin: 18px 0 40px !important;
+/* --------------------------------------------------------------------------
+   1. WIDE DESKTOP & STANDARD DESKTOP (1440px & 1366px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1320px;
   }
 }
 
-/* Mobile & Tablet Portrait (768px and below) */
+@media (max-width: 1366px) {
+  .container {
+    max-width: 1240px;
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLET LANDSCAPE & SMALL DESKTOP (1024px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-container {
+    gap: 12px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+  }
+
+  .nav-search {
+    min-width: 180px;
+    max-width: 240px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .catalog-layout {
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+  }
+
+  .product-detail-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .cart-grid,
+  .checkout-grid {
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 28px;
+  }
+
+  .features-grid-v2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. TABLET PORTRAIT (768px and below)
+   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .navbar {
-    padding: 12px 0;
+    padding: 10px 0;
   }
 
   .mobile-nav-toggle {
@@ -43,19 +86,21 @@
     justify-content: center;
   }
 
+  /* Mobile Slide Down Menu */
   .nav-links {
     position: fixed;
-    top: 68px;
+    top: 61px;
     left: 0;
     width: 100%;
-    background: var(--bg-card);
+    background: #FFFFFF;
     border-bottom: 1px solid var(--border-color);
     flex-direction: column;
-    padding: 24px;
-    gap: 18px;
+    padding: 20px 24px;
+    gap: 16px;
     align-items: flex-start;
     display: none;
     box-shadow: var(--shadow-lg);
+    z-index: 999;
   }
 
   .nav-links.open {
@@ -63,46 +108,71 @@
   }
 
   .nav-links a {
-    font-size: 1.05rem;
+    font-size: var(--text-base);
     width: 100%;
+    padding: 8px 0;
   }
 
   .nav-search {
-    display: none; /* In mobile, search can be placed in hero or mobile search bar */
+    display: none; /* Can be opened on demand or in header drawer */
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .hero-campaign-section {
-    margin: 12px 0 32px !important;
+    margin: 12px 0 36px;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
+  .hero-campaign-content-box {
+    left: 20px;
+    bottom: 20px;
+    max-width: calc(100% - 40px);
+    gap: 12px;
   }
 
-  .hero-actions .btn {
-    width: 100%;
+  .hero-status-headline {
+    font-size: 1.15rem;
   }
 
-  .status-card {
-    flex-direction: column;
+  .hero-status-line {
+    font-size: 0.8125rem;
+  }
+
+  .hero-campaign-buy-btn {
+    padding: 9px 18px;
+    font-size: var(--text-sm);
+  }
+
+  /* Category discovery showcase mobile adaptation */
+  .category-showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    text-align: center;
-    padding: 20px;
   }
 
-  .status-indicator {
-    flex-direction: column;
+  .category-showcase-card.featured,
+  .category-showcase-card:not(.featured) {
+    grid-column: span 1;
+    min-height: 280px;
   }
 
+  .category-showcase-card:last-child {
+    grid-column: span 2;
+  }
+
+  .cat-card-content {
+    padding: 16px;
+  }
+
+  /* Catalog Page Responsive */
   .catalog-layout {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   .filter-sidebar {
-    display: none; /* Hidden by default on mobile, toggleable */
+    display: none;
   }
 
   .filter-sidebar.open-mobile {
@@ -113,7 +183,7 @@
     width: 85%;
     max-width: 320px;
     height: 100%;
-    background: var(--bg-card);
+    background: #FFFFFF;
     z-index: 2000;
     padding: 24px;
     overflow-y: auto;
@@ -121,18 +191,148 @@
   }
 
   .mobile-filter-trigger {
-    display: flex !important;
+    display: inline-flex !important;
   }
 
-  .footer-grid {
+  /* Product Detail Page Responsive */
+  .product-detail-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
+  .detail-gallery {
+    position: static;
+  }
+
+  .main-image-box {
+    max-height: 420px;
+  }
+
+  .detail-title {
+    font-size: 1.75rem;
+  }
+
+  .color-thumb-group {
+    gap: 10px;
+  }
+
+  .color-thumb-btn {
+    width: 58px;
+    height: 58px;
+    padding: 3px;
+  }
+
+  /* Cart & Checkout Responsive */
+  .cart-grid,
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .summary-box {
+    position: static;
+  }
+
+  .promo-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. LARGE MOBILE & STANDARD MOBILE (430px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 430px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  .brand-logo .logo-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-text-btn {
+    padding: 0 10px;
+    font-size: 0.8rem;
+    height: 34px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Single column on compact phone for maximum readability */
+    gap: 16px;
+  }
+
+  .features-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .category-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-showcase-card.featured,
+  .category-showcase-card:not(.featured),
+  .category-showcase-card:last-child {
+    grid-column: span 1;
+    min-height: 240px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .footer-bottom {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: center;
+  }
+
+  .cart-table th:nth-child(3),
+  .cart-table td:nth-child(3) {
+    display: none; /* Hide unit price on small screen */
+  }
+
+  .detail-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .detail-action-buttons .btn {
+    width: 100%;
+  }
+
+  .color-thumb-btn {
+    width: 52px;
+    height: 52px;
+    padding: 2px;
   }
 
   #toast-container {
@@ -144,36 +344,32 @@
   .toast {
     min-width: 100%;
   }
-
-  .order-history-header {
-    flex-direction: column;
-    align-items: flex-start !important;
-    gap: 12px;
-  }
 }
 
-/* Small Mobile (480px and below) */
-@media (max-width: 480px) {
+/* --------------------------------------------------------------------------
+   5. SMALL MOBILE (375px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 375px) {
   .brand-logo {
-    font-size: 1.25rem;
+    font-size: 1.05rem;
+    gap: 6px;
   }
 
-  .nav-actions {
-    gap: 8px;
+  .nav-text-btn {
+    padding: 0 8px;
+    font-size: 0.75rem;
   }
 
-  .nav-icon-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
+  .hero-status-headline {
+    font-size: 1.05rem;
   }
 
-  .product-grid {
-    grid-template-columns: 1fr !important;
+  .hero-campaign-buy-btn {
+    width: 100%;
+    justify-content: center;
   }
 
-  .cart-table th:nth-child(3),
-  .cart-table td:nth-child(3) {
-    display: none; /* Hide unit price column on tiny screens */
+  .detail-price-current {
+    font-size: 1.5rem;
   }
 }

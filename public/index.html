@@ -20,8 +20,14 @@
       </a>
 
       <!-- Search Bar -->
-      <form class="nav-search" id="nav-search-form">
-        <input type="text" id="nav-search-input" placeholder="Tìm kiếm giày Nike, Adidas, Puma..." autocomplete="off">
+      <form class="nav-search" id="nav-search-form" action="/products.html" method="GET">
+        <input type="text" name="search" id="nav-search-input" placeholder="Tìm kiếm sản phẩm..." autocomplete="off">
+        <button type="submit" class="nav-search-btn" aria-label="Tìm kiếm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
       </form>
 
       <!-- Main Navigation Menu -->
@@ -31,20 +37,24 @@
           <li><a href="/products.html">Sản phẩm</a></li>
           <li><a href="/products.html?gender=men">Giày Nam</a></li>
           <li><a href="/products.html?gender=women">Giày Nữ</a></li>
-          <li><a href="#brands-section">Thương hiệu</a></li>
-          <li><a href="#promotions-section">Khuyến mãi</a></li>
         </ul>
       </nav>
 
       <!-- Action Buttons: Wishlist, Cart, User -->
       <div class="nav-actions">
-        <a href="/wishlist.html" class="nav-text-btn" title="Yêu thích">
-          Yêu thích
+        <a href="/wishlist.html" class="nav-icon-btn" title="Danh sách yêu thích" aria-label="Danh sách yêu thích">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
           <span class="nav-badge-count" id="nav-wishlist-badge" style="display: none;">0</span>
         </a>
 
-        <a href="/cart.html" class="nav-text-btn" title="Giỏ hàng">
-          Giỏ hàng
+        <a href="/cart.html" class="nav-icon-btn" title="Giỏ hàng" aria-label="Giỏ hàng">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
           <span class="nav-badge-count" id="nav-cart-badge" style="display: none;">0</span>
         </a>
 
@@ -174,14 +184,13 @@
       </div>
     </section>
 
-    <!-- Best Selling Products (Fast Moving JIT) Section -->
+    <!-- Best Selling Products Section -->
     <section style="margin-bottom: 70px;">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Sản Phẩm Bán Chạy (Fast-Moving)</h2>
-          <p class="section-desc">Hàng sẵn tại kho nội đô, chuẩn bị và giao vận hỏa tốc 24h</p>
+          <h2 class="section-title">Sản Phẩm Bán Chạy</h2>
+          <p class="section-desc">Những mẫu giày thể thao được ưa chuộng và bán chạy nhất tại SportZone</p>
         </div>
-        <a href="/products.html?isFastMoving=true" class="section-link">Xem thêm mẫu giao ngay</a>
       </div>
       <div class="product-grid" id="home-bestsellers-grid">
         <!-- Rendered dynamically from API -->
@@ -395,9 +404,6 @@
                   <img src="${imgUrl}" alt="${title}" class="cat-card-img" loading="lazy" onerror="this.src='/images/hero-running.jpg'">
                   <div class="cat-card-gradient"></div>
                 </div>
-                <div class="cat-card-badge-row">
-                  <span class="cat-card-badge">BỘ SƯU TẬP</span>
-                </div>
                 <div class="cat-card-content">
                   <h3 class="cat-card-title">${title}</h3>
                   <p class="cat-card-tagline">${tagline}</p>
@@ -430,15 +436,9 @@
         console.error('Lỗi tải thương hiệu:', e);
       }
 
-      // Hàm render card sản phẩm (ZERO icons)
+      // Hàm render card sản phẩm
       const renderProductCard = (p) => {
         const isFav = window.api.wishlist.has(p._id);
-        const stockStatus = p.stock > 5
-          ? '<span class="badge badge-in-stock">Còn hàng</span>'
-          : p.stock > 0
-            ? '<span class="badge badge-low-stock">Sắp hết</span>'
-            : '<span class="badge badge-out-of-stock">Tạm hết</span>';
-
         const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
         const brandName = p.brand ? (p.brand.name || 'SPORT') : 'SPORT';
 
@@ -446,10 +446,6 @@
           <div class="product-card">
             <div class="product-card-thumb">
               <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='/images/shoes/1.jpg'">
-              <div class="product-card-badge">${stockStatus}</div>
-              <button class="product-card-wishlist-btn ${isFav ? 'active' : ''}" onclick="toggleWishlist('${p._id}', this)" title="Yêu thích">
-                ${isFav ? 'Đã lưu' : 'Lưu'}
-              </button>
             </div>
             <div class="product-card-body">
               <div class="product-card-meta">
@@ -463,8 +459,8 @@
                 <span class="product-card-price">${window.api.formatCurrency(p.salePrice)}</span>
               </div>
               <div class="product-card-actions">
-                <a href="/product-detail.html?id=${p._id}" class="btn btn-secondary btn-sm" style="flex: 1;">Chi tiết</a>
-                <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm" style="flex: 1;">Chọn mua</a>
+                <a href="/product-detail.html?id=${p._id}" class="btn btn-secondary btn-sm">Chi tiết</a>
+                <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm">Mua hàng</a>
               </div>
             </div>
           </div>
@@ -484,9 +480,9 @@
         console.error('Lỗi tải sản phẩm nổi bật:', e);
       }
 
-      // 4. Tải Sản phẩm bán chạy (Fast-moving)
+      // 4. Tải Sản phẩm bán chạy
       try {
-        const bestRes = await window.api.get('/products?isFastMoving=true&limit=4');
+        const bestRes = await window.api.get('/products?sortBy=totalSold&order=desc&limit=4');
         const bestGrid = document.getElementById('home-bestsellers-grid');
         if (bestRes.success && bestRes.data && bestGrid) {
           bestGrid.innerHTML = bestRes.data.length > 0
@@ -498,14 +494,18 @@
       }
     });
 
-    // Wishlist Toggle (Text: Đã lưu / Lưu)
+    // Wishlist Toggle
     window.toggleWishlist = async (id, btn) => {
       try {
         const res = await window.api.get(`/products/${id}`);
         if (res.success && res.data) {
           const added = window.api.wishlist.toggle(res.data);
           btn.classList.toggle('active', added);
-          btn.innerHTML = added ? 'Đã lưu' : 'Lưu';
+          const svg = btn.querySelector('svg');
+          if (svg) {
+            svg.setAttribute('fill', added ? 'currentColor' : 'none');
+          }
+          btn.setAttribute('title', added ? 'Bỏ lưu' : 'Lưu vào yêu thích');
           window.toast.success(added ? 'Đã thêm vào danh sách yêu thích' : 'Đã xóa khỏi yêu thích');
         }
       } catch (e) {

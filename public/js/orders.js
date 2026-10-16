@@ -77,11 +77,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const itemsHtml = (order.items || []).map((it) => {
         const p = it.product || {};
-        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
+        let thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
+        if (p.colorVariants && p.colorVariants.length > 0 && it.color) {
+          const cvMatch = p.colorVariants.find(
+            (cv) => cv.color.toLowerCase() === it.color.toLowerCase()
+          );
+          if (cvMatch && cvMatch.image) thumb = cvMatch.image;
+        }
         return `
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
             <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="${thumb}" alt="${it.productName}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+              <img src="${thumb}" alt="${it.productName}" style="width: 50px; height: 50px; object-fit: contain; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 6px; padding: 3px;">
               <div>
                 <strong>${it.productName}</strong>
                 <div style="font-size: 0.82rem; color: var(--text-dim);">Size: ${it.size} • Màu: ${it.color} • x${it.quantity}</div>

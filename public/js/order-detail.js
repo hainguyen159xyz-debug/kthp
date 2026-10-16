@@ -59,13 +59,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Render Items
       itemsContainer.innerHTML = (order.items || []).map((it) => {
         const p = it.product || {};
-        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
+        let thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
+        if (p.colorVariants && p.colorVariants.length > 0 && it.color) {
+          const cvMatch = p.colorVariants.find(
+            (cv) => cv.color.toLowerCase() === it.color.toLowerCase()
+          );
+          if (cvMatch && cvMatch.image) thumb = cvMatch.image;
+        }
         const lineTotal = it.subtotal || it.price * it.quantity;
 
         return `
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border-color);">
             <div style="display: flex; align-items: center; gap: 14px;">
-              <img src="${thumb}" alt="${it.productName}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+              <img src="${thumb}" alt="${it.productName}" style="width: 60px; height: 60px; object-fit: contain; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 8px; padding: 4px;">
               <div>
                 <h4 style="font-size: 0.98rem; font-weight: 700; margin-bottom: 4px;">
                   <a href="/product-detail.html?id=${p._id || p}">${it.productName}</a>

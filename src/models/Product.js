@@ -14,6 +14,10 @@ const productVariantSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
+    image: {
+      type: String,
+      default: ''
+    },
     size: {
       type: Number,
       required: true
@@ -113,6 +117,20 @@ const productSchema = new mongoose.Schema(
       enum: ['men', 'women', 'unisex'],
       default: 'men'
     },
+    colorVariants: [
+      {
+        color: {
+          type: String,
+          required: true,
+          trim: true
+        },
+        image: {
+          type: String,
+          required: true,
+          trim: true
+        }
+      }
+    ],
     variants: [productVariantSchema],
     defaultSupplier: {
       type: mongoose.Schema.Types.ObjectId,
@@ -136,10 +154,35 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-// Tự động đồng bộ sizes, colors, stock từ variants nếu có
+// Tự động đồng bộ sizes, colors, stock và colorVariants từ variants nếu có
 productSchema.pre('save', function (next) {
   if (this.status) {
     this.isActive = this.status === 'active';
+  }
+
+  if (this.colorVariants && this.colorVariants.length > 0) {
+    const cvColors = this.colorVariants.map((cv) => cv.color);
+    const colorSet = new Set([...(this.colors || []), ...cvColors]);
+    this.colors = Array.from(colorSet);
+
+    const imageSet = new Set(this.images || []);
+    this.colorVariants.forEach((cv) => {
+      if (cv.image) imageSet.add(cv.image);
+    });
+    this.images = Array.from(imageSet);
+
+    if (this.variants && this.variants.length > 0) {
+      this.variants.forEach((v) => {
+        if (!v.image) {
+          const cvMatch = this.colorVariants.find(
+            (cv) => cv.color.toLowerCase() === (v.color || '').toLowerCase()
+          );
+          if (cvMatch && cvMatch.image) {
+            v.image = cvMatch.image;
+          }
+        }
+      });
+    }
   }
 
   if (this.variants && this.variants.length > 0) {

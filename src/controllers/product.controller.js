@@ -183,6 +183,7 @@ exports.createProduct = async (req, res, next) => {
       stock,
       status,
       featured,
+      colorVariants,
       variants,
       defaultSupplier,
       isFastMoving
@@ -214,6 +215,7 @@ exports.createProduct = async (req, res, next) => {
       images: images || [],
       sizes: sizes || [],
       colors: colors || [],
+      colorVariants: colorVariants || [],
       stock: Number(stock) || 0,
       status: status || 'active',
       featured: featured || false,
@@ -255,10 +257,7 @@ exports.createProduct = async (req, res, next) => {
  */
 exports.updateProduct = async (req, res, next) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
+    const product = await Product.findById(req.params.id);
 
     if (!product) {
       return res.status(404).json({
@@ -267,6 +266,9 @@ exports.updateProduct = async (req, res, next) => {
         errors: ['Sản phẩm không tồn tại']
       });
     }
+
+    Object.assign(product, req.body);
+    await product.save();
 
     res.status(200).json({
       success: true,

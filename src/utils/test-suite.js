@@ -348,6 +348,24 @@ const runTests = async () => {
     console.error('[FAIL] Lỗi kiểm thử:', err);
     process.exitCode = 1;
   } finally {
+    try {
+      const Category = require('../models/Category');
+      const Brand = require('../models/Brand');
+      const User = require('../models/User');
+      const Supplier = require('../models/Supplier');
+      const PurchaseOrder = require('../models/PurchaseOrder');
+
+      await Product.deleteMany({ $or: [{ name: /test|unpurchased/i }, { slug: /test|unpurchased/i }] });
+      await Category.deleteMany({ $or: [{ name: /test/i }, { slug: /test/i }] });
+      await Brand.deleteMany({ $or: [{ name: /test/i }, { slug: /test/i }] });
+      await User.deleteMany({ email: /testuser_|@example\.com/i });
+      await Supplier.deleteMany({ name: /test/i });
+      await PurchaseOrder.deleteMany({ orderCode: /PO-TEST/i });
+      const validProducts = await Product.find({}, '_id');
+      await Inventory.deleteMany({ product: { $nin: validProducts.map(p => p._id) } });
+    } catch (cleanErr) {
+      // Cleanup best effort
+    }
     server.close();
     await mongoose.disconnect();
     process.exit(process.exitCode || 0);

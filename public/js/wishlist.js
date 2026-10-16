@@ -32,9 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="product-card">
           <div class="product-card-thumb">
-            <img src="${thumb}" alt="${p.name}" loading="lazy">
-            <button class="product-card-wishlist-btn active" onclick="removeFromWishlist('${p._id}')" title="Xóa khỏi yêu thích">
-              Xóa
+            <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='/images/shoes/1.jpg'">
+            <button class="product-card-wishlist-btn active" onclick="removeFromWishlist('${p._id}')" title="Xóa khỏi yêu thích" aria-label="Xóa">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
             </button>
           </div>
           <div class="product-card-body">
@@ -49,9 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="product-card-price">${window.api.formatCurrency(p.salePrice)}</span>
             </div>
             <div class="product-card-actions">
-              <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm btn-block">
-                Xem & Chọn Mua
-              </a>
+              <a href="/product-detail.html?id=${p._id}" class="btn btn-secondary btn-sm">Chi tiết</a>
+              <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm">Mua hàng</a>
             </div>
           </div>
         </div>

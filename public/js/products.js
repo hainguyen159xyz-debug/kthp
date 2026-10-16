@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const navMen = document.getElementById('nav-link-men');
   const navWomen = document.getElementById('nav-link-women');
   const breadcrumbTitle = document.getElementById('catalog-breadcrumb-title');
+  const navSearchForm = document.getElementById('nav-search-form');
+  const navSearchInput = document.getElementById('nav-search-input');
 
   function updateActiveNavAndTitle() {
     if (navProducts) navProducts.classList.remove('active');
@@ -125,11 +127,52 @@ document.addEventListener('DOMContentLoaded', async () => {
   window.addEventListener('popstate', () => {
     const params = new URLSearchParams(window.location.search);
     state.gender = params.get('gender') || '';
+    state.search = params.get('search') || '';
     state.page = Number(params.get('page')) || 1;
+    if (navSearchInput) navSearchInput.value = state.search;
     syncGenderInputs();
     updateActiveNavAndTitle();
     fetchProducts();
   });
+
+  // Khởi tạo ô tìm kiếm trên thanh điều hướng nếu có tham số search
+  if (navSearchInput && state.search) {
+    navSearchInput.value = state.search;
+  }
+
+  // Xử lý tìm kiếm qua thanh Search Bar
+  if (navSearchForm && navSearchInput) {
+    navSearchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      state.search = navSearchInput.value.trim();
+      state.page = 1;
+      const url = new URL(window.location.href);
+      if (state.search) {
+        url.searchParams.set('search', state.search);
+      } else {
+        url.searchParams.delete('search');
+      }
+      history.pushState(null, '', url.toString());
+      fetchProducts();
+    });
+
+    let searchTimer = null;
+    navSearchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        state.search = e.target.value.trim();
+        state.page = 1;
+        const url = new URL(window.location.href);
+        if (state.search) {
+          url.searchParams.set('search', state.search);
+        } else {
+          url.searchParams.delete('search');
+        }
+        history.pushState(null, '', url.toString());
+        fetchProducts();
+      }, 300);
+    });
+  }
 
   if (state.minPrice) minPriceInput.value = state.minPrice;
   if (state.maxPrice) maxPriceInput.value = state.maxPrice;
@@ -167,6 +210,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     minPriceInput.value = '';
     maxPriceInput.value = '';
+    if (navSearchInput) navSearchInput.value = '';
 
     // Reset radio buttons
     syncGenderInputs();
@@ -357,13 +401,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     gridEl.innerHTML = products
       .map((p) => {
         const isFav = window.api.wishlist.has(p._id);
-        const stockStatus =
-          p.stock > 5
-            ? '<span class="badge badge-in-stock">Còn hàng</span>'
-            : p.stock > 0
-            ? '<span class="badge badge-low-stock">Sắp hết</span>'
-            : '<span class="badge badge-out-of-stock">Tạm hết</span>';
-
         const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
         const brandName = p.brand ? p.brand.name || 'SPORT' : 'SPORT';
 
@@ -371,10 +408,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           <div class="product-card">
             <div class="product-card-thumb">
               <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='/images/shoes/1.jpg'">
-              <div class="product-card-badge">${stockStatus}</div>
-              <button class="product-card-wishlist-btn ${isFav ? 'active' : ''}" onclick="toggleWishlist('${p._id}', this)" title="Yêu thích">
-                ${isFav ? 'Đã lưu' : 'Lưu'}
-              </button>
             </div>
             <div class="product-card-body">
               <div class="product-card-meta">
@@ -388,8 +421,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <span class="product-card-price">${window.api.formatCurrency(p.salePrice)}</span>
               </div>
               <div class="product-card-actions">
-                <a href="/product-detail.html?id=${p._id}" class="btn btn-secondary btn-sm" style="flex: 1;">Chi tiết</a>
-                <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm" style="flex: 1;">Chọn mua</a>
+                <a href="/product-detail.html?id=${p._id}" class="btn btn-secondary btn-sm">Chi tiết</a>
+                <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm">Mua hàng</a>
               </div>
             </div>
           </div>
@@ -439,7 +472,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (res.success && res.data) {
         const added = window.api.wishlist.toggle(res.data);
         btn.classList.toggle('active', added);
-        btn.innerHTML = added ? 'Đã lưu' : 'Lưu';
+        const svg = btn.querySelector('svg');
+        if (svg) {
+          svg.setAttribute('fill', added ? 'currentColor' : 'none');
+        }
+        btn.setAttribute('title', added ? 'Bỏ lưu' : 'Lưu vào yêu thích');
         window.toast.success(added ? 'Đã thêm vào yêu thích' : 'Đã xóa khỏi yêu thích');
       }
     } catch (e) {

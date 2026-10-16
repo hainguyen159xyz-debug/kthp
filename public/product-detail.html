@@ -20,8 +20,14 @@
       </a>
 
       <!-- Search Bar -->
-      <form class="nav-search" id="nav-search-form">
-        <input type="text" id="nav-search-input" placeholder="Tìm kiếm sản phẩm..." autocomplete="off">
+      <form class="nav-search" id="nav-search-form" action="/products.html" method="GET">
+        <input type="text" name="search" id="nav-search-input" placeholder="Tìm kiếm sản phẩm..." autocomplete="off">
+        <button type="submit" class="nav-search-btn" aria-label="Tìm kiếm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
       </form>
 
       <nav>
@@ -30,18 +36,23 @@
           <li><a href="/products.html" class="active">Sản phẩm</a></li>
           <li><a href="/products.html?gender=men">Giày Nam</a></li>
           <li><a href="/products.html?gender=women">Giày Nữ</a></li>
-          <li><a href="/wishlist.html">Yêu thích</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="/wishlist.html" class="nav-text-btn" title="Yêu thích">
-          Yêu thích
+        <a href="/wishlist.html" class="nav-icon-btn" title="Danh sách yêu thích" aria-label="Danh sách yêu thích">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
           <span class="nav-badge-count" id="nav-wishlist-badge" style="display: none;">0</span>
         </a>
 
-        <a href="/cart.html" class="nav-text-btn" title="Giỏ hàng">
-          Giỏ hàng
+        <a href="/cart.html" class="nav-icon-btn" title="Giỏ hàng" aria-label="Giỏ hàng">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
           <span class="nav-badge-count" id="nav-cart-badge" style="display: none;">0</span>
         </a>
 
@@ -87,8 +98,6 @@
           <span class="badge badge-in-stock" id="detail-stars" style="display: none;"></span>
           <span style="font-weight: 700;" id="detail-rating-score">5.0</span>
           <span style="color: var(--text-dim);" id="detail-review-count">(0 đánh giá)</span>
-          <span style="color: var(--text-dim);">•</span>
-          <span id="detail-stock-status">Đang kiểm tra kho...</span>
         </div>
 
         <div class="detail-price-box">
@@ -102,10 +111,9 @@
         <!-- Color Selector -->
         <div class="detail-option-group" id="detail-color-group">
           <div class="detail-option-label">
-            <span>Chọn Màu Sắc</span>
-            <span id="selected-color-label" style="color: var(--color-primary); font-weight: 600;"></span>
+            <span>Chọn màu</span>
           </div>
-          <div class="color-pill-group" id="color-pill-container">
+          <div class="color-thumb-group" id="color-pill-container">
             <!-- Rendered dynamically -->
           </div>
         </div>
@@ -113,87 +121,128 @@
         <!-- Size Selector -->
         <div class="detail-option-group" id="detail-size-group">
           <div class="detail-option-label">
-            <span>Chọn Kích Thước (Size)</span>
-            <span id="selected-size-label" style="color: var(--color-primary); font-weight: 600;"></span>
+            <span>Kích Thước (Size)</span>
           </div>
           <div class="size-pill-group" id="size-pill-container">
             <!-- Rendered dynamically -->
           </div>
         </div>
 
-        <!-- Quantity Selector & Available Stock -->
+        <!-- Quantity Selector & Wishlist -->
         <div class="detail-option-group">
           <div class="detail-option-label">
             <span>Số Lượng</span>
-            <span id="stock-feedback" style="font-size: 0.85rem; color: var(--text-muted);">Vui lòng chọn size & màu để xem tồn kho</span>
           </div>
-          <div style="display: flex; align-items: center; gap: 20px;">
+          <div class="qty-and-wishlist-row">
             <div class="qty-control">
-              <button type="button" class="qty-btn" id="btn-qty-minus">-</button>
-              <input type="text" class="qty-input" id="qty-input" value="1" readonly>
-              <button type="button" class="qty-btn" id="btn-qty-plus">+</button>
+              <button type="button" class="qty-btn" id="btn-qty-minus" aria-label="Giảm số lượng">-</button>
+              <input type="text" class="qty-input" id="qty-input" value="1" readonly aria-label="Số lượng">
+              <button type="button" class="qty-btn" id="btn-qty-plus" aria-label="Tăng số lượng">+</button>
             </div>
-            <button class="btn btn-outline" id="btn-toggle-wishlist" style="padding: 10px 18px;">
-              <span id="wishlist-btn-icon"></span> Yêu thích
+            <button type="button" class="detail-wishlist-btn" id="btn-toggle-wishlist" title="Lưu vào danh sách yêu thích">
+              <svg id="detail-wishlist-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span id="wishlist-btn-text">Yêu thích</span>
             </button>
           </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="detail-action-buttons">
-          <button class="btn btn-secondary btn-lg" id="btn-add-cart" style="flex: 1;" disabled>
+          <button class="btn btn-secondary btn-lg" id="btn-add-cart" disabled>
             Thêm vào giỏ hàng
           </button>
-          <button class="btn btn-primary btn-lg" id="btn-buy-now" style="flex: 1;" disabled>
+          <button class="btn btn-primary btn-lg" id="btn-buy-now" disabled>
             Mua ngay
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Reviews Section -->
-    <section style="margin: 60px 0; border-top: 1px solid var(--border-color); padding-top: 40px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Đánh Giá Từ Khách Hàng</h2>
-          <p class="section-desc">Ý kiến thực tế từ những khách hàng đã mua và trải nghiệm sản phẩm này</p>
+    <!-- Adidas-style Accordion Section (Đánh giá, Mô tả, Thông tin chi tiết) -->
+    <section class="detail-accordion-section">
+      <!-- 1. Đánh giá -->
+      <div class="product-accordion-item" id="acc-item-reviews">
+        <button type="button" class="product-accordion-header" onclick="toggleProductAccordion('acc-item-reviews')">
+          <span class="product-accordion-title">Đánh giá <span id="acc-review-count">(0)</span></span>
+          <div class="acc-header-meta">
+            <span class="acc-stars-row" id="acc-header-stars">★★★★★</span>
+            <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </button>
+        <div class="product-accordion-body">
+          <div class="reviews-content-inner">
+            <div class="reviews-toolbar">
+              <div class="reviews-filter-chips">
+                <button type="button" class="review-chip active" data-rating="all" onclick="filterReviewsByRating('all', this)">
+                  Tất cả (<span id="reviews-chip-total">8</span>)
+                </button>
+                <button type="button" class="review-chip" data-rating="5" onclick="filterReviewsByRating('5', this)">
+                  5 Sao (<span id="reviews-chip-5star">7</span>)
+                </button>
+                <button type="button" class="review-chip" data-rating="4" onclick="filterReviewsByRating('4', this)">
+                  4 Sao (<span id="reviews-chip-4star">1</span>)
+                </button>
+              </div>
+
+              <div class="reviews-sort-wrap">
+                <label for="reviews-sort-select">Sắp xếp theo:</label>
+                <select id="reviews-sort-select" class="reviews-sort-dropdown" onchange="handleSortReviews(this.value)">
+                  <option value="newest">Mới nhất</option>
+                  <option value="oldest">Cũ nhất</option>
+                  <option value="helpful">Hữu ích nhất</option>
+                  <option value="highest">Đánh giá cao nhất</option>
+                  <option value="lowest">Đánh giá thấp nhất</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="reviews-list-container" class="reviews-list-wrapper">
+              <!-- Dynamically populated customer reviews -->
+            </div>
+          </div>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 320px 1fr; gap: 40px; align-items: start;">
-        <!-- Write Review Box -->
-        <div class="card" id="write-review-card">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 14px;">Gửi đánh giá của bạn</h3>
-          <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 16px;">
-            Chỉ khách hàng đã đặt mua sản phẩm mới có thể gửi đánh giá.
-          </p>
-
-          <form id="review-form">
-            <div class="form-group">
-              <label class="form-label">Chọn mức điểm đánh giá</label>
-              <select id="review-rating-select" class="form-control">
-                <option value="5">5.0 / 5 (Tuyệt vời)</option>
-                <option value="4">4.0 / 5 (Rất tốt)</option>
-                <option value="3">3.0 / 5 (Tạm ổn)</option>
-                <option value="2">2.0 / 5 (Không hài lòng)</option>
-                <option value="1">1.0 / 5 (Rất tệ)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Cảm nhận của bạn</label>
-              <textarea id="review-comment-input" class="form-control" rows="4" placeholder="Chia sẻ độ êm, vừa chân, chất liệu..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block">Gửi đánh giá</button>
-          </form>
-        </div>
-
-        <!-- Reviews List -->
-        <div id="reviews-list-container">
-          <div class="empty-state" style="padding: 30px;">
-            <p style="color: var(--text-muted); margin-top: 8px;">Chưa có đánh giá nào cho sản phẩm này.</p>
+      <!-- 2. Mô tả -->
+      <div class="product-accordion-item" id="acc-item-desc">
+        <button type="button" class="product-accordion-header" onclick="toggleProductAccordion('acc-item-desc')">
+          <span class="product-accordion-title">Mô tả</span>
+          <div class="acc-header-meta">
+            <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </div>
+        </button>
+        <div class="product-accordion-body">
+          <div class="desc-accordion-grid">
+            <div class="desc-accordion-text" id="acc-full-description">
+              <p>Đang tải nội dung mô tả sản phẩm...</p>
+            </div>
+            <div class="desc-accordion-media">
+              <img id="acc-desc-img" src="" alt="Mô tả sản phẩm" onerror="this.src='/images/shoes/1.jpg'">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Thông tin chi tiết -->
+      <div class="product-accordion-item" id="acc-item-specs">
+        <button type="button" class="product-accordion-header" onclick="toggleProductAccordion('acc-item-specs')">
+          <span class="product-accordion-title">Thông tin chi tiết</span>
+          <div class="acc-header-meta">
+            <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </button>
+        <div class="product-accordion-body">
+          <ul class="specs-bullets-grid" id="acc-specs-container">
+            <!-- Dynamically populated 2-column bullets -->
+          </ul>
         </div>
       </div>
     </section>

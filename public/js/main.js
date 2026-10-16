@@ -189,13 +189,13 @@ function initNavbar() {
   const navSearchForm = document.getElementById('nav-search-form');
   const navSearchInput = document.getElementById('nav-search-input');
   if (navSearchForm && navSearchInput) {
-    navSearchForm.onsubmit = (e) => {
-      e.preventDefault();
-      const query = navSearchInput.value.trim();
-      if (query) {
-        window.location.href = `/products.html?search=${encodeURIComponent(query)}`;
-      }
-    };
+    if (!window.location.pathname.endsWith('products.html')) {
+      navSearchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = navSearchInput.value.trim();
+        window.location.href = query ? `/products.html?search=${encodeURIComponent(query)}` : '/products.html';
+      });
+    }
   }
 
   // Mobile menu toggle
