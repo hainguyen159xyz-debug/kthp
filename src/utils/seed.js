@@ -234,6 +234,34 @@ const seedData = async () => {
       }
     ]);
 
+    // 9. Tạo Reviews mẫu cho sản phẩm
+    console.log('[Seed] Đang tạo Đánh giá khách hàng mẫu (Reviews)...');
+    await Review.deleteMany({ product: { $in: [product1._id, product2._id] } });
+    await Review.create([
+      {
+        product: product1._id,
+        user: customerUser._id,
+        rating: 5,
+        title: 'Đệm giày cực kỳ êm ái, trợ lực tốt cho chạy bộ hàng ngày',
+        comment: 'Đôi Nike Pegasus 40 này đi rất đầm chân, đế Zoom Air phản hồi lực nhạy. Mình chạy 5km mỗi sáng cảm giác không bị ê gót, form chuẩn ôm chân rất an tâm.',
+        variant: 'Phân loại: Size 41 | Màu White',
+        tags: ['Độ vừa vặn: Chuẩn size', 'Chạy bộ hàng ngày', 'Đệm nảy tốt'],
+        helpful: 24,
+        shopReply: 'SportZone cảm ơn bạn đã tin tưởng ủng hộ sản phẩm chính hãng! Chúc bạn luôn có những sải bước tuyệt vời!'
+      },
+      {
+        product: product2._id,
+        user: customerUser._id,
+        rating: 5,
+        title: 'Công nghệ Boost siêu nhẹ, phối màu ngoài đời rất sang',
+        comment: 'Đế đệm Ultraboost Light êm ái hơn hẳn các đời trước. Đi bộ cả ngày hay tập gym đều rất nhẹ nhàng, vải Primeknit co giãn và thông thoáng tuyệt đối.',
+        variant: 'Phân loại: Size 40 | Màu Core Black',
+        tags: ['Độ vừa vặn: Chuẩn size', 'Đi bộ & tập gym', 'Rất nhẹ'],
+        helpful: 18,
+        shopReply: 'SportZone cảm ơn bạn rất nhiều! Rất vui vì đôi giày mang lại trải nghiệm êm ái cho bạn ạ.'
+      }
+    ]);
+
     console.log('====================================================');
     console.log('[OK] Khởi tạo dữ liệu mẫu (Seed Data) THÀNH CÔNG!');
     console.log('====================================================');

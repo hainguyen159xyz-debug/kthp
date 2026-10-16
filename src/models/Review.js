@@ -18,11 +18,34 @@ const reviewSchema = new mongoose.Schema(
       min: [1, 'Đánh giá tối thiểu là 1 sao'],
       max: [5, 'Đánh giá tối đa là 5 sao']
     },
+    title: {
+      type: String,
+      trim: true,
+      default: ''
+    },
     comment: {
       type: String,
       trim: true,
       default: ''
-    }
+    },
+    variant: {
+      type: String,
+      trim: true,
+      default: ''
+    },
+    shopReply: {
+      type: String,
+      trim: true,
+      default: ''
+    },
+    helpful: {
+      type: Number,
+      default: 0
+    },
+    tags: [{
+      type: String,
+      trim: true
+    }]
   },
   {
     timestamps: true

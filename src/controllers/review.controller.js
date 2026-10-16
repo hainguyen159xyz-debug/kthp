@@ -50,7 +50,7 @@ exports.getProductReviews = async (req, res, next) => {
 exports.createProductReview = async (req, res, next) => {
   try {
     const { productId } = req.params;
-    const { rating, comment } = req.body;
+    const { rating, comment, title, variant } = req.body;
 
     if (!isValidObjectId(productId)) {
       return res.status(400).json({
@@ -112,7 +112,10 @@ exports.createProductReview = async (req, res, next) => {
       product: productId,
       user: req.user.id,
       rating: ratingNum,
-      comment: comment || ''
+      comment: comment || '',
+      title: title || '',
+      variant: variant || '',
+      tags: ['Đã xác thực đơn hàng']
     });
 
     await review.populate('user', 'name fullName');

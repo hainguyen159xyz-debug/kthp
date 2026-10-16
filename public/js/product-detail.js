@@ -5,11 +5,22 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');
+  let productId = urlParams.get('id');
 
   if (!productId) {
-    window.location.href = '/products.html';
-    return;
+    try {
+      const pListRes = await window.api.get('/products?limit=1');
+      if (pListRes.success && pListRes.data && pListRes.data.length > 0) {
+        productId = pListRes.data[0]._id;
+        window.history.replaceState({}, '', `/product-detail.html?id=${productId}`);
+      } else {
+        window.location.href = '/products.html';
+        return;
+      }
+    } catch (e) {
+      window.location.href = '/products.html';
+      return;
+    }
   }
 
   let product = null;
@@ -17,6 +28,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   let selectedColor = null;
   let currentQuantity = 1;
   let maxStock = 0;
+
+  // Trạng thái danh sách đánh giá (khai báo sớm để dùng được ngay khi tải trang)
+  let currentReviewsList = [];
+  let currentSortOption = 'newest';
+  let currentRatingFilter = 'all';
+  const likedReviewsSet = new Set();
 
   // DOM Elements
   const breadcrumbTitle = document.getElementById('detail-breadcrumb-title');
@@ -57,11 +74,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // 1. Tải chi tiết sản phẩm
-  await fetchProductDetail();
+  // 1 & 2. Tải chi tiết sản phẩm và danh sách đánh giá
+  try {
+    await fetchProductDetail();
+  } catch (err) {
+    console.error('Lỗi tải sản phẩm:', err);
+  }
 
-  // 2. Tải đánh giá
-  await fetchReviews();
+  try {
+    await fetchReviews();
+  } catch (err) {
+    console.error('Lỗi tải đánh giá:', err);
+  }
 
   // Quantity Handlers
   btnQtyMinus.onclick = () => {
@@ -128,11 +152,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           : ['/images/shoes/1.jpg'];
 
         mainImg.src = images[0];
-        thumbRow.innerHTML = images.map((imgUrl, idx) => `
-          <div class="thumb-item ${idx === 0 ? 'active' : ''}" onclick="switchImage('${imgUrl}', this)">
-            <img src="${imgUrl}" alt="thumb">
-          </div>
-        `).join('');
+        if (thumbRow) thumbRow.innerHTML = '';
 
         // Wishlist Status
         updateWishlistUI(window.api.wishlist.has(product._id));
@@ -353,126 +373,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  let currentReviewsList = [];
-  let currentSortOption = 'newest';
-  let currentRatingFilter = 'all';
-  const likedReviewsSet = new Set();
-
-  /**
-   * Danh sách đánh giá xác thực, chân thật từ khách hàng đã mua và nhận hàng thành công
-   */
-  function getDefaultVerifiedReviews(productName) {
-    const pName = productName || 'đôi giày';
-    return [
-      {
-        id: 'rev-1',
-        userName: 'Trần Minh Quân',
-        userInitials: 'MQ',
-        avatarBg: '#1E293B',
-        rating: 5,
-        date: '2026-10-14T08:30:00.000Z',
-        variant: 'Phân loại: Size 42 | Màu Trắng tinh tế',
-        title: 'Đệm giày cực êm ái, bảo vệ khớp gối và gót chân rất tốt',
-        comment: `Mình chạy bộ hàng ngày tầm 5-7km, ${pName} hỗ trợ giảm chấn vượt trội hơn hẳn các đôi trước đây mình từng đi. Tiếp đất êm và bật nảy tốt. Đi cả tuần nay gót chân không hề bị ê. Form ôm chân chắc chắn, gót không bị trượt khi bứt tốc độ cao.`,
-        tags: ['Độ vừa vặn: Chuẩn size', 'Chạy bộ hàng ngày', 'Đệm nảy tốt'],
-        helpful: 24,
-        shopReply: 'SportZone cảm ơn anh Quân đã tin tưởng ủng hộ sản phẩm chính hãng! Chúc anh luôn duy trì phong độ và có những sải bước thật tuyệt vời ạ!'
-      },
-      {
-        id: 'rev-2',
-        userName: 'Lê Thanh Thảo',
-        userInitials: 'TT',
-        avatarBg: '#0F766E',
-        rating: 5,
-        date: '2026-10-09T14:15:00.000Z',
-        variant: 'Phân loại: Size 37 | Màu Trắng / Xám nhạt',
-        title: 'Màu sắc bên ngoài đẹp hơn ảnh, phối đồ đi làm hay đi chơi đều xinh',
-        comment: 'Giày nhận được đúng như mô tả, đường may và keo dán rất tỉ mỉ, không hề có mùi keo nồng. Mình mang đi làm văn phòng rồi chiều ra phòng gym tập cardio luôn mà chân vẫn thông thoáng, không bị bí nóng. Hộp giày còn nguyên vẹn kèm phiếu bảo hành đầy đủ.',
-        tags: ['Độ vừa vặn: Rất vừa chân', 'Đi làm & tập gym', 'Thoáng khí'],
-        helpful: 19
-      },
-      {
-        id: 'rev-3',
-        userName: 'Phạm Hải Đăng',
-        userInitials: 'HĐ',
-        avatarBg: '#334155',
-        rating: 5,
-        date: '2026-09-28T09:40:00.000Z',
-        variant: 'Phân loại: Size 41 | Màu Trắng viền đen',
-        title: 'Đế cao su bám đường rất tốt, đi mưa không lo trơn trượt',
-        comment: 'Chạy thử ngoài trời trên cả mặt đường nhựa lẫn nền gạch ướt sau cơn mưa, cảm giác bám đường rất an tâm. Trọng lượng nhẹ giúp sải bước thanh thoát, không bị mỏi cơ ở những km cuối. Đúng chuẩn hàng phân phối chính hãng.',
-        tags: ['Độ vừa vặn: Chuẩn size', 'Bám đường xuất sắc', 'Trọng lượng nhẹ'],
-        helpful: 15
-      },
-      {
-        id: 'rev-4',
-        userName: 'Vũ Tuấn Kiệt',
-        userInitials: 'TK',
-        avatarBg: '#B45309',
-        rating: 4,
-        date: '2026-09-18T16:20:00.000Z',
-        variant: 'Phân loại: Size 42.5 | Màu Trắng phối Cam',
-        title: 'Chất lượng gia công xuất sắc, bạn nào chân bè nên cân nhắc nhích 0.5 size',
-        comment: 'Giày hoàn thiện sắc sảo đến từng chi tiết nhỏ. Bàn chân mình bè ngang nên hôm đầu đi hơi ôm sát mu bàn chân một chút, may mắn là sau 2 ngày vải upper co giãn tự nhiên theo form chân thì đi êm ru. Bạn nào chân bè thì nên chọn lớn hơn nửa size nhé.',
-        tags: ['Khuyên tăng 0.5 size cho chân bè', 'Form thể thao ôm chân', 'Chất liệu cao cấp'],
-        helpful: 32,
-        shopReply: 'SportZone ghi nhận chia sẻ rất hữu ích của anh Kiệt ạ! Dòng giày thể thao ôm form để trợ lực tốt nhất, với chân bè việc tăng 0.5 size như anh là hoàn toàn chuẩn xác. Cảm ơn anh đã chia sẻ kinh nghiệm cho các khách hàng khác!'
-      },
-      {
-        id: 'rev-5',
-        userName: 'Đỗ Ngọc Bích',
-        userInitials: 'NB',
-        avatarBg: '#047857',
-        rating: 5,
-        date: '2026-09-05T11:05:00.000Z',
-        variant: 'Phân loại: Size 38 | Màu Trắng / Xanh Mint',
-        title: 'Giao hàng hỏa tốc trong 2 tiếng, đóng gói 2 lớp hộp cẩn thận',
-        comment: 'Mình cần gấp giày để cuối tuần tham gia giải chạy phong trào, nhắn tin cho shop hỗ trợ giao siêu nhanh. Đóng gói 2 lớp hộp carton bên ngoài bảo vệ hộp giày nguyên vẹn 100%. Giày lên chân tôn dáng, êm chân và nhẹ tênh.',
-        tags: ['Độ vừa vặn: Chuẩn size', 'Giao hàng hỏa tốc', 'Đóng gói cẩn thận'],
-        helpful: 11
-      },
-      {
-        id: 'rev-6',
-        userName: 'Hoàng Gia Bảo',
-        userInitials: 'GB',
-        avatarBg: '#4338CA',
-        rating: 5,
-        date: '2026-08-20T17:50:00.000Z',
-        variant: 'Phân loại: Size 43 | Màu Trắng Classic',
-        title: 'Dùng 2 tháng đế vẫn như mới, độ bền và khả năng hoàn trả lực quá đỉnh',
-        comment: 'Sau 2 tháng cày cuốc hơn 150km thì mình khẳng định đây là một trong những đôi giày bền bỉ và đáng mua nhất tầm giá. Đế cao su không bị mòn vẹt, đệm vẫn giữ nguyên độ nảy ban đầu chứ không bị lún xẹp. Rất hài lòng!',
-        tags: ['Độ bền: Cực kỳ bền', 'Sau 2 tháng sử dụng', 'Đáng đồng tiền'],
-        helpful: 27
-      },
-      {
-        id: 'rev-7',
-        userName: 'Nguyễn Quỳnh Anh',
-        userInitials: 'QA',
-        avatarBg: '#DB2777',
-        rating: 5,
-        date: '2026-08-02T10:15:00.000Z',
-        variant: 'Phân loại: Size 36 | Màu Trắng tinh khôi',
-        title: 'Mua tặng sinh nhật bạn trai, bạn mình khen nức nở',
-        comment: 'Được bạn nhân viên tư vấn chọn size rất chuẩn theo chiều dài bàn chân. Bạn trai mình nhận được ưng lắm, khen giày nhẹ và êm. Đi du lịch Đà Lạt đi bộ cả ngày mà không bị đau nhức chân. Chắc chắn sẽ quay lại mua thêm đôi nữa cho mình.',
-        tags: ['Tư vấn size nhiệt tình', 'Quà tặng ý nghĩa', 'Đi bộ đường dài'],
-        helpful: 14
-      },
-      {
-        id: 'rev-8',
-        userName: 'Đặng Nhật Nam',
-        userInitials: 'NN',
-        avatarBg: '#374151',
-        rating: 5,
-        date: '2026-07-15T15:40:00.000Z',
-        variant: 'Phân loại: Size 41 | Màu Trắng viền xám',
-        title: 'Quét mã check code chính hãng chuẩn chỉ, tem mác phụ đầy đủ',
-        comment: 'Lần đầu mua online giày giá trị cao nên cũng hơi lo, nhận hàng kiểm tra quét mã QR ra đúng trang web hãng, tem mác phụ nguyên seal. Giày cầm nhẹ tay, đế đệm có độ đàn hồi cao. Xứng đáng 5 sao cho chất lượng dịch vụ của SportZone.',
-        tags: ['Chính hãng 100%', 'Yên tâm tuyệt đối', 'Độ đàn hồi cao'],
-        helpful: 20
-      }
-    ];
-  }
-
   /**
    * Tải danh sách đánh giá
    */
@@ -482,6 +382,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const res = await window.api.get(`/products/${productId}/reviews`);
         if (res.success && res.data && res.data.reviews && res.data.reviews.length > 0) {
+          const avatarColors = ['#1E293B', '#0F766E', '#334155', '#B45309', '#047857', '#4338CA', '#DB2777', '#374151'];
           const apiReviews = res.data.reviews.map((r, idx) => {
             const uName = r.user ? (r.user.fullName || r.user.name || 'Khách hàng SportZone') : 'Khách hàng SportZone';
             const initials = uName.split(' ').map(w => w[0]).join('').slice(-2).toUpperCase() || 'KH';
@@ -489,37 +390,37 @@ document.addEventListener('DOMContentLoaded', async () => {
               id: r._id || `api-${idx}`,
               userName: uName,
               userInitials: initials,
-              avatarBg: '#0284C7',
-              rating: r.rating || 5,
+              avatarBg: avatarColors[idx % avatarColors.length],
+              rating: Number(r.rating) || 5,
               date: r.createdAt || new Date().toISOString(),
-              variant: 'Đã xác thực đơn hàng thành công',
-              title: r.comment && r.comment.length > 20 ? r.comment.slice(0, 32) + '...' : 'Đánh giá sản phẩm',
-              comment: r.comment || 'Sản phẩm chính hãng chất lượng rất tốt, đi rất êm và nhẹ chân.',
-              tags: ['Độ vừa vặn: Chuẩn size', 'Đã xác thực đơn hàng'],
-              helpful: 5
+              variant: r.variant || '',
+              title: r.title || '',
+              comment: r.comment || '',
+              tags: Array.isArray(r.tags) ? r.tags : [],
+              helpful: Number(r.helpful) || 0,
+              shopReply: r.shopReply || ''
             };
           });
           combined = [...apiReviews];
         }
       } catch (e) {
-        // Fallback silently to verified seeded reviews
+        console.warn('Không tải được đánh giá:', e.message);
       }
-
-      // Kết hợp với danh sách đánh giá mẫu xác thực
-      const defaults = getDefaultVerifiedReviews(product ? product.name : '');
-      defaults.forEach((d) => {
-        if (!combined.some((c) => c.userName === d.userName)) {
-          combined.push(d);
-        }
-      });
 
       currentReviewsList = combined;
 
       // Cập nhật tổng số lượng và điểm trung bình
       const totalCount = currentReviewsList.length;
-      const avgScore = (currentReviewsList.reduce((acc, r) => acc + r.rating, 0) / totalCount).toFixed(1);
-      const count5 = currentReviewsList.filter(r => r.rating === 5).length;
-      const count4 = currentReviewsList.filter(r => r.rating === 4).length;
+      let sumRating = 0;
+      currentReviewsList.forEach((r) => {
+        sumRating += Number(r.rating) || 5;
+      });
+      const avgScore = totalCount > 0 ? (sumRating / totalCount).toFixed(1) : '5.0';
+      const count5 = currentReviewsList.filter(r => Math.round(Number(r.rating)) === 5).length;
+      const count4 = currentReviewsList.filter(r => Math.round(Number(r.rating)) === 4).length;
+      const count3 = currentReviewsList.filter(r => Math.round(Number(r.rating)) <= 3).length;
+      const chip3El = document.getElementById('reviews-chip-3star');
+      if (chip3El) chip3El.textContent = count3;
 
       const scoreEl = document.getElementById('detail-rating-score');
       const countEl = document.getElementById('detail-review-count');
@@ -527,6 +428,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       const chipTotalEl = document.getElementById('reviews-chip-total');
       const chip5El = document.getElementById('reviews-chip-5star');
       const chip4El = document.getElementById('reviews-chip-4star');
+      const headerStarsEl = document.getElementById('detail-header-stars');
+      const accStarsEl = document.getElementById('acc-header-stars');
+
+      const numericScore = parseFloat(avgScore) || 5;
+      const clampedStars = Math.max(1, Math.min(5, Math.round(numericScore)));
+      const starsDisplay = '★'.repeat(clampedStars) + '☆'.repeat(5 - clampedStars);
 
       if (scoreEl) scoreEl.textContent = avgScore;
       if (countEl) countEl.textContent = `(${totalCount} đánh giá)`;
@@ -534,6 +441,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (chipTotalEl) chipTotalEl.textContent = totalCount;
       if (chip5El) chip5El.textContent = count5;
       if (chip4El) chip4El.textContent = count4;
+      if (headerStarsEl) headerStarsEl.textContent = starsDisplay;
+      if (accStarsEl) accStarsEl.textContent = starsDisplay;
 
       // Render danh sách theo thứ tự mặc định
       renderReviewsList();
@@ -553,7 +462,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let filtered = [...currentReviewsList];
     if (currentRatingFilter !== 'all') {
       const targetRating = parseInt(currentRatingFilter, 10);
-      filtered = filtered.filter(r => r.rating === targetRating);
+      filtered = filtered.filter(r => (targetRating <= 3 ? r.rating <= 3 : r.rating === targetRating));
     }
 
     // 2. Sắp xếp
@@ -572,18 +481,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (filtered.length === 0) {
       container.innerHTML = `
         <div style="text-align: center; padding: 40px 20px; color: #64748B;">
-          <p style="margin: 0; font-size: 0.95rem;">Không có nhận xét nào phù hợp với bộ lọc đã chọn.</p>
+          <p style="margin: 0; font-size: 0.95rem;">${currentReviewsList.length === 0 ? 'Sản phẩm này chưa có đánh giá nào.' : 'Không có nhận xét nào phù hợp với bộ lọc đã chọn.'}</p>
         </div>
       `;
       return;
     }
 
     container.innerHTML = filtered.map((r) => {
-      const starsStr = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
-      const dateFormatted = new Date(r.date).toLocaleDateString('vi-VN');
+      const safeRating = Math.max(1, Math.min(5, Math.round(Number(r.rating) || 5)));
+      const starsStr = '★'.repeat(safeRating) + '☆'.repeat(5 - safeRating);
+      const dateFormatted = r.date ? new Date(r.date).toLocaleDateString('vi-VN') : 'Gần đây';
       const tagsHtml = (r.tags || []).map((t) => `<span class="review-tag">${t}</span>`).join('');
       const isLiked = likedReviewsSet.has(r.id);
-      const displayLikes = (r.helpful || 0) + (isLiked ? 1 : 0);
+      const displayLikes = (Number(r.helpful) || 0) + (isLiked ? 1 : 0);
 
       const replyHtml = r.shopReply ? `
         <div class="review-shop-reply">
@@ -607,29 +517,23 @@ document.addEventListener('DOMContentLoaded', async () => {
               <div class="reviewer-details">
                 <div class="reviewer-name-row">
                   <span class="reviewer-name">${r.userName}</span>
-                  <span class="verified-badge">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    Đã mua hàng tại SportZone
-                  </span>
                 </div>
                 ${r.variant ? `<span class="review-order-variant">${r.variant}</span>` : ''}
               </div>
             </div>
 
             <div class="review-rating-col">
-              <span class="review-stars">${starsStr}</span>
+              <span class="review-stars" style="color: #F59E0B; letter-spacing: 2px;">${starsStr}</span>
               <span class="review-date">${dateFormatted}</span>
             </div>
           </div>
 
-          <h4 class="review-title">${r.title || 'Đánh giá sản phẩm'}</h4>
+          ${r.title ? `<h4 class="review-title">${r.title}</h4>` : ''}
           <p class="review-comment">${r.comment}</p>
 
-          <div class="review-tags-row">
+          ${tagsHtml ? `<div class="review-tags-row">
             ${tagsHtml}
-          </div>
+          </div>` : ''}
 
           ${replyHtml}
 
@@ -673,6 +577,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
     renderReviewsList();
+  };
+
+  // Cuộn trang mượt mà tới phần Đánh giá & mở accordion
+  window.scrollToReviews = function() {
+    const accReviews = document.getElementById('acc-item-reviews');
+    if (accReviews) {
+      if (!accReviews.classList.contains('open')) {
+        accReviews.classList.add('open');
+      }
+      accReviews.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   /**

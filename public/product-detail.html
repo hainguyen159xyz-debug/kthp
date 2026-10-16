@@ -7,7 +7,7 @@
   <meta name="description" content="Xem thông số kỹ thuật, đánh giá thực tế và chọn size phù hợp cho đôi giày thể thao yêu thích của bạn tại SportZone.">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/client.css">
+  <link rel="stylesheet" href="/css/client.css?v=2026101606">
   <link rel="stylesheet" href="/css/responsive.css">
 </head>
 <body>
@@ -80,9 +80,6 @@
         <div class="main-image-box" id="detail-main-img-box">
           <img id="detail-main-img" src="" alt="Product" onerror="this.src='/images/shoes/1.jpg'">
         </div>
-        <div class="thumb-row" id="detail-thumb-row">
-          <!-- Thumbnails rendered dynamically -->
-        </div>
       </div>
 
       <!-- Right: Product Information & Purchase Form -->
@@ -94,10 +91,10 @@
 
         <h1 class="detail-title" id="detail-name">Đang tải tên sản phẩm...</h1>
 
-        <div class="detail-rating-row">
-          <span class="badge badge-in-stock" id="detail-stars" style="display: none;"></span>
-          <span style="font-weight: 700;" id="detail-rating-score">5.0</span>
-          <span style="color: var(--text-dim);" id="detail-review-count">(0 đánh giá)</span>
+        <div class="detail-rating-row" id="top-rating-row" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px; user-select: none;" onclick="scrollToReviews()" title="Nhấn để xem bình luận đánh giá">
+          <span class="stars-row" id="detail-header-stars" style="color: #F59E0B; letter-spacing: 2px;">★★★★★</span>
+          <span style="font-weight: 700; color: var(--text-main);" id="detail-rating-score">5.0</span>
+          <span style="color: var(--text-dim); text-decoration: underline; text-underline-offset: 3px;" id="detail-review-count">(Đang tải đánh giá...)</span>
         </div>
 
         <div class="detail-price-box">
@@ -140,9 +137,6 @@
               <button type="button" class="qty-btn" id="btn-qty-plus" aria-label="Tăng số lượng">+</button>
             </div>
             <button type="button" class="detail-wishlist-btn" id="btn-toggle-wishlist" title="Lưu vào danh sách yêu thích">
-              <svg id="detail-wishlist-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-              </svg>
               <span id="wishlist-btn-text">Yêu thích</span>
             </button>
           </div>
@@ -167,7 +161,7 @@
         <button type="button" class="product-accordion-header" onclick="toggleProductAccordion('acc-item-reviews')">
           <span class="product-accordion-title">Đánh giá <span id="acc-review-count">(0)</span></span>
           <div class="acc-header-meta">
-            <span class="acc-stars-row" id="acc-header-stars">★★★★★</span>
+            <span class="acc-stars-row" id="acc-header-stars" style="color: #F59E0B; letter-spacing: 2px;">★★★★★</span>
             <svg class="acc-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
@@ -178,25 +172,27 @@
             <div class="reviews-toolbar">
               <div class="reviews-filter-chips">
                 <button type="button" class="review-chip active" data-rating="all" onclick="filterReviewsByRating('all', this)">
-                  Tất cả (<span id="reviews-chip-total">8</span>)
+                  Tất cả (<span id="reviews-chip-total">0</span>)
                 </button>
                 <button type="button" class="review-chip" data-rating="5" onclick="filterReviewsByRating('5', this)">
-                  5 Sao (<span id="reviews-chip-5star">7</span>)
+                  5 Sao (<span id="reviews-chip-5star">0</span>)
                 </button>
                 <button type="button" class="review-chip" data-rating="4" onclick="filterReviewsByRating('4', this)">
-                  4 Sao (<span id="reviews-chip-4star">1</span>)
+                  4 Sao (<span id="reviews-chip-4star">0</span>)
                 </button>
               </div>
 
-              <div class="reviews-sort-wrap">
-                <label for="reviews-sort-select">Sắp xếp theo:</label>
-                <select id="reviews-sort-select" class="reviews-sort-dropdown" onchange="handleSortReviews(this.value)">
-                  <option value="newest">Mới nhất</option>
-                  <option value="oldest">Cũ nhất</option>
-                  <option value="helpful">Hữu ích nhất</option>
-                  <option value="highest">Đánh giá cao nhất</option>
-                  <option value="lowest">Đánh giá thấp nhất</option>
-                </select>
+              <div class="reviews-actions-right" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <div class="reviews-sort-wrap">
+                  <label for="reviews-sort-select">Sắp xếp theo:</label>
+                  <select id="reviews-sort-select" class="reviews-sort-dropdown" onchange="handleSortReviews(this.value)">
+                    <option value="newest">Mới nhất</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="helpful">Hữu ích nhất</option>
+                    <option value="highest">Đánh giá cao nhất</option>
+                    <option value="lowest">Đánh giá thấp nhất</option>
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -269,9 +265,10 @@
     </div>
   </footer>
 
+
   <!-- Scripts -->
-  <script src="/js/api.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/product-detail.js"></script>
+  <script src="/js/api.js?v=2026101602"></script>
+  <script src="/js/main.js?v=2026101602"></script>
+  <script src="/js/product-detail.js?v=2026101602"></script>
 </body>
 </html>
