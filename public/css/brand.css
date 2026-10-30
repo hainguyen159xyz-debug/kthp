@@ -1,0 +1,38 @@
+.brand-logo { gap: 10px; letter-spacing: -.8px; }
+.brand-logo .logo-badge, .sidebar-brand .brand-icon {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 11px;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+.sportzone-mark { display: block; width: 100%; height: 100%; }
+.brand-logo .sportzone-wordmark {
+  display: inline-block;
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.brand-logo .sportzone-wordmark span { color: #64748b; }
+.sidebar-brand { gap: 10px; }
+.sidebar-brand .brand-title { font-size: 17px; font-weight: 800; letter-spacing: -.6px; }
+.sidebar-brand .brand-tag { font-size: 9px; letter-spacing: .6px; background: #f1f5f9; border-color: #e2e8f0; color: #475569; padding: 2px 5px; }
+.sidebar-brand .brand-sub { font-size: 10px; letter-spacing: .1px; margin-top: 2px; }
+.login-card .login-logo.sportzone-login-mark, .login-logo.sportzone-login-mark {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+@media (max-width: 430px) {
+  .brand-logo { gap: 8px; }
+  .brand-logo .logo-badge { width: 34px; height: 34px; }
+  .brand-logo .sportzone-wordmark { font-size: 21px; }
+}

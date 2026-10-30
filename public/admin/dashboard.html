@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tổng Quan Hệ Thống - SportZone Admin</title>
-  <link rel="stylesheet" href="/admin/css/admin.css">
-  <link rel="stylesheet" href="/admin/css/admin-components.css">
-  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+  <link rel="stylesheet" href="/admin/css/admin.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-components.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css?v=20261029neutral3">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/css/notifications.css?v=20261029neutral3">
+  <script src="/js/notifications.js?v=20261029neutral3" defer></script>
+  <link rel="stylesheet" href="/css/brand.css?v=20261029logo1">
 </head>
 <body>
   <div class="admin-wrapper">
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-icon">SZ</div>
+        <div class="brand-icon" aria-hidden="true"><img class="sportzone-mark" src="/images/sportzone-mark.svg" alt="" width="40" height="40"></div>
         <div class="brand-info">
           <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
           <div class="brand-sub">Kho Vận & Bán Hàng</div>
@@ -85,10 +88,6 @@
         </div>
 
         <div class="header-right">
-          <div class="system-status">
-            <span class="status-dot"></span>
-            <span>MongoDB Live</span>
-          </div>
 
           <div class="admin-profile">
             <div class="admin-avatar" id="header-admin-avatar">A</div>
@@ -109,7 +108,7 @@
         <div class="page-header">
           <div>
             <h1 class="page-title">Bảng Điều Khiển Tổng Quan</h1>
-            <p class="page-subtitle">Dữ liệu thời gian thực từ CSDL MongoDB Atlas</p>
+            <p class="page-subtitle">Tổng quan hoạt động bán hàng và kho hàng</p>
           </div>
           <div class="page-actions">
             <button class="btn btn-secondary btn-sm" id="btn-refresh-dashboard">
@@ -205,7 +204,7 @@
         </div>
 
         <!-- Charts Section -->
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 24px;">
+        <div class="admin-content-grid">
           <!-- Chart 1: Doanh thu & Đơn hàng 7 ngày qua -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
@@ -228,7 +227,7 @@
         </div>
 
         <!-- 2 Columns: Top Selling Products & JIT Low Stock Alerts -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+        <div class="admin-content-grid admin-content-grid-equal">
           <!-- Top Products -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
@@ -311,8 +310,8 @@
     </main>
   </div>
 
-  <script src="/admin/js/admin-api.js"></script>
-  <script src="/admin/js/admin-auth.js"></script>
-  <script src="/admin/js/dashboard.js"></script>
+  <script src="/admin/js/admin-api.js?v=20261029neutral3"></script>
+  <script src="/admin/js/admin-auth.js?v=20261029neutral3"></script>
+  <script src="/admin/js/dashboard.js?v=20261029neutral3"></script>
 </body>
 </html>

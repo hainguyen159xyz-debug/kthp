@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const currStatus = order.orderStatus || order.status || 'pending';
       const statusMap = {
-        pending: { text: 'Chờ xác nhận', class: 'badge-low-stock' },
+        pending: { text: 'Chờ xác nhận', class: 'badge-pending' },
         processing: { text: 'Đang chuẩn bị', class: 'badge-brand' },
         shipping: { text: 'Đang giao hàng', class: 'badge-brand' },
         completed: { text: 'Đã hoàn thành', class: 'badge-in-stock' },
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       paymentMethodEl.textContent = order.paymentMethod === 'COD' ? 'Thanh toán khi nhận hàng (COD)' : 'Chuyển khoản ngân hàng';
       paymentStatusEl.textContent = order.paymentStatus === 'paid' ? 'Đã thanh toán' : 'Chưa thanh toán';
-      paymentStatusEl.className = `badge ${order.paymentStatus === 'paid' ? 'badge-in-stock' : 'badge-low-stock'}`;
+      paymentStatusEl.className = `badge ${order.paymentStatus === 'paid' ? 'badge-in-stock' : 'badge-pending'}`;
 
       totalAmountEl.textContent = window.api.formatCurrency(order.totalAmount);
     }

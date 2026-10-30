@@ -70,7 +70,7 @@ function renderOrdersTable(orders) {
 
     // Order status badges
     const statusMap = {
-      pending: { label: 'Chờ xác nhận', badge: 'badge-warning' },
+      pending: { label: 'Chờ xác nhận', badge: 'badge-neutral' },
       processing: { label: 'Đang xử lý', badge: 'badge-info' },
       shipping: { label: 'Đang giao', badge: 'badge-purple' },
       completed: { label: 'Đã giao', badge: 'badge-success' },
@@ -82,8 +82,12 @@ function renderOrdersTable(orders) {
     // Fulfillment JIT badges
     const jitMap = {
       in_stock: { label: 'Sẵn hàng kho', badge: 'badge-success' },
-      waiting_supplier: { label: 'Chờ NCC', badge: 'badge-warning' },
-      fulfilled: { label: 'Đã đáp ứng', badge: 'badge-info' }
+      waiting_supplier: { label: 'Chờ NCC', badge: 'badge-neutral' },
+      imported: { label: 'Đã nhập hàng', badge: 'badge-info' },
+      packing: { label: 'Đang đóng gói', badge: 'badge-info' },
+      shipping: { label: 'Đang giao hàng', badge: 'badge-info' },
+      delivered: { label: 'Đã giao hàng', badge: 'badge-success' },
+      cancelled: { label: 'Đã hủy', badge: 'badge-danger' }
     };
     const jit = jitMap[o.fulfillmentStatus] || { label: o.fulfillmentStatus || 'N/A', badge: 'badge-neutral' };
 
@@ -91,12 +95,12 @@ function renderOrdersTable(orders) {
     const isPaid = o.paymentStatus === 'paid';
     const payBadge = isPaid
       ? '<span class="badge badge-success">Đã thanh toán</span>'
-      : '<span class="badge badge-warning">Chưa thanh toán</span>';
+      : '<span class="badge badge-neutral">Chưa thanh toán</span>';
 
     return `
       <tr>
         <td>
-          <a href="/admin/order-detail.html?id=${o._id}" style="font-weight: 700; color: #818cf8; font-family: monospace;">
+          <a href="/admin/order-detail.html?id=${o._id}" style="font-weight: 700; color: #0F172A; font-family: monospace;">
             ${o.orderCode || o._id.slice(-6).toUpperCase()}
           </a>
         </td>
@@ -105,7 +109,7 @@ function renderOrdersTable(orders) {
           <div style="font-size: 0.78rem; color: var(--text-dim);">${customerPhone}</div>
         </td>
         <td>${formatDateTime(o.createdAt)}</td>
-        <td><strong style="color: #34d399;">${formatCurrency(o.totalAmount || 0)}</strong></td>
+        <td><strong style="color: var(--text-main); font-weight: 700;">${formatCurrency(o.totalAmount || 0)}</strong></td>
         <td>${payBadge}</td>
         <td><span class="badge ${jit.badge}">${jit.label}</span></td>
         <td><span class="badge ${st.badge}">${st.label}</span></td>

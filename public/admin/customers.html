@@ -4,16 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quản Lý Khách Hàng - SportZone Admin</title>
-  <link rel="stylesheet" href="/admin/css/admin.css">
-  <link rel="stylesheet" href="/admin/css/admin-components.css">
-  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+  <link rel="stylesheet" href="/admin/css/admin.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-components.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/notifications.css?v=20261029neutral3">
+  <script src="/js/notifications.js?v=20261029neutral3" defer></script>
+  <link rel="stylesheet" href="/css/brand.css?v=20261029logo1">
 </head>
 <body>
   <div class="admin-wrapper">
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-icon">SZ</div>
+        <div class="brand-icon" aria-hidden="true"><img class="sportzone-mark" src="/images/sportzone-mark.svg" alt="" width="40" height="40"></div>
         <div class="brand-info">
           <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
           <div class="brand-sub">Kho Vận & Bán Hàng</div>
@@ -83,10 +86,6 @@
         </div>
 
         <div class="header-right">
-          <div class="system-status">
-            <span class="status-dot"></span>
-            <span>MongoDB Live</span>
-          </div>
 
           <div class="admin-profile">
             <div class="admin-avatar" id="header-admin-avatar">A</div>
@@ -178,15 +177,15 @@
           <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
             <div>
               <div style="color: var(--text-dim);">Họ và tên:</div>
-              <strong id="modal-cust-name" style="color: #fff; font-size: 1rem;">--</strong>
+              <strong id="modal-cust-name" style="color: var(--text-main); font-size: 1rem;">--</strong>
             </div>
             <div>
               <div style="color: var(--text-dim);">Email:</div>
-              <div id="modal-cust-email" style="color: #60a5fa;">--</div>
+              <div id="modal-cust-email" style="color: var(--info);">--</div>
             </div>
             <div>
               <div style="color: var(--text-dim);">Số điện thoại:</div>
-              <div id="modal-cust-phone" style="color: #fff;">--</div>
+              <div id="modal-cust-phone" style="color: var(--text-main);">--</div>
             </div>
             <div>
               <div style="color: var(--text-dim);">Ngày tham gia:</div>
@@ -200,7 +199,7 @@
 
           <!-- Recent Orders History -->
           <div>
-            <h4 style="margin-bottom: 12px; font-size: 1rem; color: #fff;">Lịch Sử 10 Đơn Hàng Gần Nhất</h4>
+            <h4 style="margin-bottom: 12px; font-size: 1rem; color: var(--text-main);">Lịch Sử 10 Đơn Hàng Gần Nhất</h4>
             <div class="table-responsive" style="max-height: 280px; overflow-y: auto;">
               <table class="admin-table">
                 <thead>
@@ -227,8 +226,8 @@
     </div>
   </div>
 
-  <script src="/admin/js/admin-api.js"></script>
-  <script src="/admin/js/admin-auth.js"></script>
-  <script src="/admin/js/customers.js"></script>
+  <script src="/admin/js/admin-api.js?v=20261029neutral3"></script>
+  <script src="/admin/js/admin-auth.js?v=20261029neutral3"></script>
+  <script src="/admin/js/customers.js?v=20261029neutral3"></script>
 </body>
 </html>

@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         const res = await window.api.get(`/products/${productId}/reviews`);
         if (res.success && res.data && res.data.reviews && res.data.reviews.length > 0) {
-          const avatarColors = ['#1E293B', '#0F766E', '#334155', '#B45309', '#047857', '#4338CA', '#DB2777', '#374151'];
+          const avatarColors = ['#1E293B', '#0F766E', '#334155', '#475569', '#047857', '#4338CA', '#DB2777', '#374151'];
           const apiReviews = res.data.reviews.map((r, idx) => {
             const uName = r.user ? (r.user.fullName || r.user.name || 'Khách hàng SportZone') : 'Khách hàng SportZone';
             const initials = uName.split(' ').map(w => w[0]).join('').slice(-2).toUpperCase() || 'KH';
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
 
             <div class="review-rating-col">
-              <span class="review-stars" style="color: #F59E0B; letter-spacing: 2px;">${starsStr}</span>
+              <span class="review-stars" style="color: #475569; letter-spacing: 2px;">${starsStr}</span>
               <span class="review-date">${dateFormatted}</span>
             </div>
           </div>

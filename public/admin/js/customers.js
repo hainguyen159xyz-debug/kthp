@@ -53,11 +53,11 @@ function renderCustomersTable(customers) {
       <tr>
         <td>
           <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #0F172A; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #FFFFFF;">
               ${name.charAt(0).toUpperCase()}
             </div>
             <div>
-              <strong style="color: #fff;">${name}</strong>
+              <strong style="color: var(--text-main); font-weight: 700;">${name}</strong>
               <div style="font-size: 0.78rem; color: var(--text-dim);">${c.email}</div>
             </div>
           </div>
@@ -65,7 +65,7 @@ function renderCustomersTable(customers) {
         <td>${c.phone || '<span style="color: var(--text-dim);">Chưa cập nhật</span>'}</td>
         <td style="color: var(--text-muted); font-size: 0.82rem;">${formatDate(c.createdAt)}</td>
         <td><strong>${c.orderCount || 0}</strong> đơn</td>
-        <td><strong style="color: #34d399;">${formatCurrency(c.totalSpent || 0)}</strong></td>
+        <td><strong style="color: var(--text-main); font-weight: 700;">${formatCurrency(c.totalSpent || 0)}</strong></td>
         <td>
           <span class="badge ${isBlocked ? 'badge-danger' : 'badge-success'}">
             ${isBlocked ? 'Đã bị khóa' : 'Hoạt động'}
@@ -76,7 +76,7 @@ function renderCustomersTable(customers) {
             <button class="btn btn-secondary btn-sm" onclick="viewCustomerDetail('${c._id}')">
               Xem
             </button>
-            <button class="btn ${isBlocked ? 'btn-success' : 'btn-danger-outline'} btn-sm" onclick="toggleCustomerStatus('${c._id}', '${isBlocked ? 'active' : 'blocked'}', '${name.replace(/'/g, "\\'")}')">
+            <button class="btn ${isBlocked ? 'btn-success' : 'btn-danger'} btn-sm" onclick="toggleCustomerStatus('${c._id}', '${isBlocked ? 'active' : 'blocked'}', '${name.replace(/'/g, "\\'")}')">
               ${isBlocked ? 'Mở khóa' : 'Khóa'}
             </button>
           </div>

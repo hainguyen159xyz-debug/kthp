@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SportZone - Giày Thể Thao Chính Hãng & Tồn Kho JIT</title>
-  <meta name="description" content="Hệ thống bán giày thể thao chính hãng Nike, Adidas, Puma với mô hình quản trị chuỗi cung ứng tồn kho Just-In-Time tối ưu.">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/client.css">
-  <link rel="stylesheet" href="/css/responsive.css">
+  <title>SportZone - Giày thể thao cho mọi chuyển động</title>
+  <meta name="description" content="Khám phá giày thể thao Nike, Adidas và Puma tại SportZone. Chọn giày theo nhu cầu, màu sắc và size phù hợp.">
+  <link rel="stylesheet" href="/css/style.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/components.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/client.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/responsive.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/notifications.css?v=20261029neutral3">
+  <script src="/js/notifications.js?v=20261029neutral3" defer></script>
+  <link rel="stylesheet" href="/css/brand.css?v=20261029logo1">
+  <link rel="stylesheet" href="/css/home.css?v=20261029home5">
 </head>
-<body>
+<body class="home-page">
 
   <!-- Header / Navigation -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="/" class="brand-logo" id="nav-brand-logo">
-        <span class="logo-badge">SZ</span> Sport<span>Zone</span>
+        <span class="logo-badge" aria-hidden="true"><img class="sportzone-mark" src="/images/sportzone-mark.svg" alt="" width="40" height="40"></span><span class="sportzone-wordmark">Sport<span>Zone</span></span>
       </a>
 
       <!-- Search Bar -->
@@ -59,472 +63,181 @@
         </a>
 
         <!-- User Dropdown / Auth Actions -->
-        <div id="nav-user-actions">
-          <a href="/login.html" class="btn btn-outline btn-sm">Đăng nhập</a>
-          <a href="/register.html" class="btn btn-primary btn-sm">Đăng ký</a>
-        </div>
+        <div id="nav-user-actions"></div>
 
         <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">MENU</button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="container">
-
-    <!-- Hero Campaign Banner (On Running Athletic Style) -->
-    <section class="hero-campaign-section">
-      <div class="hero-campaign-banner">
-        <img src="/images/hero-running-marathon.jpg" alt="Sẵn sàng cho ngày đua - SportZone" class="hero-campaign-img">
-        
-        <!-- Bottom-Left Compact Content Box (4 distinct lines, not blocking runners) -->
-        <div class="hero-campaign-content-box">
-          <div class="hero-status-card">
-            <h1 class="hero-status-headline">Sẵn sàng cho cuộc đua bắt đầu từ hôm nay.</h1>
-            <div class="hero-status-sublines">
-              <span class="hero-status-line">Dù bạn đang hướng tới thành tích cá nhân tốt nhất</span>
-              <span class="hero-status-line">hay chuẩn bị cho vạch đích đầu tiên,</span>
-              <span class="hero-status-line">hãy tìm mọi thứ cho giải đấu sắp tới.</span>
-            </div>
-          </div>
-
-          <a href="/products.html" class="hero-campaign-buy-btn" title="Khám phá ngay bộ sưu tập giày chạy">
-            <span>Mua ngay</span>
-            <span class="hero-campaign-arrow">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Trust Metric Strip -->
-      <div class="hero-campaign-trust-bar">
-        <span class="hero-trust-item">100% CHÍNH HÃNG</span>
-        <span class="hero-trust-item">TƯ VẤN NHIỆT TÌNH</span>
-        <span class="hero-trust-item">30 NGÀY ĐỔI TRẢ</span>
-        <span class="hero-trust-item">HỖ TRỢ 24/7</span>
+    <section class="home-hero" aria-labelledby="hero-heading">
+      <img src="/images/hero-running-marathon.jpg" alt="Vận động viên trên đường chạy" width="1280" height="520" fetchpriority="high">
+      <div class="home-hero-copy">
+        <span class="home-eyebrow">SportZone · Find your next move</span>
+        <h1 id="hero-heading">Đôi giày mới.<br>Hành trình mới.</h1>
+        <p>Từ những bước chạy đầu tiên đến nhịp sống mỗi ngày. Tìm đôi giày phù hợp với cách bạn chuyển động.</p>
+        <a id="home-running-link" href="/products.html" class="btn btn-secondary">Khám phá giày chạy bộ <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
-    <!-- Brands Section -->
-    <section id="brands-section" style="margin-bottom: 70px; text-align: center;">
-      <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 24px;">
-        <div>
-          <h2 class="section-title">Thương Hiệu Đồng Hành</h2>
-          <p class="section-desc">Cam kết 100% sản phẩm phân phối chính hãng từ các tập đoàn thể thao quốc tế</p>
-        </div>
-      </div>
-      <div class="brand-pills-row" id="home-brands-row">
-        <!-- Rendered dynamically from API -->
+    <div class="home-assurances">
+      <a href="#size-guide"><span aria-hidden="true">↔</span><div><strong>Chọn size vừa vặn</strong><small>Bắt đầu từ chiều dài bàn chân</small></div></a>
+      <a href="#shopping-guide"><span aria-hidden="true">✓</span><div><strong>Kiểm tra trước khi đặt</strong><small>Chọn đúng màu, size và số lượng</small></div></a>
+      <a href="/orders.html"><span aria-hidden="true">↗</span><div><strong>Theo dõi đơn hàng</strong><small>Xem tiến độ trong tài khoản</small></div></a>
+    </div>
+
+    <section class="home-section" aria-labelledby="bestsellers-title">
+      <div class="section-header"><div><span class="home-eyebrow">Được chọn nhiều tại SportZone</span><h2 class="section-title" id="bestsellers-title">Những đôi giày đáng khám phá</h2><p class="section-desc">Các mẫu được sắp xếp theo lượt bán, dành cho đường chạy và những ngày năng động.</p></div><a class="section-link" href="/products.html?sortBy=totalSold&amp;order=desc">Xem tất cả ↗</a></div>
+      <div class="product-grid" id="home-bestsellers-grid" aria-live="polite"><p class="home-empty">Đang tải sản phẩm…</p></div>
+    </section>
+
+    <section class="home-section" aria-labelledby="categories-title">
+      <div class="section-header"><div><span class="home-eyebrow">Chọn theo cách bạn vận động</span><h2 class="section-title" id="categories-title">Bạn đang tìm giày cho…</h2><p class="section-desc">Chạy bộ, tập luyện hay xuống phố — bắt đầu từ nhu cầu của bạn.</p></div><a class="section-link" href="/products.html">Tất cả sản phẩm ↗</a></div>
+      <div class="home-categories" id="home-categories-grid"><p class="home-empty">Đang tải danh mục…</p></div>
+      <div class="home-brands" id="home-brands-row" aria-label="Mua theo thương hiệu"></div>
+    </section>
+
+    <section class="home-section" aria-labelledby="new-title">
+      <div class="section-header"><div><span class="home-eyebrow">Thêm lựa chọn cho tủ giày</span><h2 class="section-title" id="new-title">Mới tại SportZone</h2><p class="section-desc">Những sản phẩm vừa được bổ sung vào cửa hàng.</p></div><a class="section-link" href="/products.html?sortBy=createdAt&amp;order=desc">Xem hàng mới ↗</a></div>
+      <div class="product-grid" id="home-new-grid" aria-live="polite"><p class="home-empty">Đang tải sản phẩm…</p></div>
+    </section>
+
+    <section class="home-section home-size-guide" id="size-guide" aria-labelledby="size-title">
+      <div><span class="home-eyebrow">Vừa chân, thoải mái hơn</span><h2 id="size-title">Chọn giày bắt đầu<br>từ chọn đúng size.</h2><p>Cùng một size có thể vừa khác nhau giữa các thương hiệu và dòng giày. Hãy đo chân trước khi chọn, thay vì chỉ dựa vào đôi giày cũ.</p><a class="section-link" href="/products.html">Tìm đôi giày của bạn ↗</a></div>
+      <ol><li><strong>Đo cả hai bàn chân</strong><span>Đặt chân lên giấy trên mặt phẳng, đánh dấu gót và đầu ngón dài nhất. Nên đo khi đang đứng.</span></li><li><strong>Ghi lại chiều dài lớn hơn</strong><span>Đo từ gót đến ngón theo centimet. Đo với loại tất bạn dự định mang khi sử dụng giày.</span></li><li><strong>Đối chiếu đúng mẫu giày</strong><span>Tham khảo bảng size của hãng và dòng giày; kiểm tra màu, size còn hàng tại trang sản phẩm trước khi đặt.</span></li></ol>
+    </section>
+
+    <section class="home-section" id="features" aria-labelledby="shopping-title">
+      <div class="section-header"><div><span class="home-eyebrow">Trước khi bạn đặt hàng</span><h2 class="section-title" id="shopping-title">Mua sắm dễ dàng hơn</h2><p class="section-desc" id="shopping-guide">Những thông tin hữu ích để chọn và đặt đôi giày phù hợp.</p></div></div>
+      <div class="home-faq">
+        <details><summary>Làm sao biết size và màu nào còn hàng?</summary><p>Mở trang sản phẩm, chọn màu và size để xem khả năng đặt mua. Giỏ hàng và bước đặt hàng sẽ kiểm tra lại số lượng khả dụng.</p></details>
+        <details><summary>Tôi có thể thanh toán bằng cách nào?</summary><p>Bước thanh toán có lựa chọn thanh toán khi nhận hàng (COD) hoặc chuyển khoản ngân hàng. Kiểm tra phương thức đã chọn và tổng tiền trước khi xác nhận đơn.</p></details>
+        <details><summary>Xem thời gian giao và trạng thái đơn ở đâu?</summary><p>Sau khi đặt, vào <a href="/orders.html">Đơn hàng của tôi</a> để xem thông tin và tiến độ xử lý. Thời gian nhận hàng phụ thuộc địa chỉ và quá trình giao nhận; trang chủ không cam kết giao trong ngày.</p></details>
+        <details><summary>Cần lưu ý gì về đổi size và đổi trả?</summary><p>Đo chân và kiểm tra thông tin sản phẩm trước khi đặt. Cửa hàng chưa công bố chính sách đổi trả chi tiết trên website, vì vậy bạn cần xác nhận điều kiện áp dụng với cửa hàng trước khi mua.</p></details>
       </div>
     </section>
 
-    <!-- Categories Discovery Section -->
-    <section class="categories-showcase-section" style="margin-bottom: 70px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Tìm đôi giày dành riêng cho bạn</h2>
-          <p class="section-desc">Từ sân đấu đến đường phố — khám phá bộ sưu tập giày thể thao phù hợp với phong cách và mục tiêu của bạn.</p>
-        </div>
-        <a href="/products.html" class="section-link">Xem tất cả bộ sưu tập →</a>
-      </div>
-      <div class="category-showcase-grid" id="home-categories-grid">
-        <!-- Rendered dynamically from API -->
-        <div class="category-showcase-card skeleton featured" style="min-height: 380px;"></div>
-        <div class="category-showcase-card skeleton featured" style="min-height: 380px;"></div>
-        <div class="category-showcase-card skeleton" style="min-height: 330px;"></div>
-        <div class="category-showcase-card skeleton" style="min-height: 330px;"></div>
-        <div class="category-showcase-card skeleton" style="min-height: 330px;"></div>
-      </div>
+    <section class="home-section" id="testimonials" aria-labelledby="reviews-title">
+      <div class="section-header"><div><span class="home-eyebrow">Từ trải nghiệm người mua</span><h2 class="section-title" id="reviews-title">Góc đánh giá sản phẩm</h2><p class="section-desc">Nhận xét được gửi cho các mẫu giày đang giới thiệu trên trang chủ.</p></div></div>
+      <div class="home-reviews" id="home-reviews"><p class="home-empty">Đang tải đánh giá…</p></div>
     </section>
-
-    <!-- Featured Products Section -->
-    <section style="margin-bottom: 70px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
-          <p class="section-desc">Những mẫu giày được yêu thích và săn đón nhiều nhất mùa giải này</p>
-        </div>
-        <a href="/products.html?featured=true" class="section-link">Xem toàn bộ hàng nổi bật</a>
-      </div>
-      <div class="product-grid" id="home-featured-grid">
-        <!-- Rendered dynamically from API -->
-        <div class="product-card skeleton" style="height: 380px;"></div>
-        <div class="product-card skeleton" style="height: 380px;"></div>
-        <div class="product-card skeleton" style="height: 380px;"></div>
-        <div class="product-card skeleton" style="height: 380px;"></div>
-      </div>
-    </section>
-
-    <!-- Promotional Banner (Interactive Coupon Copy) -->
-    <section class="promo-banner" id="promotions-section">
-      <div class="promo-banner-content">
-        <div class="badge badge-discount" style="margin-bottom: 14px;">ƯU ĐÃI THÀNH VIÊN MỚI</div>
-        <h2>Nhận Ngay 10% Cho Đơn Hàng Đầu Tiên!</h2>
-        <p>
-          Áp dụng mã khuyến mãi khi thanh toán để được giảm ngay 10% (tối đa 300.000 VNĐ).
-          Hàng ngàn mẫu giày thể thao chính hãng đang chờ đón bạn.
-        </p>
-
-        <!-- Interactive Coupon Copy Box -->
-        <div class="coupon-interactive-box">
-          <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Mã giảm:</span>
-          <span class="coupon-interactive-code" id="home-coupon-code">WELCOME10</span>
-          <button type="button" class="btn btn-secondary btn-sm" onclick="copyCouponCode('WELCOME10')">
-            Sao chép mã
-          </button>
-        </div>
-
-        <div>
-          <a href="/products.html" class="btn btn-primary">Khám phá ưu đãi ngay</a>
-        </div>
-      </div>
-      <div style="background: rgba(255, 87, 34, 0.08); border: 1px solid rgba(255, 87, 34, 0.3); border-radius: var(--radius-lg); padding: 32px 40px; text-align: center; max-width: 280px;">
-        <span class="badge badge-primary" style="margin-bottom: 12px;">ƯU ĐÃI JIT</span>
-        <div style="font-size: 2.8rem; font-weight: 900; color: #fff; line-height: 1;">-10%</div>
-        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Tối đa 300.000 VNĐ cho tài khoản mới</div>
-      </div>
-    </section>
-
-    <!-- Best Selling Products Section -->
-    <section style="margin-bottom: 70px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Sản Phẩm Bán Chạy</h2>
-          <p class="section-desc">Những mẫu giày thể thao được ưa chuộng và bán chạy nhất tại SportZone</p>
-        </div>
-      </div>
-      <div class="product-grid" id="home-bestsellers-grid">
-        <!-- Rendered dynamically from API -->
-        <div class="product-card skeleton" style="height: 380px;"></div>
-        <div class="product-card skeleton" style="height: 380px;"></div>
-        <div class="product-card skeleton" style="height: 380px;"></div>
-        <div class="product-card skeleton" style="height: 380px;"></div>
-      </div>
-    </section>
-
-    <!-- Why Choose SportZone (Core Value Propositions) -->
-    <section style="margin-bottom: 70px;">
-      <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 32px;">
-        <div>
-          <h2 class="section-title">Giá Trị Khác Biệt Tại SportZone</h2>
-          <p class="section-desc">Hệ thống vận hành chuyên nghiệp theo tiêu chuẩn Just-In-Time</p>
-        </div>
-      </div>
-      <div class="features-grid-v2">
-        <div class="feature-card-v2">
-          <div class="feat-num">01</div>
-          <h4>Nguồn Hàng Chính Hãng</h4>
-          <p>Cam kết 100% sản phẩm có tem phụ, nguồn gốc xuất xưởng rõ ràng từ các đối tác ủy quyền Nike, Adidas, Puma.</p>
-        </div>
-        <div class="feature-card-v2">
-          <div class="feat-num">02</div>
-          <h4>Quản Trị Tồn Kho JIT</h4>
-          <p>Ứng dụng mô hình Just-In-Time hiện đại, loại bỏ chi phí tồn kho dư thừa để mang đến mức giá tốt nhất cho người mua.</p>
-        </div>
-        <div class="feature-card-v2">
-          <div class="feat-num">03</div>
-          <h4>Đổi Trả Trong 30 Ngày</h4>
-          <p>Trải nghiệm thử giày an tâm tại nhà. Hỗ trợ đổi size hoặc hoàn tiền nhanh chóng nếu không vừa vặn.</p>
-        </div>
-        <div class="feature-card-v2">
-          <div class="feat-num">04</div>
-          <h4>Tư Vấn Chuyên Biệt</h4>
-          <p>Đội ngũ chuyên môn hỗ trợ đo size chân chuẩn xác, tư vấn mẫu giày phù hợp từng cung đường chạy và bộ môn vận động.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Customer Reviews / Social Proof -->
-    <section style="margin-bottom: 80px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Khách Hàng Nói Về SportZone</h2>
-          <p class="section-desc">Nhận xét thực tế từ những khách hàng đã đặt mua và trải nghiệm dịch vụ</p>
-        </div>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-card-header">
-              <span class="testimonial-user">Trần Hoàng Nam</span>
-              <span class="testimonial-score">5.0 / 5</span>
-            </div>
-            <p>"Giày chuẩn chính hãng, phom ôm chân rất êm. Đặt đơn giao hỏa tốc nhận hàng trong ngày, đóng hộp cẩn thận không bị móp form."</p>
-          </div>
-          <div class="testimonial-product">Sản phẩm: Nike Air Zoom Pegasus 40</div>
-        </div>
-
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-card-header">
-              <span class="testimonial-user">Nguyễn Mai Linh</span>
-              <span class="testimonial-score">5.0 / 5</span>
-            </div>
-            <p>"Mua lần đầu áp mã WELCOME10 giảm được 10% quá hời. Size giày vừa vặn, tư vấn nhiệt tình chu đáo. Sẽ tiếp tục ủng hộ!"</p>
-          </div>
-          <div class="testimonial-product">Sản phẩm: Adidas Ultraboost Light</div>
-        </div>
-
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-card-header">
-              <span class="testimonial-user">Lê Quốc Tuấn</span>
-              <span class="testimonial-score">5.0 / 5</span>
-            </div>
-            <p>"Mô hình JIT của shop cập nhật tồn kho rất chuẩn, đặt hàng không bị tình trạng hết size ảo như các shop khác. Rất hài lòng."</p>
-          </div>
-          <div class="testimonial-product">Sản phẩm: Puma Deviate Nitro 2</div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- Footer -->
-  <footer>
+  <footer class="home-footer" id="brand-story">
     <div class="container">
       <div class="footer-grid">
+        <!-- Cột 1: SẢN PHẨM -->
         <div class="footer-col">
-          <div class="brand-logo" style="margin-bottom: 14px;">
-            <span class="logo-badge">SZ</span> Sport<span>Zone</span>
-          </div>
-          <p>
-            Nền tảng thương mại điện tử giày thể thao ứng dụng quản trị tồn kho Just-In-Time hiện đại,
-            giúp giảm thiểu chi phí lưu kho và mang đến mức giá tốt nhất cho khách hàng.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Về SportZone</h4>
+          <h4>SẢN PHẨM</h4>
           <ul>
-            <li><a href="/">Trang chủ</a></li>
-            <li><a href="/products.html">Tất cả sản phẩm</a></li>
-            <li><a href="/admin">Cổng quản trị Admin</a></li>
+            <li><a href="/products.html">Tất Cả Sản Phẩm</a></li>
+            <li><a href="/products.html?category=running">Giày Chạy Bộ</a></li>
+            <li><a href="/products.html?category=basketball">Giày Bóng Rổ</a></li>
+            <li><a href="/products.html?category=football">Giày Bóng Đá</a></li>
+            <li><a href="/products.html?category=training">Giày Tập Luyện</a></li>
+            <li><a href="/products.html?category=lifestyle">Giày Thể Thao Hằng Ngày</a></li>
+            <li><a href="/products.html?category=hiking">Giày Leo Núi</a></li>
           </ul>
         </div>
 
+        <!-- Cột 2: THƯƠNG HIỆU -->
         <div class="footer-col">
-          <h4>Hỗ Trợ Khách Hàng</h4>
+          <h4>THƯƠNG HIỆU</h4>
           <ul>
-            <li><a href="/orders.html">Tra cứu đơn hàng</a></li>
-            <li><a href="/cart.html">Giỏ hàng</a></li>
-            <li><a href="/wishlist.html">Danh sách yêu thích</a></li>
+            <li><a href="/products.html?brand=nike">Nike</a></li>
+            <li><a href="/products.html?brand=adidas">Adidas</a></li>
+            <li><a href="/products.html?brand=puma">Puma</a></li>
+            <li><a href="/products.html?sort=newest">Hàng Mới Về</a></li>
+            <li><a href="/products.html?featured=true">Sản Phẩm Nổi Bật</a></li>
           </ul>
         </div>
 
+        <!-- Cột 3: VỀ SPORTZONE -->
         <div class="footer-col">
-          <h4>Chính Sách</h4>
+          <h4>VỀ SPORTZONE</h4>
           <ul>
-            <li><a href="#">Chính sách giao vận JIT</a></li>
-            <li><a href="#">Đổi trả trong 30 ngày</a></li>
-            <li><a href="#">Bảo mật thông tin</a></li>
+            <li><a href="/">Trang Chủ</a></li>
+            <li><a href="/#brand-story">Giới Thiệu Về Chúng Tôi</a></li>
+            <li><a href="/#features">Cam Kết Hàng Chính Hãng</a></li>
+            <li><a href="/#testimonials">Đánh Giá Khách Hàng</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: HỖ TRỢ & CHÍNH SÁCH -->
+        <div class="footer-col">
+          <h4>HỖ TRỢ & CHÍNH SÁCH</h4>
+          <ul>
+            <li><a href="/orders.html">Tra Cứu Đơn Hàng</a></li>
+            <li><a href="/cart.html">Giỏ Hàng</a></li>
+            <li><a href="/wishlist.html">Danh Sách Yêu Thích</a></li>
+            <li><a href="/profile.html">Tài Khoản Của Tôi</a></li>
+            <li><a href="/#features">Đổi Trả Trong 30 Ngày</a></li>
+            <li><a href="/#privacy">Bảo Mật Thông Tin</a></li>
+          </ul>
+
+          <!-- Huy hiệu Đã Thông Báo Bộ Công Thương -->
+          <a href="http://online.gov.vn" target="_blank" rel="noopener noreferrer" class="bocongthuong-badge" title="Website đã thông báo với Bộ Công Thương">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="16" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+              <path d="M11 18.5L15.5 23L25 13.5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="bocongthuong-badge-text">
+              <span>ĐÃ THÔNG BÁO</span>
+              <span>BỘ CÔNG THƯƠNG</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Cột 5: THEO DÕI CHÚNG TÔI -->
+        <div class="footer-col">
+          <h4>THEO DÕI CHÚNG TÔI</h4>
+          <ul class="footer-social-list">
+            <li>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Facebook" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="X (Twitter)" aria-label="X">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="TikTok" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="YouTube" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
         <div>© 2026 SportZone Inc. Tất cả quyền được bảo lưu.</div>
-        <div>Hệ thống vận hành cùng Backend Node.js & MongoDB Atlas</div>
+        <div class="footer-bottom-links">
+          <a href="/#privacy">Chính Sách Bảo Mật</a>
+          <span>•</span>
+          <a href="/#terms">Điều Khoản & Điều Kiện</a>
+          <span>•</span>
+          <a href="/#cookies">Cài Đặt Cookie</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/js/api.js"></script>
-  <script src="/js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Tải danh mục từ API (Bộ sưu tập thể thao chuyên nghiệp)
-      try {
-        const catRes = await window.api.get('/categories');
-        const catGrid = document.getElementById('home-categories-grid');
-        if (catRes.success && Array.isArray(catRes.data) && catGrid) {
-          // Lọc bỏ dữ liệu test nếu có
-          const validCats = catRes.data.filter(cat => 
-            cat && cat.name && 
-            !cat.name.toLowerCase().includes('test') && 
-            !((cat.slug || '').toLowerCase().includes('test'))
-          );
-
-          // Cấu hình hiển thị theo bộ sưu tập thể thao chuyên nghiệp
-          const categoryPresets = {
-            running: {
-              title: 'Giày Chạy Bộ',
-              tagline: 'Chạy xa hơn. Bứt phá giới hạn.',
-              image: '/images/categories/running.jpg',
-              featured: true,
-              order: 1
-            },
-            lifestyle: {
-              title: 'Giày Thể Thao Hằng Ngày',
-              tagline: 'Phong cách riêng. Chất riêng.',
-              image: '/images/categories/lifestyle.jpg',
-              featured: true,
-              order: 2
-            },
-            basketball: {
-              title: 'Giày Bóng Rổ',
-              tagline: 'Bứt phá trên mọi sân đấu.',
-              image: '/images/categories/basketball.jpg',
-              featured: false,
-              order: 3
-            },
-            football: {
-              title: 'Giày Bóng Đá',
-              tagline: 'Làm chủ từng pha bóng.',
-              image: '/images/categories/football.jpg',
-              featured: false,
-              order: 4
-            },
-            training: {
-              title: 'Giày Tập Luyện',
-              tagline: 'Mạnh mẽ trong từng chuyển động.',
-              image: '/images/categories/training.jpg',
-              featured: false,
-              order: 5
-            }
-          };
-
-          // Sắp xếp danh mục theo thứ tự bố cục tối ưu
-          validCats.sort((a, b) => {
-            const orderA = (categoryPresets[a.slug] && categoryPresets[a.slug].order) || 99;
-            const orderB = (categoryPresets[b.slug] && categoryPresets[b.slug].order) || 99;
-            return orderA - orderB;
-          });
-
-          catGrid.innerHTML = validCats.map((cat) => {
-            const preset = categoryPresets[cat.slug] || {};
-            const title = preset.title || cat.name;
-            const tagline = preset.tagline || cat.description || 'Khám phá bộ sưu tập chuyên nghiệp';
-            const imgUrl = cat.image || preset.image || '/images/hero-running.jpg';
-            const isFeatured = preset.featured ? 'featured' : '';
-
-            return `
-              <a href="/products.html?category=${cat._id}" class="category-showcase-card ${isFeatured}" title="${title}">
-                <div class="cat-card-media">
-                  <img src="${imgUrl}" alt="${title}" class="cat-card-img" loading="lazy" onerror="this.src='/images/hero-running.jpg'">
-                  <div class="cat-card-gradient"></div>
-                </div>
-                <div class="cat-card-content">
-                  <h3 class="cat-card-title">${title}</h3>
-                  <p class="cat-card-tagline">${tagline}</p>
-                  <div class="cat-card-cta">
-                    <span>Khám phá bộ sưu tập</span>
-                    <span class="cat-card-arrow">→</span>
-                  </div>
-                </div>
-              </a>
-            `;
-          }).join('');
-        }
-      } catch (e) {
-        console.error('Lỗi tải danh mục:', e);
-      }
-
-      // 2. Tải thương hiệu từ API (chỉ giữ lại các brand thật)
-      try {
-        const brandRes = await window.api.get('/brands');
-        const brandRow = document.getElementById('home-brands-row');
-        if (brandRes.success && brandRes.data && brandRow) {
-          const realBrands = brandRes.data.filter(b => 
-            b.name && !b.name.toLowerCase().includes('test') && !((b.slug || '').toLowerCase().includes('test'))
-          );
-          brandRow.innerHTML = realBrands.map(b => `
-            <a href="/products.html?brand=${b._id}" class="brand-pill">${b.name}</a>
-          `).join('');
-        }
-      } catch (e) {
-        console.error('Lỗi tải thương hiệu:', e);
-      }
-
-      // Hàm render card sản phẩm
-      const renderProductCard = (p) => {
-        const isFav = window.api.wishlist.has(p._id);
-        const thumb = (p.images && p.images[0]) || '/images/shoes/1.jpg';
-        const brandName = p.brand ? (p.brand.name || 'SPORT') : 'SPORT';
-
-        return `
-          <div class="product-card">
-            <div class="product-card-thumb">
-              <img src="${thumb}" alt="${p.name}" loading="lazy" onerror="this.src='/images/shoes/1.jpg'">
-            </div>
-            <div class="product-card-body">
-              <div class="product-card-meta">
-                <span class="product-card-brand">${brandName}</span>
-                <span class="product-card-rating">5.0 / 5</span>
-              </div>
-              <h3 class="product-card-title">
-                <a href="/product-detail.html?id=${p._id}">${p.name}</a>
-              </h3>
-              <div class="product-card-price-row">
-                <span class="product-card-price">${window.api.formatCurrency(p.salePrice)}</span>
-              </div>
-              <div class="product-card-actions">
-                <a href="/product-detail.html?id=${p._id}" class="btn btn-secondary btn-sm">Chi tiết</a>
-                <a href="/product-detail.html?id=${p._id}" class="btn btn-primary btn-sm">Mua hàng</a>
-              </div>
-            </div>
-          </div>
-        `;
-      };
-
-      // 3. Tải Sản phẩm nổi bật
-      try {
-        const featRes = await window.api.get('/products?featured=true&limit=4');
-        const featGrid = document.getElementById('home-featured-grid');
-        if (featRes.success && featRes.data && featGrid) {
-          featGrid.innerHTML = featRes.data.length > 0
-            ? featRes.data.map(renderProductCard).join('')
-            : '<p class="text-muted" style="grid-column: 1/-1; text-align: center;">Chưa có sản phẩm nổi bật.</p>';
-        }
-      } catch (e) {
-        console.error('Lỗi tải sản phẩm nổi bật:', e);
-      }
-
-      // 4. Tải Sản phẩm bán chạy
-      try {
-        const bestRes = await window.api.get('/products?sortBy=totalSold&order=desc&limit=4');
-        const bestGrid = document.getElementById('home-bestsellers-grid');
-        if (bestRes.success && bestRes.data && bestGrid) {
-          bestGrid.innerHTML = bestRes.data.length > 0
-            ? bestRes.data.map(renderProductCard).join('')
-            : '<p class="text-muted" style="grid-column: 1/-1; text-align: center;">Chưa có sản phẩm.</p>';
-        }
-      } catch (e) {
-        console.error('Lỗi tải sản phẩm bán chạy:', e);
-      }
-    });
-
-    // Wishlist Toggle
-    window.toggleWishlist = async (id, btn) => {
-      try {
-        const res = await window.api.get(`/products/${id}`);
-        if (res.success && res.data) {
-          const added = window.api.wishlist.toggle(res.data);
-          btn.classList.toggle('active', added);
-          const svg = btn.querySelector('svg');
-          if (svg) {
-            svg.setAttribute('fill', added ? 'currentColor' : 'none');
-          }
-          btn.setAttribute('title', added ? 'Bỏ lưu' : 'Lưu vào yêu thích');
-          window.toast.success(added ? 'Đã thêm vào danh sách yêu thích' : 'Đã xóa khỏi yêu thích');
-        }
-      } catch (e) {
-        window.toast.error('Không thể cập nhật danh sách yêu thích');
-      }
-    };
-
-    // Copy coupon code utility
-    window.copyCouponCode = (code) => {
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(code).then(() => {
-          window.toast.success(`Đã sao chép mã "${code}" thành công!`);
-        }).catch(() => {
-          window.toast.info(`Mã ưu đãi của bạn: ${code}`);
-        });
-      } else {
-        window.toast.info(`Mã ưu đãi của bạn: ${code}`);
-      }
-    };
-  </script>
+  <script src="/js/api.js?v=20261029home1"></script>
+  <script src="/js/main.js?v=20261029home1"></script>
+  <script src="/js/home.js?v=20261029home1"></script>
 </body>
 </html>

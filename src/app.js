@@ -16,6 +16,15 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// Tuyến đường Admin riêng biệt
+app.get(['/admin/login', '/admin/login/'], (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/admin/login.html'));
+});
+
+app.get(['/admin', '/admin/'], (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/admin/dashboard.html'));
+});
+
 // Phục vụ giao diện tĩnh Frontend (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, '../public')));
 

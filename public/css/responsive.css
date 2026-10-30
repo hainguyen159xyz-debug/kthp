@@ -63,8 +63,8 @@
   }
 
   .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
   }
 
   .features-grid-v2 {
@@ -159,7 +159,7 @@
   }
 
   .category-showcase-card:last-child {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   .cat-card-content {
@@ -309,10 +309,16 @@
     gap: 24px;
   }
 
+  .footer-social-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
   .footer-bottom {
     flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    gap: 12px;
+    text-align: left;
   }
 
   .cart-table th:nth-child(3),

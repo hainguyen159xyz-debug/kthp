@@ -7,9 +7,11 @@
 const adminAuth = {
   // Kiểm tra quyền Admin khi tải trang
   async checkAuth() {
-    const isLoginPage = window.location.pathname.endsWith('login.html');
+    const isLoginPage = window.location.pathname.endsWith('login.html') || 
+                        window.location.pathname.endsWith('/admin/login') || 
+                        window.location.pathname.endsWith('/admin/login/');
     const token = localStorage.getItem('token');
-    const userStr = localStorage.getItem('user');
+    const userStr = localStorage.getItem('user') || localStorage.getItem('currentUser');
 
     if (!token || !userStr) {
       if (!isLoginPage) {
@@ -23,8 +25,6 @@ const adminAuth = {
 
       // Chặn ngay lập tức nếu role không phải là admin
       if (user.role !== 'admin') {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
         if (!isLoginPage) {
           window.location.replace('/admin/login.html?error=unauthorized');
         }
@@ -43,20 +43,19 @@ const adminAuth = {
           }
           // Cập nhật lại thông tin mới nhất
           localStorage.setItem('user', JSON.stringify(verified.data));
+          localStorage.setItem('currentUser', JSON.stringify(verified.data));
           this.renderAdminHeader(verified.data);
         } catch (e) {
           console.error('Session validation error:', e);
           localStorage.removeItem('token');
           localStorage.removeItem('user');
-          window.location.replace('/admin/login.html');
+          window.location.replace('/admin/login.html?error=expired');
           return null;
         }
       }
 
       return user;
     } catch (e) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
       if (!isLoginPage) {
         window.location.replace('/admin/login.html');
       }
@@ -90,6 +89,7 @@ const adminAuth = {
       // Lưu trữ phiên đăng nhập Admin
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('currentUser', JSON.stringify(user));
 
       return { user, token };
     } catch (err) {
@@ -101,6 +101,7 @@ const adminAuth = {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('currentUser');
     window.location.replace('/admin/login.html');
   },
 

@@ -42,22 +42,22 @@
 
 /* Primary Button (Main Call-to-Action) */
 .btn-primary {
-  background-color: #334155;
-  color: #FFFFFF;
-  border-color: #334155;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-color);
   box-shadow: var(--shadow-xs);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #1E293B;
-  border-color: #1E293B;
-  color: #FFFFFF;
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-light);
+  color: var(--text-main);
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(51, 65, 85, 0.25);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:active:not(:disabled) {
-  background-color: #0F172A;
+  background-color: var(--bg-surface);
   transform: translateY(0);
 }
 
@@ -337,7 +337,7 @@
 .product-card-wishlist-btn.active {
   background: #334155;
   color: #FFFFFF;
-  border-color: #334155;
+  border-color: var(--color-primary);
   box-shadow: var(--shadow-sm);
 }
 
@@ -482,7 +482,7 @@ textarea.form-control {
 
 .form-control:focus {
   border-color: var(--color-primary);
-  box-shadow: var(--focus-ring);
+  box-shadow: 0 0 0 3px rgba(51, 65, 85, 0.12);
 }
 
 .form-control:disabled {
@@ -545,7 +545,6 @@ textarea.form-control {
 
 .modal-header {
   padding: 18px 22px;
-  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -581,12 +580,11 @@ textarea.form-control {
 
 .modal-footer {
   padding: 14px 22px;
-  border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  background-color: var(--bg-surface);
+  background-color: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
@@ -750,7 +748,7 @@ textarea.form-control {
 
 .page-btn.active {
   background: #334155;
-  border-color: #334155;
+  border-color: var(--color-primary);
   color: #FFFFFF;
   box-shadow: var(--shadow-sm);
 }
@@ -861,3 +859,15 @@ textarea.form-control {
   padding: 24px;
   box-shadow: var(--shadow-xs);
 }
+
+/* Consistent, divider-free confirmation dialogs. */
+.modal-header { padding: 20px 24px 8px; }
+.modal-body { padding: 8px 24px 20px; font-size: .875rem; line-height: 1.6; }
+.modal-footer { padding: 0 24px 20px; }
+.modal-title, .modal-header h3, .modal-body, .modal-body p, .modal-footer .btn {
+  font-family: inherit;
+  font-size: .875rem;
+  line-height: 1.6;
+}
+.modal-title, .modal-header h3 { font-weight: 600; }
+.modal-body p { margin: 0; color: var(--text-muted); }

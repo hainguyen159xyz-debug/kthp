@@ -86,7 +86,7 @@ function renderInventoryTable(items) {
     if (avail === 0) {
       statusBadge = '<span class="badge badge-danger">Hết hàng</span>';
     } else if (avail <= threshold) {
-      statusBadge = '<span class="badge badge-warning">Sắp hết</span>';
+      statusBadge = '<span class="badge badge-neutral">Sắp hết</span>';
     } else {
       statusBadge = '<span class="badge badge-success">Còn hàng</span>';
     }
@@ -106,10 +106,10 @@ function renderInventoryTable(items) {
           <span class="badge badge-neutral">Size ${item.size}</span>
           <span class="badge badge-neutral">${item.color}</span>
         </td>
-        <td><strong style="color: #fff;">${item.quantity || 0}</strong></td>
-        <td><span style="color: var(--warning);">${item.reservedQuantity || 0}</span></td>
+        <td><strong style="color: var(--text-main); font-weight: 700;">${item.quantity || 0}</strong></td>
+        <td><span style="color: var(--text-muted);">${item.reservedQuantity || 0}</span></td>
         <td>
-          <strong style="color: ${avail > 0 ? '#34d399' : '#f87171'}; font-size: 1rem;">
+          <strong style="color: ${avail > 0 ? 'var(--text-main)' : 'var(--danger)'}; font-weight: 800; font-size: 1rem;">
             ${avail}
           </strong>
         </td>

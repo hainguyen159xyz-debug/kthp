@@ -140,7 +140,7 @@ function renderProductsTable(products) {
             <a href="/admin/product-form.html?id=${p._id}" class="btn btn-secondary btn-sm" title="Chỉnh sửa sản phẩm">
               Sửa
             </a>
-            <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteProduct('${p._id}', '${p.name.replace(/'/g, "\\'")}')">
+            <button class="btn btn-danger btn-sm" onclick="handleDeleteProduct('${p._id}', '${p.name.replace(/'/g, "\\'")}')">
               Xóa
             </button>
           </div>

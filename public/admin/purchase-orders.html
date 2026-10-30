@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phiếu Nhập Hàng NCC (JIT) - SportZone Admin</title>
-  <link rel="stylesheet" href="/admin/css/admin.css">
-  <link rel="stylesheet" href="/admin/css/admin-components.css">
-  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+  <link rel="stylesheet" href="/admin/css/admin.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-components.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css?v=20261029neutral3">
   <style>
     .po-item-row {
       display: grid;
@@ -20,13 +20,16 @@
       border-radius: var(--radius-md);
     }
   </style>
+  <link rel="stylesheet" href="/css/notifications.css?v=20261029neutral3">
+  <script src="/js/notifications.js?v=20261029neutral3" defer></script>
+  <link rel="stylesheet" href="/css/brand.css?v=20261029logo1">
 </head>
 <body>
   <div class="admin-wrapper">
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-icon">SZ</div>
+        <div class="brand-icon" aria-hidden="true"><img class="sportzone-mark" src="/images/sportzone-mark.svg" alt="" width="40" height="40"></div>
         <div class="brand-info">
           <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
           <div class="brand-sub">Kho Vận & Bán Hàng</div>
@@ -96,10 +99,6 @@
         </div>
 
         <div class="header-right">
-          <div class="system-status">
-            <span class="status-dot"></span>
-            <span>MongoDB Live</span>
-          </div>
 
           <div class="admin-profile">
             <div class="admin-avatar" id="header-admin-avatar">A</div>
@@ -212,7 +211,7 @@
           </div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <h4 style="font-size: 0.95rem; color: #fff;">Danh Sách Mặt Hàng Cần Nhập</h4>
+            <h4 style="font-size: 0.95rem; color: var(--text-main);">Danh Sách Mặt Hàng Cần Nhập</h4>
             <button type="button" class="btn btn-secondary btn-sm" id="btn-add-po-item">
               + Thêm mặt hàng
             </button>
@@ -224,7 +223,7 @@
 
           <div style="margin-top: 16px; padding: 14px; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
             <span style="color: var(--text-muted); font-size: 0.9rem;">Tổng chi phí ước tính:</span>
-            <strong id="po-total-preview" style="font-size: 1.2rem; color: #34d399;">0 ₫</strong>
+            <strong id="po-total-preview" style="font-size: 1.2rem; color: var(--success);">0 ₫</strong>
           </div>
         </div>
         <div class="modal-footer">
@@ -246,11 +245,11 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; font-size: 0.88rem; background: var(--bg-card); padding: 14px; border-radius: var(--radius-md);">
           <div>
             <span style="color: var(--text-dim);">Nhà cung cấp:</span>
-            <div id="po-detail-sup" style="font-weight: 700; color: #fff;"></div>
+            <div id="po-detail-sup" style="font-weight: 700; color: var(--text-main);"></div>
           </div>
           <div>
             <span style="color: var(--text-dim);">Tổng chi phí nhập:</span>
-            <div id="po-detail-cost" style="font-weight: 700; color: #34d399;"></div>
+            <div id="po-detail-cost" style="font-weight: 700; color: var(--success);"></div>
           </div>
           <div>
             <span style="color: var(--text-dim);">Trạng thái hiện tại:</span>
@@ -262,7 +261,7 @@
           </div>
         </div>
 
-        <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 10px;">Chi Tiết Sản Phẩm & Biến Thể</h4>
+        <h4 style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 10px;">Chi Tiết Sản Phẩm & Biến Thể</h4>
         <div class="table-responsive">
           <table class="admin-table">
             <thead>
@@ -306,8 +305,8 @@
     </div>
   </div>
 
-  <script src="/admin/js/admin-api.js"></script>
-  <script src="/admin/js/admin-auth.js"></script>
-  <script src="/admin/js/purchase-orders.js"></script>
+  <script src="/admin/js/admin-api.js?v=20261029neutral3"></script>
+  <script src="/admin/js/admin-auth.js?v=20261029neutral3"></script>
+  <script src="/admin/js/purchase-orders.js?v=20261029neutral3"></script>
 </body>
 </html>

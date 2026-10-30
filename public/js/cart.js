@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <h2 class="cart-empty-title">Giỏ hàng của bạn đang trống</h2>
         <p class="cart-empty-desc">Bạn chưa thêm sản phẩm nào vào giỏ hàng. Hãy khám phá bộ sưu tập giày thể thao chính hãng mới nhất tại SportZone!</p>
         <div class="cart-empty-actions">
-          <a href="/products.html" class="btn btn-primary" style="padding: 12px 28px; font-weight: 700; border-radius: 8px;">
+          <a href="/products.html" class="btn btn-primary btn-lg">
             Khám phá sản phẩm ngay
           </a>
         </div>
@@ -436,10 +436,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         <h2 class="cart-empty-title">Giỏ hàng của bạn đang trống</h2>
         <p class="cart-empty-desc">Hãy đăng nhập để xem giỏ hàng của bạn và tiếp tục quản lý các mẫu giày yêu thích đã lưu.</p>
         <div class="cart-empty-actions">
-          <a href="/login.html?redirect=${encodeURIComponent('/cart.html')}" class="btn btn-primary" style="padding: 12px 28px; font-weight: 700; border-radius: 8px;">
+          <a href="/login.html?redirect=${encodeURIComponent('/cart.html')}" class="btn btn-primary btn-lg">
             Đăng nhập ngay
           </a>
-          <a href="/products.html" class="btn btn-outline" style="padding: 12px 24px; font-weight: 600; border-radius: 8px;">
+          <a href="/products.html" class="btn btn-outline btn-lg">
             Khám phá sản phẩm
           </a>
         </div>

@@ -74,13 +74,23 @@ const api = {
       }
 
       if (!response.ok) {
-        // Tự động đăng xuất nếu token hết hạn khi gọi endpoint cần xác thực
         if (response.status === 401 && token) {
           console.warn('[API Auth] Phiên đăng nhập hết hạn.');
           // Không tự động redirect nếu đang ở trang login hoặc register
           if (!window.location.pathname.includes('login') && !window.location.pathname.includes('register')) {
             this.removeToken();
             this.removeUser();
+            window.dispatchEvent(new Event('authChange'));
+            if (window.toast && typeof window.toast.warning === 'function') {
+              window.toast.warning('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
+            }
+            const protectedPages = ['checkout.html', 'profile.html', 'orders.html', 'order-detail.html'];
+            if (protectedPages.some((p) => window.location.pathname.endsWith(p))) {
+              const currentUrl = encodeURIComponent(window.location.pathname + window.location.search);
+              setTimeout(() => {
+                window.location.href = `/login.html?redirect=${currentUrl}`;
+              }, 1200);
+            }
           }
         }
 
@@ -148,6 +158,14 @@ const api = {
     has(productId) {
       const list = this.get();
       return list.some((item) => (item._id || item) === productId);
+    },
+    add(product) {
+      const list = this.get();
+      const id = product._id || product;
+      if (list.some((item) => (item._id || item) === id)) return;
+      list.push(product);
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(list));
+      window.dispatchEvent(new Event('wishlistChange'));
     },
     toggle(product) {
       const list = this.get();

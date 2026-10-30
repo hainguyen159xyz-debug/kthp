@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thanh Toán & Đặt Hàng - SportZone</title>
   <meta name="description" content="Điền thông tin nhận hàng và chọn phương thức thanh toán để hoàn tất đơn hàng giày thể thao tại SportZone.">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/client.css">
-  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/style.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/components.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/client.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/responsive.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/notifications.css?v=20261029neutral3">
+  <script src="/js/notifications.js?v=20261029neutral3" defer></script>
+  <link rel="stylesheet" href="/css/brand.css?v=20261029logo1">
 </head>
 <body>
 
@@ -16,7 +19,7 @@
   <header class="navbar">
     <div class="container nav-container">
       <a href="/" class="brand-logo" id="nav-brand-logo">
-        <span class="logo-badge">SZ</span> Sport<span>Zone</span>
+        <span class="logo-badge" aria-hidden="true"><img class="sportzone-mark" src="/images/sportzone-mark.svg" alt="" width="40" height="40"></span><span class="sportzone-wordmark">Sport<span>Zone</span></span>
       </a>
 
       <!-- Search Bar -->
@@ -107,7 +110,7 @@
                 <input type="text" id="checkout-city" class="form-control" placeholder="TP. Hồ Chí Minh, Hà Nội..." required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="checkout-district">Quận / Huyện</label>
+                <label class="form-label" for="checkout-district">Phường / Xã / Khu vực</label>
                 <input type="text" id="checkout-district" class="form-control" placeholder="Quận 1, Cầu Giấy...">
               </div>
             </div>
@@ -131,16 +134,16 @@
           </h3>
 
           <div style="display: flex; flex-direction: column; gap: 12px;">
-            <label class="card" style="padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; border-color: #334155; background: var(--bg-surface);">
-              <input type="radio" name="paymentMethod" value="COD" checked style="accent-color: #334155;">
+            <label class="card payment-option">
+              <input type="radio" name="paymentMethod" value="COD" checked style="accent-color: var(--color-primary);">
               <div>
                 <strong style="display: block; font-size: 0.95rem;">Thanh toán khi nhận hàng (COD)</strong>
                 <span style="font-size: 0.82rem; color: var(--text-muted);">Kiểm tra hàng trước khi thanh toán tiền mặt cho nhân viên giao hàng</span>
               </div>
             </label>
 
-            <label class="card" style="padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer;">
-              <input type="radio" name="paymentMethod" value="bank_transfer" style="accent-color: #334155;">
+            <label class="card payment-option">
+              <input type="radio" name="paymentMethod" value="bank_transfer" style="accent-color: var(--color-primary);">
               <div>
                 <strong style="display: block; font-size: 0.95rem;">Chuyển khoản ngân hàng (Bank Transfer)</strong>
                 <span style="font-size: 0.82rem; color: var(--text-muted);">Quét mã QR thanh toán nhanh qua ứng dụng ngân hàng</span>
@@ -201,9 +204,9 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/js/api.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/checkout.js"></script>
+  <script src="/js/api.js?v=20261029neutral3"></script>
+  <script src="/js/auth.js?v=20261029neutral3"></script>
+  <script src="/js/main.js?v=20261029neutral3"></script>
+  <script src="/js/checkout.js?v=20261029address1"></script>
 </body>
 </html>

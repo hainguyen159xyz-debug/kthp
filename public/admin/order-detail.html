@@ -4,16 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chi Tiết Đơn Hàng - SportZone Admin</title>
-  <link rel="stylesheet" href="/admin/css/admin.css">
-  <link rel="stylesheet" href="/admin/css/admin-components.css">
-  <link rel="stylesheet" href="/admin/css/admin-responsive.css">
+  <link rel="stylesheet" href="/admin/css/admin.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-components.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/admin/css/admin-responsive.css?v=20261029neutral3">
+  <link rel="stylesheet" href="/css/notifications.css?v=20261029neutral3">
+  <script src="/js/notifications.js?v=20261029neutral3" defer></script>
+  <link rel="stylesheet" href="/css/brand.css?v=20261029logo1">
 </head>
 <body>
   <div class="admin-wrapper">
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-icon">SZ</div>
+        <div class="brand-icon" aria-hidden="true"><img class="sportzone-mark" src="/images/sportzone-mark.svg" alt="" width="40" height="40"></div>
         <div class="brand-info">
           <div class="brand-title">SportZone <span class="brand-tag">Admin</span></div>
           <div class="brand-sub">Kho Vận & Bán Hàng</div>
@@ -85,10 +88,6 @@
         </div>
 
         <div class="header-right">
-          <div class="system-status">
-            <span class="status-dot"></span>
-            <span>MongoDB Live</span>
-          </div>
 
           <div class="admin-profile">
             <div class="admin-avatar" id="header-admin-avatar">A</div>
@@ -147,7 +146,7 @@
         </div>
 
         <!-- 2 Columns: Items & Receiver/Payment Info -->
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 24px;">
+        <div class="admin-content-grid">
           <!-- Ordered Items Table -->
           <div class="admin-card" style="margin-bottom: 0;">
             <div class="card-header-bar">
@@ -176,19 +175,19 @@
             <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 8px; align-items: flex-end;">
               <div style="display: flex; justify-content: space-between; width: 280px; font-size: 0.9rem; color: var(--text-muted);">
                 <span>Tiền hàng:</span>
-                <strong id="calc-subtotal" style="color: #fff;">0 ₫</strong>
+                <strong id="calc-subtotal" style="color: var(--text-main);">0 ₫</strong>
               </div>
               <div style="display: flex; justify-content: space-between; width: 280px; font-size: 0.9rem; color: var(--text-muted);">
                 <span>Khuyến mãi / Giảm:</span>
-                <strong id="calc-discount" style="color: #f87171;">-0 ₫</strong>
+                <strong id="calc-discount" style="color: var(--danger);">-0 ₫</strong>
               </div>
               <div style="display: flex; justify-content: space-between; width: 280px; font-size: 0.9rem; color: var(--text-muted);">
                 <span>Phí vận chuyển:</span>
-                <strong id="calc-shipping" style="color: #fff;">0 ₫</strong>
+                <strong id="calc-shipping" style="color: var(--text-main);">0 ₫</strong>
               </div>
-              <div style="display: flex; justify-content: space-between; width: 280px; font-size: 1.15rem; color: #fff; padding-top: 8px; border-top: 1px dashed var(--border-color);">
+              <div style="display: flex; justify-content: space-between; width: 280px; font-size: 1.15rem; color: var(--text-main); padding-top: 8px; border-top: 1px dashed var(--border-color);">
                 <span>Tổng thanh toán:</span>
-                <strong id="calc-total" style="color: #34d399;">0 ₫</strong>
+                <strong id="calc-total" style="color: var(--success);">0 ₫</strong>
               </div>
             </div>
           </div>
@@ -202,11 +201,11 @@
               <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
                 <div>
                   <span style="color: var(--text-dim);">Khách hàng:</span>
-                  <div id="recv-name" style="font-weight: 700; color: #fff; margin-top: 2px;">--</div>
+                  <div id="recv-name" style="font-weight: 700; color: var(--text-main); margin-top: 2px;">--</div>
                 </div>
                 <div>
                   <span style="color: var(--text-dim);">Số điện thoại:</span>
-                  <div id="recv-phone" style="font-weight: 600; color: #60a5fa; margin-top: 2px;">--</div>
+                  <div id="recv-phone" style="font-weight: 600; color: var(--info); margin-top: 2px;">--</div>
                 </div>
                 <div>
                   <span style="color: var(--text-dim);">Email tài khoản:</span>
@@ -214,7 +213,7 @@
                 </div>
                 <div>
                   <span style="color: var(--text-dim);">Địa chỉ giao hàng:</span>
-                  <div id="recv-address" style="color: #fff; line-height: 1.4; margin-top: 2px;">--</div>
+                  <div id="recv-address" style="color: var(--text-main); line-height: 1.4; margin-top: 2px;">--</div>
                 </div>
                 <div>
                   <span style="color: var(--text-dim);">Ghi chú đặt hàng:</span>
@@ -231,7 +230,7 @@
               <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
                 <div>
                   <span style="color: var(--text-dim);">Phương thức:</span>
-                  <div id="pay-method" style="font-weight: 600; color: #fff; margin-top: 2px;">COD</div>
+                  <div id="pay-method" style="font-weight: 600; color: var(--text-main); margin-top: 2px;">COD</div>
                 </div>
                 <div>
                   <span style="color: var(--text-dim);">Trạng thái thanh toán:</span>
@@ -273,7 +272,7 @@
           <div class="form-group" style="margin-bottom: 16px;">
             <label class="form-label" for="update-payment-status">Trạng thái thanh toán</label>
             <select id="update-payment-status" class="form-control">
-              <option value="pending">Chờ thanh toán</option>
+              <option value="unpaid">Chờ thanh toán</option>
               <option value="paid">Đã thanh toán thành công</option>
               <option value="refunded">Đã hoàn tiền</option>
             </select>
@@ -284,7 +283,11 @@
             <select id="update-fulfillment-status" class="form-control">
               <option value="in_stock">Sẵn hàng trong kho</option>
               <option value="waiting_supplier">Đang chờ nhập từ nhà cung cấp</option>
-              <option value="fulfilled">Đã đáp ứng hàng</option>
+              <option value="imported">Đã nhập hàng</option>
+              <option value="packing">Đang đóng gói</option>
+              <option value="shipping">Đang giao hàng</option>
+              <option value="delivered">Đã giao hàng</option>
+              <option value="cancelled">Đã hủy</option>
             </select>
           </div>
         </div>
@@ -296,8 +299,8 @@
     </div>
   </div>
 
-  <script src="/admin/js/admin-api.js"></script>
-  <script src="/admin/js/admin-auth.js"></script>
-  <script src="/admin/js/order-detail.js"></script>
+  <script src="/admin/js/admin-api.js?v=20261029neutral3"></script>
+  <script src="/admin/js/admin-auth.js?v=20261029neutral3"></script>
+  <script src="/admin/js/order-detail.js?v=20261029neutral3"></script>
 </body>
 </html>

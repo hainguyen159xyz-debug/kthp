@@ -68,25 +68,31 @@ exports.getProducts = async (req, res, next) => {
       filter.isFastMoving = isFastMoving === 'true' || isFastMoving === true;
     }
 
-    // Lọc theo khoảng giá (salePrice hoặc variants.price)
+    // Kết hợp các bộ lọc bằng AND; size, màu và giá phải khớp cùng biến thể.
+    const variantFilter = {};
+    const legacyFilter = {};
     if (minPrice || maxPrice) {
       const priceFilter = {};
       if (minPrice) priceFilter.$gte = Number(minPrice);
       if (maxPrice) priceFilter.$lte = Number(maxPrice);
-      filter.$or = [{ salePrice: priceFilter }, { 'variants.price': priceFilter }];
+      variantFilter.price = priceFilter;
+      legacyFilter.salePrice = priceFilter;
     }
 
     // Lọc theo size hoặc color
     if (size) {
-      filter.$or = filter.$or || [];
-      filter.$or.push({ sizes: Number(size) }, { 'variants.size': Number(size) });
+      variantFilter.size = Number(size);
+      legacyFilter.sizes = Number(size);
     }
     if (color) {
-      filter.$or = filter.$or || [];
-      filter.$or.push(
-        { colors: { $regex: color.trim(), $options: 'i' } },
-        { 'variants.color': { $regex: color.trim(), $options: 'i' } }
-      );
+      variantFilter.color = { $regex: color.trim(), $options: 'i' };
+      legacyFilter.colors = variantFilter.color;
+    }
+    if (Object.keys(variantFilter).length) {
+      filter.$or = [
+        { variants: { $elemMatch: variantFilter } },
+        { 'variants.0': { $exists: false }, ...legacyFilter }
+      ];
     }
 
     const pageNum = Math.max(1, Number(page) || 1);

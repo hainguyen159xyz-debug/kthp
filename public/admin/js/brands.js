@@ -37,9 +37,9 @@ function renderBrandsTable(brands) {
       <tr>
         <td>
           <div style="display: flex; align-items: center; gap: 12px;">
-            ${logoUrl ? `<img src="${logoUrl}" alt="${b.name}" style="width: 38px; height: 38px; border-radius: var(--radius-sm); object-fit: contain; background: #fff; padding: 2px;" onerror="this.style.display='none'">` : `<div style="width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">${b.name.charAt(0)}</div>`}
+            ${logoUrl ? `<img src="${logoUrl}" alt="${b.name}" style="width: 38px; height: 38px; border-radius: var(--radius-sm); object-fit: contain; background: #fff; padding: 2px;" onerror="this.style.display='none'">` : `<div style="width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-main);">${b.name.charAt(0)}</div>`}
             <div>
-              <strong style="color: #fff; font-size: 0.95rem;">${b.name}</strong>
+              <strong style="color: var(--text-main); font-size: 0.95rem;">${b.name}</strong>
             </div>
           </div>
         </td>
@@ -55,7 +55,7 @@ function renderBrandsTable(brands) {
             <button class="btn btn-secondary btn-sm" onclick="openEditBrand('${b._id}')">
               Sửa
             </button>
-            <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteBrand('${b._id}', '${b.name.replace(/'/g, "\\'")}')">
+            <button class="btn btn-danger btn-sm" onclick="handleDeleteBrand('${b._id}', '${b.name.replace(/'/g, "\\'")}')">
               Xóa
             </button>
           </div>

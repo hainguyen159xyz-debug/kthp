@@ -70,7 +70,11 @@ const auth = {
         window.toast.success(`Chào mừng trở lại, ${res.data.user.fullName || res.data.user.name}!`);
         window.dispatchEvent(new Event('authChange'));
 
-        const redirect = new URLSearchParams(window.location.search).get('redirect') || '/index.html';
+        const redirectParam = new URLSearchParams(window.location.search).get('redirect');
+        let redirect = redirectParam;
+        if (!redirect) {
+          redirect = (res.data.user.role === 'admin') ? '/admin/dashboard.html' : '/index.html';
+        }
         setTimeout(() => {
           window.location.href = redirect;
         }, 600);

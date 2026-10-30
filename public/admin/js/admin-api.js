@@ -19,37 +19,7 @@ const adminToast = {
   },
 
   show(message, type = 'info', title = '') {
-    this.init();
-
-    const toast = document.createElement('div');
-    toast.className = `admin-toast toast-${type}`;
-
-    let tag = 'THÔNG BÁO';
-    let defaultTitle = 'Thông báo';
-    if (type === 'success') {
-      tag = 'THÀNH CÔNG';
-      defaultTitle = 'Thành công';
-    } else if (type === 'error') {
-      tag = 'LỖI';
-      defaultTitle = 'Lỗi hệ thống';
-    } else if (type === 'warning') {
-      tag = 'CẢNH BÁO';
-      defaultTitle = 'Cảnh báo';
-    }
-
-    toast.innerHTML = `
-      <div class="toast-content">
-        <div class="toast-title"><span class="badge ${type === 'error' ? 'badge-danger' : type === 'warning' ? 'badge-warning' : 'badge-success'}">${tag}</span> ${title || defaultTitle}</div>
-        <div class="toast-msg">${message}</div>
-      </div>
-    `;
-
-    this.container.appendChild(toast);
-
-    setTimeout(() => {
-      toast.classList.add('fade-out');
-      setTimeout(() => toast.remove(), 300);
-    }, 4000);
+    window.notifications.show({ type, title, message, duration: 8000 });
   },
 
   success(msg, title = 'Thành công') {
@@ -94,7 +64,7 @@ const adminModal = {
             <button class="modal-close" onclick="adminModal.close('admin-confirm-modal')">&times;</button>
           </div>
           <div class="modal-body">
-            <p id="confirm-modal-message" style="color: var(--text-muted); font-size: 0.92rem;"></p>
+            <p id="confirm-modal-message"></p>
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary btn-sm" id="confirm-modal-cancel">Hủy</button>

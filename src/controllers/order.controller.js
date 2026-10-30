@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const orderService = require('../services/order.service');
+const inventoryService = require('../services/inventory.service');
 const { isValidObjectId } = require('../validators/validate');
 
 /**
@@ -146,6 +147,54 @@ exports.updateOrderStatus = async (req, res, next) => {
     const { status, orderStatus, fulfillmentStatus, paymentStatus } = req.body;
     const targetStatus = status || orderStatus;
 
+    for (const [field, value] of Object.entries({ orderStatus: targetStatus, fulfillmentStatus, paymentStatus })) {
+      if (value !== undefined && !Order.schema.path(field).enumValues.includes(value)) {
+        return res.status(400).json({ success: false, message: `Trạng thái ${field} không hợp lệ.` });
+      }
+    }
+
+    const existingOrder = await Order.findById(req.params.id);
+    if (!existingOrder) {
+      return res.status(404).json({
+        success: false,
+        message: 'Không tìm thấy đơn hàng.',
+        errors: ['Đơn hàng không tồn tại']
+      });
+    }
+
+    const prevStatus = existingOrder.orderStatus || existingOrder.status;
+
+    // Nếu đơn hàng chuyển sang 'cancelled' -> Hoàn lại tồn kho
+    if (prevStatus !== 'cancelled' && targetStatus === 'cancelled') {
+      for (const item of (existingOrder.items || [])) {
+        await inventoryService.replenishStock(
+          item.product,
+          item.size,
+          item.color,
+          item.quantity,
+          item.variantSku
+        );
+      }
+    }
+
+    // Nếu đơn hàng từ 'cancelled' chuyển lại trạng thái hoạt động -> Trừ lại kho
+    if (prevStatus === 'cancelled' && targetStatus && targetStatus !== 'cancelled') {
+      for (const item of (existingOrder.items || [])) {
+        const availability = await inventoryService.checkItemAvailability(item.product, item.size, item.color, item.quantity);
+        if (!availability.isSufficient) {
+          return res.status(400).json({ success: false, code: 'OUT_OF_STOCK', message: 'Không đủ tồn kho để kích hoạt lại đơn hàng.' });
+        }
+      }
+      for (const item of (existingOrder.items || [])) {
+        await inventoryService.deductStock(
+          item.product,
+          item.size,
+          item.color,
+          item.quantity
+        );
+      }
+    }
+
     const updateFields = {};
     if (targetStatus) {
       updateFields.orderStatus = targetStatus;
@@ -154,19 +203,22 @@ exports.updateOrderStatus = async (req, res, next) => {
     if (fulfillmentStatus) updateFields.fulfillmentStatus = fulfillmentStatus;
     if (paymentStatus) updateFields.paymentStatus = paymentStatus;
 
+    if (targetStatus === 'completed') {
+      updateFields.fulfillmentStatus = 'delivered';
+    } else if (targetStatus === 'cancelled') {
+      updateFields.fulfillmentStatus = 'cancelled';
+    } else if (targetStatus === 'shipping') {
+      updateFields.fulfillmentStatus = 'shipping';
+    } else if (prevStatus === 'cancelled' && targetStatus) {
+      updateFields.fulfillmentStatus = 'in_stock';
+    }
+
     const order = await Order.findByIdAndUpdate(req.params.id, updateFields, {
-      new: true
+      new: true,
+      runValidators: true
     })
       .populate('user', 'name fullName email phone')
       .populate('customer', 'name fullName email phone');
-
-    if (!order) {
-      return res.status(404).json({
-        success: false,
-        message: 'Không tìm thấy đơn hàng.',
-        errors: ['Đơn hàng không tồn tại']
-      });
-    }
 
     res.status(200).json({
       success: true,

@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     maxPrice: urlParams.get('maxPrice') || '',
     featured: urlParams.get('featured') || '',
     isFastMoving: urlParams.get('isFastMoving') || '',
-    sortBy: 'createdAt',
-    order: 'desc'
+    sortBy: ['createdAt', 'salePrice', 'totalSold', 'name'].includes(urlParams.get('sortBy')) ? urlParams.get('sortBy') : 'createdAt',
+    order: urlParams.get('order') === 'asc' ? 'asc' : 'desc'
   };
 
   // Elements
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const emptyState = document.getElementById('catalog-empty-state');
   const paginationEl = document.getElementById('catalog-pagination');
   const sortSelect = document.getElementById('sort-select');
+  if (sortSelect) sortSelect.value = `${state.sortBy}-${state.order}`;
   const btnReset = document.getElementById('btn-reset-filters');
   const btnEmptyReset = document.getElementById('btn-empty-reset');
   const minPriceInput = document.getElementById('filter-min-price');
@@ -185,6 +186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Sort change handler
   if (sortSelect) {
+    sortSelect.value = `${state.sortBy}-${state.order}`;
     sortSelect.onchange = (e) => {
       const [sb, ord] = e.target.value.split('-');
       state.sortBy = sb;

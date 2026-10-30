@@ -137,7 +137,7 @@ function addVariantRow(data = {}) {
       <input type="number" class="form-control form-control-sm variant-threshold" placeholder="Ngưỡng" value="${data.lowStockThreshold || 2}" min="0">
     </div>
     <div>
-      <button type="button" class="btn btn-danger-outline btn-sm btn-icon" title="Xóa biến thể này" onclick="document.getElementById('${rowId}').remove()">
+      <button type="button" class="btn btn-danger btn-sm btn-icon" title="Xóa biến thể này" onclick="document.getElementById('${rowId}').remove()">
         &times;
       </button>
     </div>

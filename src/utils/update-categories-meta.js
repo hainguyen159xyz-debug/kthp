@@ -32,6 +32,13 @@ const updateData = [
     name: 'Giày Tập Luyện',
     description: 'Mạnh mẽ trong từng chuyển động.',
     image: '/images/categories/training.jpg'
+  },
+  {
+    slug: 'hiking',
+    oldSlug: 'tennis',
+    name: 'Giày Leo Núi',
+    description: 'Bền bỉ, bám đường và chinh phục mọi đỉnh cao.',
+    image: '/images/categories/hiking.jpg'
   }
 ];
 
@@ -39,11 +46,31 @@ async function updateCategories() {
   await mongoose.connect(process.env.MONGODB_URI);
   console.log('MongoDB connected.');
 
+  // Migrate old tennis category if present
+  await Category.findOneAndUpdate(
+    { slug: 'tennis' },
+    {
+      $set: {
+        slug: 'hiking',
+        name: 'Giày Leo Núi',
+        description: 'Bền bỉ, bám đường và chinh phục mọi đỉnh cao.',
+        image: '/images/categories/hiking.jpg',
+        status: 'active',
+        isActive: true
+      }
+    }
+  );
+
   for (const item of updateData) {
+    const query = item.oldSlug 
+      ? { $or: [{ slug: item.slug }, { slug: item.oldSlug }] }
+      : { slug: item.slug };
+
     const res = await Category.findOneAndUpdate(
-      { slug: item.slug },
+      query,
       {
         $set: {
+          slug: item.slug,
           name: item.name,
           description: item.description,
           image: item.image,
@@ -51,10 +78,10 @@ async function updateCategories() {
           isActive: true
         }
       },
-      { new: true }
+      { new: true, upsert: true }
     );
     if (res) {
-      console.log(`Updated ${item.slug} -> ${res.name} (Image: ${res.image})`);
+      console.log(`Updated/Created ${item.slug} -> ${res.name} (Image: ${res.image})`);
     } else {
       console.warn(`Category slug ${item.slug} not found!`);
     }

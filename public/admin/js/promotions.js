@@ -47,12 +47,12 @@ function renderPromotionsTable(promotions) {
     return `
       <tr>
         <td>
-          <strong style="color: #60a5fa; font-family: monospace; font-size: 0.95rem; background: rgba(59, 130, 246, 0.1); padding: 4px 8px; border-radius: var(--radius-sm); border: 1px dashed rgba(59, 130, 246, 0.3);">
+          <strong style="color: var(--info); font-family: monospace; font-size: 0.95rem; background: rgba(59, 130, 246, 0.1); padding: 4px 8px; border-radius: var(--radius-sm); border: 1px dashed rgba(59, 130, 246, 0.3);">
             ${p.code}
           </strong>
         </td>
-        <td><strong style="color: #fff;">${p.name}</strong></td>
-        <td><strong style="color: #34d399;">${discountStr}</strong></td>
+        <td><strong style="color: var(--text-main);">${p.name}</strong></td>
+        <td><strong style="color: var(--success);">${discountStr}</strong></td>
         <td>${formatCurrency(p.minOrderValue || 0)}</td>
         <td>${maxDiscountStr}</td>
         <td>
@@ -65,7 +65,7 @@ function renderPromotionsTable(promotions) {
             <button class="btn btn-secondary btn-sm" onclick="openEditPromotion('${p._id}')">
               Sửa
             </button>
-            <button class="btn btn-danger-outline btn-sm" onclick="handleDeletePromotion('${p._id}', '${p.code}')">
+            <button class="btn btn-danger btn-sm" onclick="handleDeletePromotion('${p._id}', '${p.code}')">
               Xóa
             </button>
           </div>

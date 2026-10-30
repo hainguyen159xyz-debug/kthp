@@ -218,7 +218,7 @@ function addPoItemRow() {
       <input type="number" class="form-control form-control-sm po-item-cost" placeholder="Giá nhập (₫)" value="1000000" min="0" required>
     </div>
     <div>
-      <button type="button" class="btn btn-danger-outline btn-sm btn-icon" onclick="document.getElementById('${rowId}').remove(); calculatePoTotalPreview();">
+      <button type="button" class="btn btn-danger btn-sm btn-icon" onclick="document.getElementById('${rowId}').remove(); calculatePoTotalPreview();">
         &times;
       </button>
     </div>

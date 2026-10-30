@@ -33,9 +33,9 @@ function renderSuppliersTable(suppliers) {
     const isActive = s.status === 'active' || s.isActive !== false;
     return `
       <tr>
-        <td><strong style="color: #fff;">${s.name}</strong></td>
+        <td><strong style="color: var(--text-main);">${s.name}</strong></td>
         <td>${s.contactPerson || s.contactName || '<span style="color: var(--text-dim);">N/A</span>'}</td>
-        <td><span style="color: #60a5fa; font-weight: 600;">${s.phone}</span></td>
+        <td><span style="color: var(--info); font-weight: 600;">${s.phone}</span></td>
         <td>${s.email}</td>
         <td style="color: var(--text-muted); max-width: 200px; white-space: normal;">${s.address || 'N/A'}</td>
         <td><span class="badge badge-neutral">${s.leadTimeDays || s.deliveryTimeDays || 2} ngày</span></td>
@@ -49,7 +49,7 @@ function renderSuppliersTable(suppliers) {
             <button class="btn btn-secondary btn-sm" onclick="openEditSupplier('${s._id}')">
               Sửa
             </button>
-            <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteSupplier('${s._id}', '${s.name.replace(/'/g, "\\'")}')">
+            <button class="btn btn-danger btn-sm" onclick="handleDeleteSupplier('${s._id}', '${s.name.replace(/'/g, "\\'")}')">
               Xóa
             </button>
           </div>

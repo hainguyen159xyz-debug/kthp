@@ -66,14 +66,14 @@ function renderReviewsTable(reviews) {
         <td>
           ${scoreBadge}
         </td>
-        <td style="max-width: 320px; white-space: normal; color: #fff;">
-          ${r.title ? `<div style="font-weight: 600; color: #F59E0B; margin-bottom: 4px; font-size: 0.88rem;">${r.title}</div>` : ''}
-          ${r.comment ? `<div style="line-height: 1.45;">"${r.comment}"</div>` : '<span style="color: var(--text-dim); font-style: italic;">Không có bình luận chữ</span>'}
+        <td style="max-width: 320px; white-space: normal; color: var(--text-main);">
+          ${r.title ? `<div style="font-weight: 700; color: #0F172A; margin-bottom: 4px; font-size: 0.88rem;">${r.title}</div>` : ''}
+          ${r.comment ? `<div style="line-height: 1.45; color: var(--text-muted);">"${r.comment}"</div>` : '<span style="color: var(--text-dim); font-style: italic;">Không có bình luận chữ</span>'}
           ${r.variant ? `<div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 4px;">${r.variant}</div>` : ''}
         </td>
         <td style="color: var(--text-muted); font-size: 0.82rem;">${formatDateTime(r.createdAt)}</td>
         <td style="text-align: right;">
-          <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteReview('${r._id}')">
+          <button class="btn btn-danger btn-sm" onclick="handleDeleteReview('${r._id}')">
             Xóa đánh giá
           </button>
         </td>

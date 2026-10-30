@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
 
       const statusMap = {
-        pending: { text: 'Chờ xác nhận', class: 'badge-low-stock' },
+        pending: { text: 'Chờ xác nhận', class: 'badge-pending' },
         processing: { text: 'Đang xử lý', class: 'badge-brand' },
         shipping: { text: 'Đang giao hàng', class: 'badge-brand' },
         completed: { text: 'Đã hoàn thành', class: 'badge-in-stock' },
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: gap: 12px; margin-top: 14px;">
             <div>
               <span style="font-size: 0.9rem; color: var(--text-muted);">Tổng thanh toán: </span>
-              <strong style="color: var(--color-primary); font-size: 1.2rem;">${window.api.formatCurrency(order.totalAmount)}</strong>
+              <strong style="color: #0F172A; font-size: 1.2rem; font-weight: 800;">${window.api.formatCurrency(order.totalAmount)}</strong>
               <span style="font-size: 0.82rem; color: var(--text-dim); margin-left: 10px;">(${order.paymentMethod || 'COD'})</span>
             </div>
 

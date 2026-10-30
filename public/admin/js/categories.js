@@ -33,7 +33,7 @@ function renderCategoriesTable(categories) {
     const isActive = cat.status === 'active' || cat.isActive !== false;
     return `
       <tr>
-        <td><strong style="color: #fff;">${cat.name}</strong></td>
+        <td><strong style="color: var(--text-main);">${cat.name}</strong></td>
         <td><code>${cat.slug}</code></td>
         <td style="color: var(--text-muted); max-width: 320px; white-space: normal;">${cat.description || 'Không có mô tả'}</td>
         <td>
@@ -46,7 +46,7 @@ function renderCategoriesTable(categories) {
             <button class="btn btn-secondary btn-sm" onclick="openEditCategory('${cat._id}')">
               Sửa
             </button>
-            <button class="btn btn-danger-outline btn-sm" onclick="handleDeleteCategory('${cat._id}', '${cat.name.replace(/'/g, "\\'")}')">
+            <button class="btn btn-danger btn-sm" onclick="handleDeleteCategory('${cat._id}', '${cat.name.replace(/'/g, "\\'")}')">
               Xóa
             </button>
           </div>

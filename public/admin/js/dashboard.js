@@ -155,7 +155,7 @@ function renderCategoryChart(categories) {
   const labels = categories.map((c) => c.name);
   const data = categories.map((c) => c.count);
   const colors = [
-    '#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#3b82f6'
+    '#6366f1', '#06b6d4', '#10b981', '#475569', '#ec4899', '#8b5cf6', '#3b82f6'
   ];
 
   categoryChartInstance = new Chart(ctx, {
@@ -234,7 +234,7 @@ function renderLowStockAlerts(alerts) {
     return `
       <tr>
         <td>
-          <strong style="color: #fff;">${a.productName}</strong>
+          <strong style="color: var(--text-main);">${a.productName}</strong>
           <div style="font-size: 0.75rem; color: var(--text-dim); font-family: monospace;">${a.sku || 'N/A'}</div>
         </td>
         <td>
@@ -242,7 +242,7 @@ function renderLowStockAlerts(alerts) {
           <span class="badge badge-neutral">${a.color}</span>
         </td>
         <td>
-          <span class="badge ${isOut ? 'badge-danger' : 'badge-warning'}">
+          <span class="badge ${isOut ? 'badge-danger' : 'badge-neutral'}">
             ${a.stockQuantity} / Ngưỡng: ${a.threshold}
           </span>
         </td>
@@ -268,7 +268,7 @@ function renderRecentOrders(orders) {
 
   tbody.innerHTML = orders.map((o) => {
     const statusMap = {
-      pending: { label: 'Chờ xác nhận', badge: 'badge-warning' },
+      pending: { label: 'Chờ xác nhận', badge: 'badge-neutral' },
       processing: { label: 'Đang xử lý', badge: 'badge-info' },
       shipping: { label: 'Đang giao', badge: 'badge-purple' },
       completed: { label: 'Hoàn tất', badge: 'badge-success' },
@@ -287,7 +287,7 @@ function renderRecentOrders(orders) {
           <div style="font-size: 0.75rem; color: var(--text-dim);">${o.user?.email || o.customer?.email || ''}</div>
         </td>
         <td>${formatDateTime(o.createdAt)}</td>
-        <td><strong style="color: #34d399;">${formatCurrency(o.totalAmount || 0)}</strong></td>
+        <td><strong style="color: var(--text-main); font-weight: 700;">${formatCurrency(o.totalAmount || 0)}</strong></td>
         <td><span class="badge ${st.badge}">${st.label}</span></td>
         <td>
           <a href="/admin/order-detail.html?id=${o._id}" class="btn btn-secondary btn-sm">
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const refreshBtn = document.getElementById('btn-refresh-dashboard');
   if (refreshBtn) {
     refreshBtn.addEventListener('click', () => {
-      adminToast.info('Đang làm mới dữ liệu từ MongoDB...', 'Cập nhật');
+      adminToast.info('Đang làm mới dữ liệu...', 'Cập nhật');
       loadDashboardData();
     });
   }

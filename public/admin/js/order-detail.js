@@ -109,19 +109,23 @@ function renderOrderPage(order) {
   document.getElementById('recv-phone').textContent = recipientPhone;
   document.getElementById('recv-email').textContent = recipientEmail;
   document.getElementById('recv-address').textContent = fullAddressStr;
-  document.getElementById('recv-note').textContent = order.notes || addr.notes || 'Không có ghi chú thêm từ khách hàng';
+  document.getElementById('recv-note').textContent = order.notes || addr.note || addr.notes || 'Không có ghi chú thêm từ khách hàng';
 
   // Payment & JIT
   document.getElementById('pay-method').textContent = (order.paymentMethod || 'COD').toUpperCase();
   const isPaid = order.paymentStatus === 'paid';
   document.getElementById('pay-status').innerHTML = isPaid
     ? '<span class="badge badge-success">Đã thanh toán</span>'
-    : '<span class="badge badge-warning">Chờ thanh toán</span>';
+    : '<span class="badge badge-neutral">Chờ thanh toán</span>';
 
   const jitMap = {
     in_stock: '<span class="badge badge-success">Đã có sẵn trong kho</span>',
-    waiting_supplier: '<span class="badge badge-warning">Đang chờ nhập hàng từ NCC (JIT)</span>',
-    fulfilled: '<span class="badge badge-info">Đã đáp ứng hàng</span>'
+    waiting_supplier: '<span class="badge badge-neutral">Đang chờ nhập hàng từ NCC (JIT)</span>',
+    imported: '<span class="badge badge-info">Đã nhập hàng</span>',
+    packing: '<span class="badge badge-info">Đang đóng gói</span>',
+    shipping: '<span class="badge badge-info">Đang giao hàng</span>',
+    delivered: '<span class="badge badge-success">Đã giao hàng</span>',
+    cancelled: '<span class="badge badge-danger">Đã hủy</span>'
   };
   document.getElementById('jit-fulfillment').innerHTML = jitMap[order.fulfillmentStatus] || `<span class="badge badge-neutral">${order.fulfillmentStatus || 'N/A'}</span>`;
 }
@@ -149,7 +153,7 @@ function renderTimeline(status) {
   }
 
   const statusMap = {
-    pending: { label: 'Chờ xác nhận', badge: 'badge-warning', level: 0 },
+    pending: { label: 'Chờ xác nhận', badge: 'badge-neutral', level: 0 },
     processing: { label: 'Đang xử lý / Đóng gói', badge: 'badge-info', level: 1 },
     shipping: { label: 'Đang vận chuyển', badge: 'badge-purple', level: 2 },
     completed: { label: 'Giao hàng thành công', badge: 'badge-success', level: 3 },
@@ -173,7 +177,7 @@ function renderTimeline(status) {
 function openStatusModal() {
   if (!currentOrderData) return;
   document.getElementById('update-order-status').value = currentOrderData.orderStatus || currentOrderData.status || 'pending';
-  document.getElementById('update-payment-status').value = currentOrderData.paymentStatus || 'pending';
+  document.getElementById('update-payment-status').value = currentOrderData.paymentStatus || 'unpaid';
   document.getElementById('update-fulfillment-status').value = currentOrderData.fulfillmentStatus || 'in_stock';
   adminModal.open('status-modal');
 }

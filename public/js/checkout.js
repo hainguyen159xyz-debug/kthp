@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else if (typeof user.address === 'object') {
         if (streetInput) streetInput.value = user.address.street || '';
         if (cityInput) cityInput.value = user.address.city || '';
-        if (districtInput) districtInput.value = user.address.district || '';
+        if (districtInput) districtInput.value = user.address.ward || user.address.district || '';
       }
     }
   }
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
               ${itemDetails}
             </ul>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Hệ thống đã tự động gửi tín hiệu tới nhà cung cấp để chuẩn bị nhập bổ sung. Vui lòng điều chỉnh số lượng hoặc kiểm tra lại sau ít phút.</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Vui lòng điều chỉnh số lượng hoặc liên hệ cửa hàng để được hỗ trợ về thời gian nhập hàng.</p>
           `,
           confirmText: 'Về giỏ hàng điều chỉnh',
           cancelText: 'Đóng'

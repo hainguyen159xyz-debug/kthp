@@ -7,14 +7,14 @@
 :root {
   /* ------------------------------------------------------------------------
      1. COLOR PALETTE
-     Primary accent exact specification: #FF4D24
+     Primary accent exact specification: #334155
      ------------------------------------------------------------------------ */
-  --color-primary: #FF4D24;
-  --color-primary-hover: #E63E17;
-  --color-primary-dark: #CC3512;
-  --color-primary-light: rgba(255, 77, 36, 0.08);
-  --color-primary-subtle: rgba(255, 77, 36, 0.16);
-  --color-primary-border: rgba(255, 77, 36, 0.3);
+  --color-primary: #334155;
+  --color-primary-hover: #1E293B;
+  --color-primary-dark: #0F172A;
+  --color-primary-light: rgba(51, 65, 85, 0.08);
+  --color-primary-subtle: rgba(51, 65, 85, 0.16);
+  --color-primary-border: rgba(51, 65, 85, 0.3);
 
   /* Deep Neutral / Secondary */
   --color-secondary: #0F172A;
@@ -26,9 +26,9 @@
   --color-success-bg: #ECFDF5;
   --color-success-border: #A7F3D0;
 
-  --color-warning: #F59E0B;
-  --color-warning-bg: #FFFBEB;
-  --color-warning-border: #FDE68A;
+  --color-warning: #475569;
+  --color-warning-bg: #F8FAFC;
+  --color-warning-border: #CBD5E1;
 
   --color-danger: #EF4444;
   --color-danger-bg: #FEF2F2;
@@ -50,8 +50,8 @@
   /* Borders & Dividers */
   --border-color: #E2E8F0;
   --border-light: #CBD5E1;
-  --border-focus: #FF4D24;
-  --focus-ring: 0 0 0 3px rgba(255, 77, 36, 0.16);
+  --border-focus: #334155;
+  --focus-ring: 0 0 0 3px rgba(51, 65, 85, 0.12);
 
   /* Typography Colors */
   --text-main: #0F172A;
@@ -107,7 +107,7 @@
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.07);
   --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.08);
-  --shadow-primary: 0 4px 14px rgba(255, 77, 36, 0.25);
+  --shadow-primary: 0 4px 14px rgba(51, 65, 85, 0.25);
   --glass-blur: blur(12px);
 
   /* ------------------------------------------------------------------------
@@ -249,7 +249,7 @@ code {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   border-radius: var(--radius-sm);
-  box-shadow: 0 2px 8px rgba(255, 77, 36, 0.35);
+  box-shadow: 0 2px 8px rgba(51, 65, 85, 0.35);
   transition: transform var(--transition-fast);
 }
 
@@ -462,7 +462,8 @@ code {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  width: 230px;
+  width: 280px;
+  max-width: calc(100vw - 24px);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -470,7 +471,7 @@ code {
   padding: 8px;
   display: none;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   z-index: 1001;
   animation: dropdownFadeIn 0.2s ease;
 }
@@ -485,14 +486,14 @@ code {
 }
 
 .user-dropdown-header {
-  padding: 8px 10px 10px;
+  padding: 8px 12px 10px;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 4px;
 }
 
 .user-dropdown-header .user-name {
   font-weight: var(--font-weight-bold);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-main);
   white-space: nowrap;
   overflow: hidden;
@@ -505,24 +506,33 @@ code {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 3px;
 }
 
 .user-dropdown a,
 .user-dropdown button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
+  gap: 10px;
+  padding: 9px 12px;
   border-radius: var(--radius-sm);
-  color: var(--text-muted);
+  color: var(--text-main);
   font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: 600;
   background: transparent;
   border: none;
   cursor: pointer;
   text-align: left;
   width: 100%;
   transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.user-dropdown a svg,
+.user-dropdown button svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+  transition: transform var(--transition-fast);
 }
 
 .user-dropdown a:hover,
@@ -532,15 +542,16 @@ code {
 }
 
 .user-dropdown .logout-btn {
-  color: var(--color-danger);
+  color: var(--text-main);
   border-top: 1px solid var(--border-color);
   margin-top: 4px;
-  padding-top: 8px;
+  padding-top: 9px;
+  font-weight: 600;
 }
 
 .user-dropdown .logout-btn:hover {
-  background: var(--color-danger-bg);
-  color: var(--color-danger);
+  background: var(--bg-surface-hover);
+  color: var(--text-main);
 }
 
 /* Mobile Nav Toggle Button */
@@ -566,34 +577,35 @@ code {
 }
 
 /* ==========================================================================
-   GLOBAL FOOTER
+   GLOBAL FOOTER (ATHLETIC BRAND BLACK FOOTER STYLE)
    ========================================================================== */
 footer {
   margin-top: auto;
-  background: #FFFFFF;
-  border-top: 1px solid var(--border-color);
+  background: #000000;
+  color: #FFFFFF;
+  border-top: none;
   padding: 56px 0 24px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 36px;
-  margin-bottom: 36px;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 160px;
+  gap: 36px 32px;
+  margin-bottom: 44px;
 }
 
 .footer-col h4 {
-  font-size: 0.95rem;
-  font-weight: var(--font-weight-bold);
-  margin-bottom: 16px;
-  color: var(--text-main);
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #FFFFFF;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .footer-col p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  color: #D1D5DB;
+  font-size: 0.86rem;
   line-height: var(--line-height-relaxed);
   margin-bottom: 16px;
 }
@@ -601,35 +613,131 @@ footer {
 .footer-col ul {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-col a {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  transition: color var(--transition-fast), padding-left var(--transition-fast);
+  color: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), text-decoration var(--transition-fast);
+  line-height: 1.35;
+  display: inline-block;
 }
 
 .footer-col a:hover {
-  color: var(--color-primary);
-  padding-left: 2px;
+  color: #FFFFFF;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* Social media vertical icons in 6th column */
+.footer-social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  color: #FFFFFF;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  opacity: 0.7;
+  transform: translateX(4px);
+  text-decoration: none !important;
+}
+
+.footer-social-link svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* Bộ Công Thương Badge */
+.bocongthuong-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 6px 10px;
+  background-color: #0070BA;
+  border: 1px solid #005A96;
+  border-radius: 4px;
+  color: #FFFFFF;
+  text-decoration: none !important;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.bocongthuong-badge:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+.bocongthuong-badge svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.bocongthuong-badge-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.bocongthuong-badge-text span:first-child {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.3px;
+}
+
+.bocongthuong-badge-text span:last-child {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
 }
 
 .footer-bottom {
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+  border-top: 1px solid #222222;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--text-xs);
-  color: var(--text-dim);
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.78rem;
+  color: #8E8E93;
 }
 
 .footer-bottom a {
-  color: var(--text-muted);
+  color: #8E8E93;
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .footer-bottom a:hover {
-  color: var(--color-primary);
+  color: #FFFFFF;
   text-decoration: underline;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
